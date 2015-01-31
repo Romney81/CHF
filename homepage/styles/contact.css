@@ -1,0 +1,10 @@
+/*Bootstrap Overide*/
+.form-control:focus {color: #3D617F;}
+.contact-submit{background-color: #3D617F; border-color: #3D617F;}
+.btn-primary:hover {background-color: #507CA1; border-color: #507CA1;}
+.btn-lg, .btn-group-lg>.btn{width: 12em;}
+.contact-content {
+	margin: 30px auto 0;
+	width: 80%;
+}
+textarea.form-control{height: 139px;}

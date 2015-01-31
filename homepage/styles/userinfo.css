@@ -1,0 +1,4 @@
+.userinfo {width: 60%; margin: 40px auto 20px; padding: 20px; border: 1px solid; border-radius: 6px;}
+.userinfo .finish {margin: 20px 60px 20px 0; float: right;}
+.info-column {padding: 20px 60px}
+.info-column:first-child{border-right: 1px solid rgba(61, 97, 127, 0.44);}

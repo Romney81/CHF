@@ -1,0 +1,7 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+	%if user.is_authenticated:
+		<p>Welcome, ${user.username}!</p>
+	%endif
+</%block>

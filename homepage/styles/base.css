@@ -1,0 +1,267 @@
+@import "http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600";
+@import "http://fonts.googleapis.com/css?family=Miss+Fajardose";
+
+body, html {
+	font-family:'Source Sans Pro',sans-serif;
+	overflow-x: hidden;
+	width: 100%;
+}
+
+#homepage {
+    margin-top: -61px;
+}
+.text-center {
+	padding-top:20px;
+}
+
+.col-xs-12 {
+	background-color:#fff;
+}
+
+.logo-img {
+	width:100%;
+	height:auto;
+}
+
+.map {
+	min-width:300px;
+	min-height:300px;
+	width:100%;
+	height:100%;
+}
+
+.contact-header {
+	font-size:24px;
+}
+
+.main-content {
+	padding:0;
+}
+
+.navbar-header {
+	margin:0 0 0 14px;
+}
+
+.round {
+	border-radius:4px;
+}
+
+.beta-email {
+	width:60%;
+	float:left;
+	height:56px;
+	color:#fff;
+	font-size:17px;
+	background:rgba(255,255,255,0.15);
+	border-color:rgba(255,255,255,0.15);
+	border-radius:8px;
+}
+
+.beta {
+	width:32%;
+	background-color:#fff;
+	border-color:#fff;
+	color:#2C3E50;
+	height:55px;
+	line-height:32px;
+	font-size:21px;
+	border-radius:8px;
+}
+
+.beta a:hover {
+	background-color:#2C3E50;
+}
+
+.nav>li>a:hover,.nav>li>a:focus {
+	text-decoration:none;
+	background-color:rgba(245,245,245,0.84);
+}
+
+.nav-logo {
+	height: 35px;
+}
+
+.hero {
+	padding:300px 0 400px;
+	text-align:center;
+	background: url("/static/homepage/media/images/hero.svg") no-repeat center center fixed;
+	height: 48em;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.hero h1 {
+    font-size: 8em;
+    font-family: 'Miss Fajardose', cursive;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.hero h2 {
+	font-size:2em;
+	font-weight:600;
+	line-height:1.5em;
+	color:#FFF;
+}
+
+.hero p {
+	font-size:1.5em;
+	margin:20px 0 30px;
+	font-weight:100;
+}
+
+.hero .btn-primary {
+	width:12em;
+	height:3.5em;
+	font-size:1.3em;
+	line-height:2.1em;
+	background-color:rgba(255,0,0,0.38);
+	border-radius:7px;
+	border-color:rgba(255,0,0,0);
+	font-weight:100;
+}
+
+.hero .btn-primary:hover {
+	background-color:rgba(255,0,0,0.5);
+}
+
+.main-content .row p{
+	padding: 0 20px;
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* Re-Vamped Bootstrap CSS */
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.container {
+	padding: 0px;
+}
+.form-control:focus {
+	border:1px solid #2C3E50;
+}
+
+.form-control {
+	border:1px solid rgba(61,97,127,0.44);
+}
+
+.form-control,input {
+	border-width:1px;
+}
+
+.btn-primary {
+	background-color:#3D617F;
+	border-color:#2C3E50;
+}
+
+.footer .btn-primary {
+	background-color:#fff;
+}
+
+.footer .btn-primary:hover {
+	color:#2C3E50;
+	border-color:rgba(255,255,255,0.80);
+	background:rgba(255,255,255,0.80);
+	background:rgba(255,255,255,0.80);
+}
+
+.navbar-default {
+	background-color: rgba(255, 255, 255, 0.26);
+	padding: 0 50px;
+	margin-bottom: 0;
+}
+
+.navbar-default .navbar-nav>li>a {
+	color:#FFF;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+	color:#B5222F;
+}
+
+.navbar-default .navbar-brand {
+	color:#2C3E50;
+	padding: 13px;
+}
+
+.navbar-header .navbar-brand:hover {
+	color:#1a242f;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* Different Media Styles */
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+@media (min-width: 1400px) {
+	.container {
+		width:100%;
+	}
+}
+
+@media (min-width: 1600px) {
+	.container {
+		width:100%;
+	}
+}
+@media (min-width: 992px){
+	.container {
+		width: 100%;
+	}
+}
+@media (min-width: 768px){
+	.container {
+		width: 100%;
+	}
+	.main-content .row p {
+		padding:0 20px;
+		margin: 0;
+	}
+}
+@media (min-width: 500px){
+	.container {
+		width: 100%;
+	}
+	.main-content .row p {
+		margin: 0;
+	}
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*Footer*/
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.footer {
+	background-color:#333;
+	text-align:center;
+	padding:20px 10px 50px;
+	color:#fff;
+}
+
+.footer p {
+	margin:10px 0 20px;
+	font-size:17px;
+}
+
+.beta-signup {
+}
+
+.ccopyright {
+	color:#F4F4F4;
+	font-size:.9em;
+	line-height:1em;
+	margin:2em 0 0;
+	padding:0;
+	text-align:center;
+}
+
+.ccopyright li {
+	border-left:solid 1px #ddd;
+	display:inline-block;
+	list-style:none;
+	margin-left:1em;
+	padding-left:1em;
+}
+
+.ccopyright li:first-child {
+	border-left:0;
+	margin-left:0;
+	padding-left:0;
+}
