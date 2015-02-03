@@ -1,0 +1,52 @@
+## this is the skeleton of all pages on in this app - it defines the basic html tags
+
+## set up a StaticRenderer object to enable the CSS/JS automatic inclusion magic.
+<%! from django_mako_plus.controller import static_files %>
+<%  static_renderer = static_files.StaticRenderer(self) %>
+<!DOCTYPE html>
+<html>
+  	<meta charset="UTF-8">
+  	<head>
+    	<title>Colonial Heritage Foundation</title>
+		
+		## add any site-wide scripts or CSS here; for example, jquery:
+		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.1/slate/bootstrap.min.css"> -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	    
+	    <%block name="headlinks">
+	    
+	    </%block>
+		
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	    <!--[if lt IE 9]>
+	        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]--> 
+		
+		## render the css with the same name as this page
+		${ static_renderer.get_template_css(request, context)  }		
+		<link rel="icon" type="image/x-icon" href="${STATIC_URL}/homepage/media/colonialHouse.ico" />
+  
+	</head>
+	<body>
+    	<%block name="homepage">
+	    
+	    </%block>
+	    <%block name="administrator">
+	    
+	    </%block>
+		
+        
+        ## render the JS with the same name as this page
+        ${ static_renderer.get_template_js(request, context)  }
+        
+        <%block name="footlinks">
+
+        </%block>
+    </body>
+</html>

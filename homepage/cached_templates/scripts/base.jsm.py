@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1422072506.666456
+_modified_time = 1422904178.594964
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/homepage/scripts/base.jsm'
 _template_uri = 'base.jsm'
@@ -17,11 +17,8 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        user_name = context.get('user_name', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer("$(function() {\n\tif('")
-        __M_writer(str(user_name))
-        __M_writer("' == 'Scott Romney'){\n    \t$('.mighthide').hide();\n    }\n\n});\n")
+        __M_writer("$(function(){\n    $('.navbar-default').data('size','big');\n});\n\n$(window).scroll(function(){\n    if($(document).scrollTop() > 0)\n    {\n        if($('.navbar-default').data('size') == 'big')\n        {\n            $('.navbar-default').data('size','small');\n            $('.navbar-default').stop().animate({\n                height:'40px'\n            },600);\n        }\n    }\n    else\n    {\n        if($('.navbar-default').data('size') == 'small')\n        {\n            $('.navbar-default').data('size','big');\n            $('.navbar-default').stop().animate({\n                height:'100px'\n            },600);\n        }  \n    }\n});\n")
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -29,6 +26,6 @@ def render_body(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"uri": "base.jsm", "line_map": {"16": 0, "24": 2, "30": 24, "22": 1, "23": 2}, "filename": "/Users/scottromney/SiteOne/homepage/scripts/base.jsm", "source_encoding": "ascii"}
+{"filename": "/Users/scottromney/SiteOne/homepage/scripts/base.jsm", "source_encoding": "ascii", "line_map": {"16": 0, "27": 21, "21": 1}, "uri": "base.jsm"}
 __M_END_METADATA
 """

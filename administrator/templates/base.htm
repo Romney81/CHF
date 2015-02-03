@@ -1,0 +1,33 @@
+<%inherit file="/base/templates/base.htm" />
+
+
+<%block name="headlinks">
+    <!-- MetisMenu CSS -->
+	<link href="${STATIC_URL}homepage/media/thirdparties/metisMenu/dist/metisMenu.min.css" rel="stylesheet">	
+	<!-- Custom Fonts -->
+	<link href="${STATIC_URL}homepage/media/thirdparties/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">	
+	<!-- DataTables CSS -->
+    <link href="${STATIC_URL}homepage/media/thirdparties/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">    
+    <!-- DataTables Responsive CSS -->
+    <link href="${STATIC_URL}homepage/media/thirdparties/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">	
+	<!-- Timeline CSS -->
+	<link href="${STATIC_URL}homepage/media/thirdparties/css/timeline.css" rel="stylesheet"> 	
+	<!-- Morris Charts CSS -->
+	<link href="${STATIC_URL}homepage/media/thirdparties/morrisjs/morris.css" rel="stylesheet">	    
+</%block>
+
+<%block name="administrator">
+    <%block name="content">
+	
+    </%block>
+</%block>
+
+<%block name="footlinks">
+    <!-- DataTables JavaScript -->
+    <script src="/static/homepage/media/thirdparties/DataTables/media/js/jquery.dataTables.min.js"></script>
+    <script src="${STATIC_URL}homepage/media/thirdparties/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+    <script src="${STATIC_URL}homepage/media/thirdparties/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="${STATIC_URL}homepage/media/thirdparties/raphael/raphael-min.js"></script>
+    <script src="${STATIC_URL}homepage/media/thirdparties/morrisjs/morris.min.js"></script>	    
+    <script src="${STATIC_URL}homepage/media/thirdparties/js/morris-data.js"></script> 
+</%block>

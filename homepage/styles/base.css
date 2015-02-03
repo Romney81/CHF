@@ -6,9 +6,10 @@ body, html {
 	overflow-x: hidden;
 	width: 100%;
 }
-
+a {
+    color: #fff;
+}
 #homepage {
-    margin-top: -61px;
 }
 .text-center {
 	padding-top:20px;
@@ -72,17 +73,15 @@ body, html {
 	background-color:#2C3E50;
 }
 
-.nav>li>a:hover,.nav>li>a:focus {
-	text-decoration:none;
-	background-color:rgba(245,245,245,0.84);
+.header img.nav-logo{
+	height: 31px;
 }
-
-.nav-logo {
-	height: 35px;
+.header img.nav-logo-dark{
+    height: 31px;
+    display: none;
 }
 
 .hero {
-	padding:300px 0 400px;
 	text-align:center;
 	background: url("/static/homepage/media/images/hero.svg") no-repeat center center fixed;
 	height: 48em;
@@ -100,15 +99,16 @@ body, html {
 
 .hero h2 {
 	font-size:2em;
-	font-weight:600;
+	font-weight:300;
 	line-height:1.5em;
 	color:#FFF;
+	font-family: cursive;
 }
 
 .hero p {
 	font-size:1.5em;
 	margin:20px 0 30px;
-	font-weight:100;
+	font-weight:300;
 }
 
 .hero .btn-primary {
@@ -124,10 +124,6 @@ body, html {
 
 .hero .btn-primary:hover {
 	background-color:rgba(255,0,0,0.5);
-}
-
-.main-content .row p{
-	padding: 0 20px;
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -163,19 +159,31 @@ body, html {
 	background:rgba(255,255,255,0.80);
 	background:rgba(255,255,255,0.80);
 }
+.header {
+    background-color: rgba(140, 140, 140, 0);
+}
+.past-hero {
+    transition: all 0.4s ease;
+    background-color: #fff;
+    color: #000;
+}
+.past-hero a {
+    color: #000;
+}
 
-.navbar-default {
-	background-color: rgba(255, 255, 255, 0.26);
-	padding: 0 50px;
+.navbar-top{
+    padding: 0 50px;
+	font-size: 17px;
+	font-weight: 100;
+	border: none;
 	margin-bottom: 0;
 }
-
-.navbar-default .navbar-nav>li>a {
-	color:#FFF;
+.navbar-brand {
+    padding-top: 10px;
 }
-
-.navbar-default .navbar-nav>li>a:hover {
-	color:#B5222F;
+.navbar-top .navbar-nav>li>a:hover {
+    text-decoration: none;
+    background-color: rgba(140, 140, 140, 0);
 }
 
 .navbar-default .navbar-brand {
@@ -211,17 +219,10 @@ body, html {
 	.container {
 		width: 100%;
 	}
-	.main-content .row p {
-		padding:0 20px;
-		margin: 0;
-	}
 }
 @media (min-width: 500px){
 	.container {
 		width: 100%;
-	}
-	.main-content .row p {
-		margin: 0;
 	}
 }
 
@@ -229,10 +230,8 @@ body, html {
 /*Footer*/
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 .footer {
-	background-color:#333;
 	text-align:center;
 	padding:20px 10px 50px;
-	color:#fff;
 }
 
 .footer p {
@@ -244,7 +243,6 @@ body, html {
 }
 
 .ccopyright {
-	color:#F4F4F4;
 	font-size:.9em;
 	line-height:1em;
 	margin:2em 0 0;

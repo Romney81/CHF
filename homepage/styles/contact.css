@@ -4,7 +4,12 @@
 .btn-primary:hover {background-color: #507CA1; border-color: #507CA1;}
 .btn-lg, .btn-group-lg>.btn{width: 12em;}
 .contact-content {
-	margin: 30px auto 0;
+	margin: 150px auto 0;
 	width: 80%;
 }
+.contactus, .ouroffice {
+    background-color: #fff;
+    height: 560px;
+}
+
 textarea.form-control{height: 139px;}

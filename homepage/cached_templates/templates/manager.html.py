@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1422673696.985553
+_modified_time = 1422774002.828921
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/homepage/templates/manager.html'
 _template_uri = 'manager.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content', 'footlinks', 'headlinks']
+_exports = ['headlinks', 'footlinks', 'content']
 
 
 def _mako_get_namespace(context, name):
@@ -28,18 +28,18 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        countitems = context.get('countitems', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        countproducts = context.get('countproducts', UNDEFINED)
-        def content():
-            return render_content(context._locals(__M_locals))
-        items = context.get('items', UNDEFINED)
-        def footlinks():
-            return render_footlinks(context._locals(__M_locals))
-        users = context.get('users', UNDEFINED)
-        countusers = context.get('countusers', UNDEFINED)
         def headlinks():
             return render_headlinks(context._locals(__M_locals))
+        items = context.get('items', UNDEFINED)
+        users = context.get('users', UNDEFINED)
+        countitems = context.get('countitems', UNDEFINED)
+        def content():
+            return render_content(context._locals(__M_locals))
+        def footlinks():
+            return render_footlinks(context._locals(__M_locals))
+        countusers = context.get('countusers', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        countproducts = context.get('countproducts', UNDEFINED)
         products = context.get('products', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
@@ -62,16 +62,66 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_headlinks(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def headlinks():
+            return render_headlinks(context)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\n    <!-- MetisMenu CSS -->\n\t<link href="')
+        __M_writer(str(STATIC_URL))
+        __M_writer('homepage/media/thirdparties/metisMenu/dist/metisMenu.min.css" rel="stylesheet">\n\t\n\t<!-- Custom Fonts -->\n\t<link href="')
+        __M_writer(str(STATIC_URL))
+        __M_writer('homepage/media/thirdparties/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">\n\t\n\t<!-- DataTables CSS -->\n    <link href="')
+        __M_writer(str(STATIC_URL))
+        __M_writer('homepage/media/thirdparties/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">\n    \n    <!-- DataTables Responsive CSS -->\n    <link href="')
+        __M_writer(str(STATIC_URL))
+        __M_writer('homepage/media/thirdparties/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">\n\t\n\t<!-- Timeline CSS -->\n\t<link href="')
+        __M_writer(str(STATIC_URL))
+        __M_writer('homepage/media/thirdparties/css/timeline.css" rel="stylesheet"> \n\t\n\t<!-- Morris Charts CSS -->\n\t<link href="')
+        __M_writer(str(STATIC_URL))
+        __M_writer('homepage/media/thirdparties/morrisjs/morris.css" rel="stylesheet">\n    \n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_footlinks(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        def footlinks():
+            return render_footlinks(context)
+        __M_writer = context.writer()
+        __M_writer('\n    <!-- DataTables JavaScript -->\n    <script src="')
+        __M_writer(str(STATIC_URL))
+        __M_writer('homepage/media/thirdparties/DataTables/media/js/jquery.dataTables.min.js"></script>\n    <script src="')
+        __M_writer(str(STATIC_URL))
+        __M_writer('homepage/media/thirdparties/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>\n    <script src="')
+        __M_writer(str(STATIC_URL))
+        __M_writer('homepage/media/thirdparties/metisMenu/dist/metisMenu.min.js"></script>\n    <script src="')
+        __M_writer(str(STATIC_URL))
+        __M_writer('homepage/media/thirdparties/raphael/raphael-min.js"></script>\n    <script src="')
+        __M_writer(str(STATIC_URL))
+        __M_writer('/homepage/media/thirdparties/morrisjs/morris.min.js"></script>\t    \n    <script src="')
+        __M_writer(str(STATIC_URL))
+        __M_writer('/homepage/media/thirdparties/js/morris-data.js"></script> \n\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        countitems = context.get('countitems', UNDEFINED)
-        countproducts = context.get('countproducts', UNDEFINED)
-        def content():
-            return render_content(context)
         items = context.get('items', UNDEFINED)
         users = context.get('users', UNDEFINED)
+        countitems = context.get('countitems', UNDEFINED)
+        def content():
+            return render_content(context)
         countusers = context.get('countusers', UNDEFINED)
+        countproducts = context.get('countproducts', UNDEFINED)
         products = context.get('products', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n\t<div class="manager-view">\n\t\t<div id="wrapper">               \n            <div class="navbar sidebar" role="navigation"><!-- Navigation -->\n                <div class="sidebar-nav navbar-collapse">\n                    <ul class="nav" id="side-menu">\n                        <li>\n                            <a href="/manager/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>\n                        </li>\n                        <li>\n                            <a href="#"><i class="fa fa-user fa-fw"></i> Users<span class="fa arrow"></span></a>\n                            <ul class="nav nav-second-level">\n                                <li>\n                                    <a class="ru" href="#">Users</a>\n                                </li>                               \n                            </ul>\n                            <!-- /.nav-second-level -->\n                        </li>\n                        \n                        <li>\n                            <a class="event" href="#"><i class="fa fa-flag-o fa-fw"></i> Events</a>\n                        </li>\n                        <li>\n                            <a href="#"><i class="fa fa-cubes fa-fw"></i> Inventory<span class="fa arrow"></span></a>\n                            <ul class="nav nav-second-level">\n                                <li>\n                                    <a class="item" href="#">Items</a>\n                                </li>\n                                <li>\n                                    <a class="product" href="#">Products</a>\n                                </li>\n                            </ul>\n                            <!-- /.nav-second-level -->\n                        </li>\n                        <li>\n                            <a href="/logout/"><i class="fa fa-power-off fa-fw"></i> Logout</a>\n                        </li>\n                    </ul>\n                </div><!-- /.sidebar-collapse -->                \n            </div><!-- /.navbar-static-side -->\n            \n            <!--Main Page Content-->            \n\t\t\t<div id="page-wrapper">\n            \t<div class="row">\n                \t<div class="col-lg-12">\n                    \t<h1 class="page-header">Admin</h1>\n\t\t\t\t\t</div><!-- /.col-lg-12 -->\t\t\t\t\t\n\t\t\t\t</div><!-- /.row -->\t\t\t\t\n\t\t\t\t<div class="row">\n                \t<div class="col-lg-3 col-md-6">\n                    \t<div class="panel panel-default">\n                        \t<div class="panel-heading">\n                            \t<div class="row">\n                                \t<div class="col-xs-3">\n                                    \t<i class="fa fa-user fa-5x"></i>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class="col-xs-9 text-right">\n                                    \t<div class="huge">')
@@ -139,58 +189,8 @@ def render_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_footlinks(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def footlinks():
-            return render_footlinks(context)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n    <!-- DataTables JavaScript -->\n    <script src="')
-        __M_writer(str(STATIC_URL))
-        __M_writer('homepage/media/thirdparties/DataTables/media/js/jquery.dataTables.min.js"></script>\n    <script src="')
-        __M_writer(str(STATIC_URL))
-        __M_writer('homepage/media/thirdparties/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>\n    <script src="')
-        __M_writer(str(STATIC_URL))
-        __M_writer('homepage/media/thirdparties/metisMenu/dist/metisMenu.min.js"></script>\n    <script src="')
-        __M_writer(str(STATIC_URL))
-        __M_writer('homepage/media/thirdparties/raphael/raphael-min.js"></script>\n    <script src="')
-        __M_writer(str(STATIC_URL))
-        __M_writer('/homepage/media/thirdparties/morrisjs/morris.min.js"></script>\t    \n    <script src="')
-        __M_writer(str(STATIC_URL))
-        __M_writer('/homepage/media/thirdparties/js/morris-data.js"></script> \n\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_headlinks(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def headlinks():
-            return render_headlinks(context)
-        __M_writer = context.writer()
-        __M_writer('\n    <!-- MetisMenu CSS -->\n\t<link href="')
-        __M_writer(str(STATIC_URL))
-        __M_writer('homepage/media/thirdparties/metisMenu/dist/metisMenu.min.css" rel="stylesheet">\n\t\n\t<!-- Custom Fonts -->\n\t<link href="')
-        __M_writer(str(STATIC_URL))
-        __M_writer('homepage/media/thirdparties/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">\n\t\n\t<!-- DataTables CSS -->\n    <link href="')
-        __M_writer(str(STATIC_URL))
-        __M_writer('homepage/media/thirdparties/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">\n    \n    <!-- DataTables Responsive CSS -->\n    <link href="')
-        __M_writer(str(STATIC_URL))
-        __M_writer('homepage/media/thirdparties/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">\n\t\n\t<!-- Timeline CSS -->\n\t<link href="')
-        __M_writer(str(STATIC_URL))
-        __M_writer('homepage/media/thirdparties/css/timeline.css" rel="stylesheet"> \n\t\n\t<!-- Morris Charts CSS -->\n\t<link href="')
-        __M_writer(str(STATIC_URL))
-        __M_writer('homepage/media/thirdparties/morrisjs/morris.css" rel="stylesheet">\n    \n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 """
 __M_BEGIN_METADATA
-{"uri": "manager.html", "line_map": {"27": 0, "45": 1, "50": 21, "55": 366, "65": 23, "77": 23, "78": 80, "79": 80, "80": 124, "81": 124, "82": 146, "83": 146, "84": 190, "85": 191, "86": 192, "87": 192, "88": 193, "89": 193, "90": 194, "91": 194, "92": 195, "93": 195, "94": 196, "95": 196, "96": 197, "97": 197, "98": 198, "99": 198, "100": 199, "101": 199, "102": 200, "103": 200, "104": 201, "105": 201, "106": 204, "107": 292, "108": 293, "109": 294, "110": 294, "111": 295, "112": 295, "113": 296, "114": 296, "115": 297, "116": 297, "117": 298, "118": 298, "119": 299, "120": 299, "121": 300, "122": 300, "123": 303, "124": 338, "125": 339, "126": 340, "127": 340, "128": 341, "129": 341, "130": 342, "131": 342, "132": 343, "133": 343, "134": 344, "135": 344, "136": 348, "142": 368, "149": 368, "150": 370, "151": 370, "152": 371, "153": 371, "154": 372, "155": 372, "156": 373, "157": 373, "158": 374, "159": 374, "160": 375, "161": 375, "167": 2, "174": 2, "175": 4, "176": 4, "177": 7, "178": 7, "179": 10, "180": 10, "181": 13, "182": 13, "183": 16, "184": 16, "185": 19, "186": 19, "192": 186}, "source_encoding": "ascii", "filename": "/Users/scottromney/SiteOne/homepage/templates/manager.html"}
+{"source_encoding": "ascii", "filename": "/Users/scottromney/SiteOne/homepage/templates/manager.html", "line_map": {"27": 0, "45": 1, "50": 21, "55": 366, "65": 2, "72": 2, "73": 4, "74": 4, "75": 7, "76": 7, "77": 10, "78": 10, "79": 13, "80": 13, "81": 16, "82": 16, "83": 19, "84": 19, "90": 368, "97": 368, "98": 370, "99": 370, "100": 371, "101": 371, "102": 372, "103": 372, "104": 373, "105": 373, "106": 374, "107": 374, "108": 375, "109": 375, "115": 23, "127": 23, "128": 80, "129": 80, "130": 124, "131": 124, "132": 146, "133": 146, "134": 190, "135": 191, "136": 192, "137": 192, "138": 193, "139": 193, "140": 194, "141": 194, "142": 195, "143": 195, "144": 196, "145": 196, "146": 197, "147": 197, "148": 198, "149": 198, "150": 199, "151": 199, "152": 200, "153": 200, "154": 201, "155": 201, "156": 204, "157": 292, "158": 293, "159": 294, "160": 294, "161": 295, "162": 295, "163": 296, "164": 296, "165": 297, "166": 297, "167": 298, "168": 298, "169": 299, "170": 299, "171": 300, "172": 300, "173": 303, "174": 338, "175": 339, "176": 340, "177": 340, "178": 341, "179": 341, "180": 342, "181": 342, "182": 343, "183": 343, "184": 344, "185": 344, "186": 348, "192": 186}, "uri": "manager.html"}
 __M_END_METADATA
 """

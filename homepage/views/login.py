@@ -15,12 +15,6 @@ templater = get_renderer('homepage')
 
 @view_function
 def process_request(request):
-	'''This function is used to validate username and password
-	when users log in to the system. Specifically, it will 
-	create a form and authenticate against the database
-	'''
-	
-	
 
 	# prepare the login form
 	form = LoginForm()
@@ -28,7 +22,7 @@ def process_request(request):
 		form = LoginForm(request.POST)
 		if form.is_valid():
 			django.contrib.auth.login(request, form.user)
-			return HttpResponseRedirect('/homepage/manager/')    
+			return HttpResponseRedirect('/administrator/')    
 
 	template_vars = {
 		'form': form,
@@ -38,8 +32,6 @@ def process_request(request):
 
 
 class LoginForm(forms.Form):
-	'''This is a Django login form'''
-
 	username = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
 	password = forms.CharField(required=True, widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 

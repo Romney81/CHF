@@ -21,7 +21,7 @@ def process_request(request):
     if request.method == 'POST':
         form = CreateUser(request.POST)
         if form.is_valid():
-           Artisan.objects.create_user('username', 'email', 'password')
+           User.objects.create_user('username', 'email', 'password')
            return HttpResponseRedirect('/homepage/manager/')
     
     params['form'] = form 

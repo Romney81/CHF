@@ -1,106 +1,95 @@
-## this is the skeleton of all pages on in this app - it defines the basic html tags
+<%inherit file="/base/templates/base.htm" />
 
-## set up a StaticRenderer object to enable the CSS/JS automatic inclusion magic.
-<%! from django_mako_plus.controller import static_files %>
-<%  static_renderer = static_files.StaticRenderer(self) %>
-<!DOCTYPE html>
-<html>
-  	<meta charset="UTF-8">
-  	<head>
-    	<title>Colonial Heritage Foundation</title>
-		
-		## add any site-wide scripts or CSS here; for example, jquery:
-		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.1/slate/bootstrap.min.css"> -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-	    
-	    <%block name="headlinks">
-	    
-	    </%block>
-		
-		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	    <!--[if lt IE 9]>
-	        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-	        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-	    <![endif]--> 
-		
-		## render the css with the same name as this page
-		${ static_renderer.get_template_css(request, context)  }		
-		<link rel="icon" type="image/x-icon" href="${STATIC_URL}/homepage/media/colonialHouse.ico" />
-  
-	</head>
-	<body>
-		<div class="header">
-			<div class="navbar navbar-default navbar-static-top" role="navigation">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="collapse">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="/index/"><img class="nav-logo" src="${STATIC_URL}/homepage/media/images/logo.svg" /></a>
-					</div>
-					<div id="navbar" class="navbar-collapse collapse">
-						<ul class="nav navbar-nav mighthide">
-							<li><a href="/index/">Home</a></li>
-							<li><a href="/about/">About</a></li>
-							<li><a href="/contact/">Contact</a></li>
-							<li><a href="/terms/">Terms</a></li>
-							<li><a href="/shop/">Shop</a></li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
-						%if user.is_authenticated():
-							<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-									${user.get_full_name()} <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-								</a>
-								<ul class="dropdown-menu dropdown-user">
-									<li><a href="/manager/"><i class="fa fa-user fa-fw"></i> ${user.get_full_name()}</a>
-									</li>
-									<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-									</li>
-									<li class="divider"></li>
-									<li><a href="/logout/"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-									</li>
-								</ul>
-							<!-- /.dropdown-user -->
-							</li>
-						%else:
-							<li><a href="/login/">Login</a></li>
-						%endif
-						</ul>
-					</div>					
-				</div>
-			</div>
-		</div>
-		<div id="homepage" class="container">
-			<!-- main area -->
-			<div class="col-xs-12 col-sm-12 main-content">
-				<%block name="content">
-           
-				</%block>     
-			</div><!-- /.col-xs-12 main -->
-		</div><!--/.container-->
-		<footer class="footer">
-			<div class="row">
-				<div class="col-md-4 col-md-offset-4 beta-signup">
-					<ul class="ccopyright">
-						<li>All rights reserved.</li>
-						<li><i class="fa fa-rebel"></i></li>
-						<li>Design: Scott Romney</li>
-					</ul>
-				</div>
-			</div>
-		</footer>  
-		## render the JS with the same name as this page
-		${ static_renderer.get_template_js(request, context)  }
-		<%block name="footlinks">
+<%block name="headlinks">
+    <!-- Custom Fonts -->
+	<link href="${STATIC_URL}homepage/media/thirdparties/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">	    
+</%block>
 
-        </%block>
-</body>
-</html>
+<%block name="homepage">
+    <div class="header">
+    	<div class="navbar navbar-top navbar-fixed-top" role="navigation">
+    		<div class="container">
+    			<div class="navbar-header">
+    				<button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="collapse">
+    					<span class="icon-bar"></span>
+    					<span class="icon-bar"></span>
+    					<span class="icon-bar"></span>
+    				</button>
+    				<a class="navbar-brand" href="/index/">
+    					<img class="nav-logo" src="${STATIC_URL}/homepage/media/images/logo.svg" />
+    					<img class="nav-logo nav-logo-dark" src="${STATIC_URL}/homepage/media/images/logo-dark.svg" />
+    			    </a>
+    			</div>
+    			<div id="navbar" class="navbar-collapse collapse">
+    				<ul class="nav navbar-nav mighthide">
+    					<li><a href="/index/">Home</a></li>
+    					<li><a href="/about/">About</a></li>
+    					<li><a href="/contact/">Contact</a></li>
+    					<li><a href="/terms/">Terms</a></li>
+    					<li><a href="/shop/">Shop</a></li>
+    				</ul>
+    				<ul class="nav navbar-nav navbar-right">
+    				%if user.is_authenticated():
+    					<li class="dropdown">
+    						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+    							${user.get_full_name()} <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+    						</a>
+    						<ul class="dropdown-menu dropdown-user">
+    							<li><a href="/manager/"><i class="fa fa-user fa-fw"></i> ${user.get_full_name()}</a>
+    							</li>
+    							<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+    							</li>
+    							<li class="divider"></li>
+    							<li><a href="/logout/"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+    							</li>
+    						</ul>
+    					<!-- /.dropdown-user -->
+    					</li>
+    				%else:
+    					<li><a href="/login/">Login</a></li>
+    				%endif
+    				</ul>
+    			</div>					
+    		</div>
+    	</div>
+    </div>
+    
+    <div id="homepage" class="container">
+    	<div class="hero col-sm-12">
+    		<%block name="index">
+       
+    		</%block>
+            <%block name="login">
+       
+    		</%block>
+    		<%block name="about">
+       
+    		</%block>
+    		<%block name="contact">
+       
+    		</%block>
+        </div>
+    	<!-- main area -->
+    	<div class="col-xs-12 col-sm-12 main-content">
+    		<%block name="content">
+       
+    		</%block>     
+    	</div><!-- /.col-xs-12 main -->
+    </div><!--/.container-->
+    <footer class="footer">
+    	<div class="row">
+    		<div class="col-md-4 col-md-offset-4 beta-signup">
+    			<ul class="ccopyright">
+    				<li>All rights reserved.</li>
+    				<li><i class="fa fa-rebel"></i></li>
+    				<li>Design: Scott Romney</li>
+    			</ul>
+    		</div>
+    	</div>
+    </footer>  
+</%block>
+
+<%block name="footlinks">
+
+</%block>
+
