@@ -163,7 +163,10 @@ a {
     background-color: rgba(140, 140, 140, 0);
 }
 .past-hero {
-    transition: all 0.4s ease;
+    -webkit-transition: background 0.9s ease-in-out;
+    -moz-transition: background 0.9s ease-in-out;
+    -o-transition: background 0.9s ease-in-out;
+    transition: background 0.9s ease-in-out;
     background-color: #fff;
     color: #000;
 }
@@ -177,6 +180,10 @@ a {
 	font-weight: 100;
 	border: none;
 	margin-bottom: 0;
+	-webkit-transition: background 0.9s ease-in-out;
+    -moz-transition: background 0.9s ease-in-out;
+    -o-transition: background 0.9s ease-in-out;
+    transition: background 0.9s ease-in-out;
 }
 .navbar-brand {
     padding-top: 10px;
