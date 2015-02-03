@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1422930456.328945
+_modified_time = 1423000845.400691
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/homepage/templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content', 'index', 'headlinks', 'homepage', 'footlinks', 'about', 'contact', 'login']
+_exports = ['homepage', 'footlinks', 'content', 'headlinks', 'contact', 'index', 'about', 'login']
 
 
 def _mako_get_namespace(context, name):
@@ -29,23 +29,23 @@ def render_body(context,**pageargs):
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def index():
-            return render_index(context._locals(__M_locals))
-        def about():
-            return render_about(context._locals(__M_locals))
-        user = context.get('user', UNDEFINED)
-        def footlinks():
-            return render_footlinks(context._locals(__M_locals))
-        def contact():
-            return render_contact(context._locals(__M_locals))
-        def content():
-            return render_content(context._locals(__M_locals))
-        def headlinks():
-            return render_headlinks(context._locals(__M_locals))
         def homepage():
             return render_homepage(context._locals(__M_locals))
+        def footlinks():
+            return render_footlinks(context._locals(__M_locals))
+        def headlinks():
+            return render_headlinks(context._locals(__M_locals))
+        def about():
+            return render_about(context._locals(__M_locals))
         def login():
             return render_login(context._locals(__M_locals))
+        def content():
+            return render_content(context._locals(__M_locals))
+        user = context.get('user', UNDEFINED)
+        def contact():
+            return render_contact(context._locals(__M_locals))
+        def index():
+            return render_index(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'headlinks'):
@@ -68,62 +68,23 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content():
-            return render_content(context)
-        __M_writer = context.writer()
-        __M_writer('\n       \n    \t\t')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_index(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def index():
-            return render_index(context)
-        __M_writer = context.writer()
-        __M_writer('\n       \n    \t\t')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_headlinks(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def headlinks():
-            return render_headlinks(context)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n    <!-- Custom Fonts -->\n\t<link href="')
-        __M_writer(str(STATIC_URL))
-        __M_writer('homepage/media/thirdparties/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">\t    \n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_homepage(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        def homepage():
+            return render_homepage(context)
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def index():
-            return render_index(context)
         def about():
             return render_about(context)
+        def login():
+            return render_login(context)
+        def content():
+            return render_content(context)
         user = context.get('user', UNDEFINED)
         def contact():
             return render_contact(context)
-        def content():
-            return render_content(context)
-        def homepage():
-            return render_homepage(context)
-        def login():
-            return render_login(context)
+        def index():
+            return render_index(context)
         __M_writer = context.writer()
         __M_writer('\n    <div class="header">\n    \t<div class="navbar navbar-top navbar-fixed-top" role="navigation">\n    \t\t<div class="container">\n    \t\t\t<div class="navbar-header">\n    \t\t\t\t<button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="collapse">\n    \t\t\t\t\t<span class="icon-bar"></span>\n    \t\t\t\t\t<span class="icon-bar"></span>\n    \t\t\t\t\t<span class="icon-bar"></span>\n    \t\t\t\t</button>\n    \t\t\t\t<a class="navbar-brand" href="/index/">\n    \t\t\t\t\t<img class="nav-logo" src="')
         __M_writer(str(STATIC_URL))
@@ -135,7 +96,7 @@ def render_homepage(context,**pageargs):
             __M_writer(str(user.get_full_name()))
             __M_writer(' <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>\n    \t\t\t\t\t\t</a>\n    \t\t\t\t\t\t<ul class="dropdown-menu dropdown-user">\n    \t\t\t\t\t\t\t<li><a href="/manager/"><i class="fa fa-user fa-fw"></i> ')
             __M_writer(str(user.get_full_name()))
-            __M_writer('</a>\n    \t\t\t\t\t\t\t</li>\n    \t\t\t\t\t\t\t<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>\n    \t\t\t\t\t\t\t</li>\n    \t\t\t\t\t\t\t<li class="divider"></li>\n    \t\t\t\t\t\t\t<li><a href="/logout/"><i class="fa fa-sign-out fa-fw"></i> Logout</a>\n    \t\t\t\t\t\t\t</li>\n    \t\t\t\t\t\t</ul>\n    \t\t\t\t\t<!-- /.dropdown-user -->\n    \t\t\t\t\t</li>\n')
+            __M_writer('</a>\n    \t\t\t\t\t\t\t</li>\n    \t\t\t\t\t\t\t<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>\n    \t\t\t\t\t\t\t</li>\n    \t\t\t\t\t\t\t<li class="divider"></li>\n    \t\t\t\t\t\t\t<li><a href="/logout/"><i class="fa fa-sign-out fa-fw"></i>Logout</a>\n    \t\t\t\t\t\t\t</li>\n    \t\t\t\t\t\t</ul>\n    \t\t\t\t\t<!-- /.dropdown-user -->\n    \t\t\t\t\t</li>\n')
         else:
             __M_writer('    \t\t\t\t\t<li><a href="/login/">Login</a></li>\n')
         __M_writer('    \t\t\t\t</ul>\n    \t\t\t</div>\t\t\t\t\t\n    \t\t</div>\n    \t</div>\n    </div>\n    \n    <div id="homepage" class="container">\n    \t<div class="hero col-sm-12">\n    \t\t')
@@ -181,13 +142,28 @@ def render_footlinks(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_about(context,**pageargs):
+def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def about():
-            return render_about(context)
+        def content():
+            return render_content(context)
         __M_writer = context.writer()
         __M_writer('\n       \n    \t\t')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_headlinks(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        def headlinks():
+            return render_headlinks(context)
+        __M_writer = context.writer()
+        __M_writer('\n    <!-- Custom Fonts -->\n\t<link href="')
+        __M_writer(str(STATIC_URL))
+        __M_writer('homepage/media/thirdparties/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">\t    \n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -198,6 +174,30 @@ def render_contact(context,**pageargs):
     try:
         def contact():
             return render_contact(context)
+        __M_writer = context.writer()
+        __M_writer('\n       \n    \t\t')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_index(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def index():
+            return render_index(context)
+        __M_writer = context.writer()
+        __M_writer('\n       \n    \t\t')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_about(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def about():
+            return render_about(context)
         __M_writer = context.writer()
         __M_writer('\n       \n    \t\t')
         return ''
@@ -219,6 +219,6 @@ def render_login(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "ascii", "filename": "/Users/scottromney/SiteOne/homepage/templates/base.htm", "line_map": {"128": 8, "65": 94, "130": 19, "131": 20, "132": 20, "133": 32, "134": 33, "71": 74, "136": 35, "129": 19, "138": 38, "139": 48, "140": 49, "77": 74, "141": 51, "208": 62, "146": 61, "83": 59, "196": 68, "214": 62, "151": 64, "137": 38, "89": 59, "27": 0, "156": 67, "95": 3, "161": 70, "166": 76, "102": 3, "103": 5, "104": 5, "220": 214, "135": 35, "172": 92, "178": 92, "110": 8, "50": 1, "55": 6, "184": 65, "60": 90, "202": 68, "190": 65}, "uri": "base.htm"}
+{"source_encoding": "ascii", "line_map": {"65": 94, "164": 3, "196": 65, "133": 92, "71": 8, "202": 65, "139": 92, "208": 62, "145": 74, "214": 62, "151": 74, "166": 5, "89": 8, "90": 19, "27": 0, "92": 20, "93": 20, "94": 32, "95": 33, "96": 35, "97": 35, "98": 38, "99": 38, "100": 48, "101": 49, "102": 51, "178": 68, "220": 214, "107": 61, "172": 68, "165": 5, "157": 3, "112": 64, "50": 1, "117": 67, "55": 6, "184": 59, "122": 70, "91": 19, "60": 90, "190": 59, "127": 76}, "filename": "/Users/scottromney/SiteOne/homepage/templates/base.htm", "uri": "base.htm"}
 __M_END_METADATA
 """
