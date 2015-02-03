@@ -32,8 +32,8 @@ def process_request(request):
 
 
 class LoginForm(forms.Form):
-	username = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
-	password = forms.CharField(required=True, widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+	username = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
+	password = forms.CharField(required=True, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
 
 	# These below functions are used to display error messages for incorrect 
 	# user name and password. Notice clean_(name) must match the field name.
