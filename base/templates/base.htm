@@ -34,19 +34,21 @@
   
 	</head>
 	<body>
+    	
     	<%block name="homepage">
 	    
 	    </%block>
+	    
 	    <%block name="administrator">
 	    
 	    </%block>
 		
-        
         ## render the JS with the same name as this page
         ${ static_renderer.get_template_js(request, context)  }
         
         <%block name="footlinks">
 
         </%block>
+        
     </body>
 </html>
