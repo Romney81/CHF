@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1422930332.871431
+_modified_time = 1423008389.931328
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/base/templates/base.htm'
 _template_uri = '/base/templates/base.htm'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['headlinks', 'homepage', 'footlinks', 'administrator']
+_exports = ['administrator', 'homepage', 'footlinks', 'headlinks']
 
 
 from django_mako_plus.controller import static_files 
@@ -19,17 +19,17 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def footlinks():
             return render_footlinks(context._locals(__M_locals))
         self = context.get('self', UNDEFINED)
-        def headlinks():
-            return render_headlinks(context._locals(__M_locals))
-        def homepage():
-            return render_homepage(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
         def administrator():
             return render_administrator(context._locals(__M_locals))
+        def headlinks():
+            return render_headlinks(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
+        def homepage():
+            return render_homepage(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         __M_writer('\n')
@@ -48,17 +48,17 @@ def render_body(context,**pageargs):
         __M_writer(str( static_renderer.get_template_css(request, context)  ))
         __M_writer('\t\t\n\t\t<link rel="icon" type="image/x-icon" href="')
         __M_writer(str(STATIC_URL))
-        __M_writer('/homepage/media/colonialHouse.ico" />\n  \n\t</head>\n\t<body>\n    \t')
+        __M_writer('/homepage/media/colonialHouse.ico" />\n  \n\t</head>\n\t<body>\n    \t\n    \t')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'homepage'):
             context['self'].homepage(**pageargs)
         
 
-        __M_writer('\n\t    ')
+        __M_writer('\n\t    \n\t    ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'administrator'):
             context['self'].administrator(**pageargs)
         
 
-        __M_writer('\n\t\t\n        \n')
+        __M_writer('\n\t\t\n')
         __M_writer('        ')
         __M_writer(str( static_renderer.get_template_js(request, context)  ))
         __M_writer('\n        \n        ')
@@ -66,17 +66,17 @@ def render_body(context,**pageargs):
             context['self'].footlinks(**pageargs)
         
 
-        __M_writer('\n    </body>\n</html>')
+        __M_writer('\n        \n    </body>\n</html>')
         return ''
     finally:
         context.caller_stack._pop_frame()
 
 
-def render_headlinks(context,**pageargs):
+def render_administrator(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def headlinks():
-            return render_headlinks(context)
+        def administrator():
+            return render_administrator(context)
         __M_writer = context.writer()
         __M_writer('\n\t    \n\t    ')
         return ''
@@ -108,11 +108,11 @@ def render_footlinks(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_administrator(context,**pageargs):
+def render_headlinks(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def administrator():
-            return render_administrator(context)
+        def headlinks():
+            return render_headlinks(context)
         __M_writer = context.writer()
         __M_writer('\n\t    \n\t    ')
         return ''
@@ -122,6 +122,6 @@ def render_administrator(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "ascii", "filename": "/Users/scottromney/SiteOne/base/templates/base.htm", "line_map": {"64": 46, "69": 50, "75": 20, "16": 4, "81": 20, "18": 0, "99": 48, "87": 37, "111": 40, "93": 37, "34": 2, "35": 4, "36": 5, "40": 5, "41": 13, "46": 22, "47": 32, "48": 32, "49": 32, "50": 33, "51": 33, "117": 40, "105": 48, "56": 39, "123": 117, "61": 42, "62": 46, "63": 46}, "uri": "/base/templates/base.htm"}
+{"filename": "/Users/scottromney/SiteOne/base/templates/base.htm", "source_encoding": "ascii", "line_map": {"64": 47, "69": 51, "75": 42, "16": 4, "81": 42, "18": 0, "99": 49, "87": 38, "111": 20, "93": 38, "34": 2, "35": 4, "36": 5, "40": 5, "41": 13, "46": 22, "47": 32, "48": 32, "49": 32, "50": 33, "51": 33, "117": 20, "105": 49, "56": 40, "123": 117, "61": 44, "62": 47, "63": 47}, "uri": "/base/templates/base.htm"}
 __M_END_METADATA
 """
