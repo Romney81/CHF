@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1423017386.102457
+_modified_time = 1423025327.249302
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/administrator/templates/items.html'
 _template_uri = 'items.html'
@@ -49,7 +49,7 @@ def render_admincontent(context,**pageargs):
         def admincontent():
             return render_admincontent(context)
         __M_writer = context.writer()
-        __M_writer(' \n <!-- Registered Items View -->           \n    <div class="row manage manage-item">\n    \t<div class="col-lg-12">\n    \t\t<div class="panel panel-default">\n                <div class="panel-heading">\n                    Manage Items\n                </div>\n                <!-- /.panel-heading -->\n                <div class="panel-body">\n                    <div class="dataTable_wrapper">\n                        <table class="table table-striped table-bordered table-hover" id="items-table">\n                            <thead>\n                                <tr>\n                                    <th>ID</th>\n                                    <th>Item Name</th>\n                                    <th>Item Description</th>\n                                    <th>Value</th>\n                                    <th>Organization</th>\n                                    <th>Is Rentable</th>\n                                    <th>Edit Item</th>\n                                </tr>\n                            </thead>\n                            <tbody>\n')
+        __M_writer(' \n <!-- Registered Items View -->           \n    <div class="row manage manage-item">\n    \t<div class="col-lg-12">\n    \t\t<div class="panel panel-default">\n                <div class="panel-heading">\n                    Manage Items\n                </div>\n                <!-- /.panel-heading -->\n                <div class="panel-body">\n                    <div class="dataTable_wrapper">\n                        <table class="table table-striped table-bordered table-hover" id="data-table">\n                            <thead>\n                                <tr>\n                                    <th>ID</th>\n                                    <th>Item Name</th>\n                                    <th>Item Description</th>\n                                    <th>Value</th>\n                                    <th>Organization</th>\n                                    <th>Is Rentable</th>\n                                    <th>Edit Item</th>\n                                </tr>\n                            </thead>\n                            <tbody>\n')
         for item in items:
             __M_writer('                                <tr class="odd gradeX">\n                                    <td>')
             __M_writer(str(item.id))

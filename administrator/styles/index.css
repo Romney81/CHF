@@ -3,25 +3,70 @@
 }
 #side-menu .badge {margin: 0 5px;}
 #page-wrapper {
-    padding: 0 15px;
+    padding: 20px 15px;
+    border-left: none;
+    background-color: #eee;
+}
+.panel-default {
+    border-radius: 0px;
+    border: none;
+    color: #767676;
+}
+.panel-default>.panel-heading {
+    background: #fff;
+    color: #767676;
+}
+.table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border-bottom: 0px;
+}
+.form-inline .form-control {
+    height: 20px;
 }
 .createbutton {margin: 20px 0;}
 @media(min-width:768px) {
     #page-wrapper {
         position: inherit;
         margin: 0 0 0 250px;
-        padding: 0 30px;
+        padding: 20px 30px;
         border-left: 1px solid #e7e7e7;
     }
 }
 
+.admin-profile{
+    background-color: #13161c;
+    padding: 20px;
+}
+.profile-dropdown {
+    position: relative;
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+}
+.profile-dropdown a {
+    text-decoration: none;
+}
+.admin-profile .profile-image {
+    display: block;
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 5px;
+}
 table.dataTable thead .sorting_asc {
 background: url('/static/homepage/media/images/black-sort-asc.png') no-repeat center right;
 }
 table.dataTable thead .sorting_desc {
 background: url('/static/homepage/media/images/black-sort-dec.png') no-repeat center right;
 }
-
+.sidebar {
+    background: #1D212A;
+    border-radius: 0px;
+    border: none;
+}
+.sidebar a {
+    color: #b2b7c2;
+    width: 95%;
+    margin: 0 auto;
+}
 .sidebar .sidebar-nav.navbar-collapse {
     padding-right: 0;
     padding-left: 0;
@@ -31,8 +76,10 @@ background: url('/static/homepage/media/images/black-sort-dec.png') no-repeat ce
     color: #fff;
 }
 
-.sidebar ul li a.active {
+.sidebar ul li a:hover, .sidebar ul li a:focus {
     background-color: #eee;
+    color: #1D212A;
+    border-radius: 6px;
 }
 
 .sidebar .arrow {
