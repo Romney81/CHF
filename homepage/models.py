@@ -23,9 +23,9 @@ class Organization(models.Model):
 	email = models.EmailField()
 
 class Artisan(SiteUser):
-	trade = models.CharField(max_length=30)
-	bio = models.TextField()
-	start_year = models.DateField()
+	trade = models.CharField(max_length=30, blank=True, null=True)
+	bio = models.TextField(blank=True, null=True)
+	start_year = models.DateField(blank=True, null=True)
 
 class Agent(SiteUser):
 	date_appointed = models.DateField()

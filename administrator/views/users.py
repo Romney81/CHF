@@ -25,10 +25,11 @@ def edit(request):
     try:
         user = hmod.SiteUser.objects.get(id=request.urlparams[0])
     except:
-        HttpResponseRedirect('/administrator/index/')
+        HttpResponseRedirect('/administrator/users/')
      
   
     userform = UserEditForm(initial={
+        'username': user.username,
         'first_name': user.first_name,
         'last_name': user.last_name,
         'email': user.email,
@@ -42,6 +43,7 @@ def edit(request):
     if request.method == 'POST':
         form = UserEditForm(request.POST)
         if form.is_valid():
+            user.username = form.cleaned_data['username']
             user.first_name = form.cleaned_data['first_name']
             user.last_name = form.cleaned_data['last_name']
             user.email = form.cleaned_data['email']
@@ -58,6 +60,7 @@ def edit(request):
     return templater.render_to_response(request, 'users.edit.html', params)
   
 class UserEditForm(forms.Form):
+    username = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     first_name = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     last_name = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     email = forms.EmailField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -66,3 +69,40 @@ class UserEditForm(forms.Form):
     state = forms.CharField(required=False, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     zip_code = forms.IntegerField(required=False, min_value=0, widget=forms.TextInput(attrs={'class': 'form-control'}))
     phone = forms.CharField(required=False, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    
+#     def clean_username(self):
+#         try:
+#             user = hmod.SiteUser.objects.get(username=self.cleaned_data['username'])
+#             raise forms.ValidationError("Username already exists.")
+#         except hmod.SiteUser.DoesNotExist:
+#             pass
+    
+@view_function
+def create(request):
+    params = {}
+    
+    user = hmod.SiteUser()
+
+    user.save()
+    
+    return HttpResponseRedirect('/administrator/users.edit/{}/'.format(user.id))
+    
+# @view_function
+# def delete(request):
+#     user = hmod.SiteUser.objects.get(id=request.urlparams[0])
+#     user.delete()
+#     
+#     return HttpResponseRedirect('/administrator/users/')
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

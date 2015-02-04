@@ -1,7 +1,8 @@
 from django import forms
 from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-import django.contrib.auth
+import django.contrib.auth 
+from django.contrib.auth import login
 from homepage import models
 from homepage.models import SiteUser
 from django.core import validators
@@ -16,13 +17,14 @@ templater = get_renderer('homepage')
 @view_function
 def process_request(request):
 
-	# prepare the login form
+	#prepare the login form
 	form = LoginForm()
 	if request.method == 'POST':
 		form = LoginForm(request.POST)
 		if form.is_valid():
 			django.contrib.auth.login(request, form.user)
 			return HttpResponseRedirect('/administrator/')    
+                
 
 	template_vars = {
 		'form': form,
