@@ -7,13 +7,13 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="/manager/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="/administrator/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-user fa-fw"></i> Users<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a class="ru" href="#">Users</a>
+                                    <a class="ru" href="/administrator/users/">Users</a>
                                 </li>                               
                             </ul>
                             <!-- /.nav-second-level -->
@@ -26,10 +26,10 @@
                             <a href="#"><i class="fa fa-cubes fa-fw"></i> Inventory<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a class="item" href="#">Items</a>
+                                    <a class="item" href="/administrator/items/">Items</a>
                                 </li>
                                 <li>
-                                    <a class="product" href="#">Products</a>
+                                    <a class="product" href="/administrator/products/">Products</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -41,303 +41,105 @@
                 </div><!-- /.sidebar-collapse -->                
             </div><!-- /.navbar-static-side -->
             
-            <!--Main Page Content-->            
-			<div id="page-wrapper">
-            	<div class="row">
-                	<div class="col-lg-12">
-                    	<h1 class="page-header">Admin</h1>
-					</div><!-- /.col-lg-12 -->					
-				</div><!-- /.row -->				
-				<div class="row">
-                	<div class="col-lg-3 col-md-6">
-                    	<div class="panel panel-default">
-                        	<div class="panel-heading">
-                            	<div class="row">
-                                	<div class="col-xs-3">
-                                    	<i class="fa fa-user fa-5x"></i>
-									</div>
-									<div class="col-xs-9 text-right">
-                                    	<div class="huge">${countusers}</div>
-                                    <div>New User!</div>
+            <!--Main Page Content-->
+            <div id="page-wrapper">
+                <%block name="admincontent"> 
+                	<div class="row">
+                    	<div class="col-lg-12">
+                        	<h1 class="page-header">Admin</h1>
+    					</div><!-- /.col-lg-12 -->					
+    				</div><!-- /.row -->				
+    				<div class="row">
+                    	<div class="col-lg-3 col-md-6">
+                        	<div class="panel panel-default">
+                            	<div class="panel-heading">
+                                	<div class="row">
+                                    	<div class="col-xs-3">
+                                        	<i class="fa fa-user fa-5x"></i>
+    									</div>
+    									<div class="col-xs-9 text-right">
+                                        	<div class="huge">${countusers}</div>
+                                        <div>New User!</div>
+                                    </div>
                                 </div>
                             </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left">Create New User</span>
+                                    <span class="pull-right"><i class="fa fa-plus"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
                         </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">Create New User</span>
-                                <span class="pull-right"><i class="fa fa-plus"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-flag fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">6</div>
-                                    <div>New Event!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">Create New Event</span>
-                                <span class="pull-right"><i class="fa fa-plus"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-plus-square-o fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">${countitems}</div>
-                                    <div>New Item!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">Create New Item</span>
-                                <span class="pull-right"><i class="fa fa-plus"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-shopping-cart fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">${countproducts}</div>
-                                    <div>New Product!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">Create New Product</span>
-                                <span class="pull-right"><i class="fa fa-plus"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div><!-- /.row -->
-            
-            
-            
-            <!-- Registered Users View -->           
-            <div class="row manage manage-ru">
-            	<div class="col-lg-12">
-            			<div class="panel panel-default">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-default">
                             <div class="panel-heading">
-                                Manage Users
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-flag fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">6</div>
+                                        <div>New Event!</div>
+                                    </div>
+                                </div>
                             </div>
-                            <!-- /.panel-heading -->
-                            <div class="panel-body">
-                                <div class="dataTable_wrapper">
-                                    <table class="table table-striped table-bordered table-hover" id="users-table">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Email</th>
-                                                <th>Address</th>
-                                                <th>City</th>
-                                                <th>State</th>
-                                                <th>Zip</th>
-                                                <th>Phone</th>
-                                                <th>Edit User</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody> 
-                                        %for user in users:                           
-                                            <tr>
-                                                <td>${user.id}</td>
-                                                <td>${user.first_name}</td>
-                                                <td>${user.last_name}</td>
-                                                <td>${user.email}</td>
-                                                <td>${user.address}</td>
-                                                <td>${user.city}</td>
-                                                <td>${user.state}</td>
-                                                <td>${user.zip_code}</td>
-                                                <td>${user.phone}</td>
-                                                <td><a class="btn btn-default" href="/homepage/manager.edituser/${user.id}/">More Info/Edit User</a></td>
-                                            </tr>
-                                        %endfor
-                                        </tbody>
-        						</table>
-                            </div>
-                            <!-- /.table-responsive -->
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left">Create New Event</span>
+                                    <span class="pull-right"><i class="fa fa-plus"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
                         </div>
-                        <!-- /.panel-body -->
                     </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            
-            <!-- Registered Users View -->           
-            <div class="row manage manage-event">
-            	<div class="col-lg-12">
-            		<div class="table-responsive">
-                        <table class="table responsive table-bordered table-hover table-striped">
-                            <thead>
-                                <tr>
-                                    <th><div class="btn btn-primary btn-large">Create New Event</div></th>                                   
-                                </tr>
-                            </thead>
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Event Name</th>
-                                    <th>Event Location</th>
-                                    <th>View/Edit Event</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>3326</td>
-                                    <td>Red Coat Rebellion</td>
-                                    <td>Provo, UT | <a href="#">Edit URL</a></td>
-                                    <td><a href="#">View/Edit Event</a></td>
-                                </tr>
-                                <tr>
-                                    <td>3326</td>
-                                    <td>Red Coat Rebellion</td>
-                                    <td>Provo, UT | <a href="#">Edit URL</a></td>
-                                    <td><a href="#">View/Edit Event</a></td>
-                                </tr>
-                                <tr>
-                                    <td>3326</td>
-                                    <td>Red Coat Rebellion</td>
-                                    <td>Provo, UT | <a href="#">Edit URL</a></td>
-                                    <td><a href="#">View/Edit Event</a></td>
-                                </tr>
-                                <tr>
-                                    <td>3326</td>
-                                    <td>Red Coat Rebellion</td>
-                                    <td>Provo, UT | <a href="#">Edit URL</a></td>
-                                    <td><a href="#">View/Edit Event</a></td>
-                                </tr>
-                            </tbody>
-						</table>
-					</div>
-                    <!-- /.table-responsive -->
-				</div>                                    
-			</div>
-            <!-- /.row -->
-            
-            
-            <!-- Registered Users View -->           
-            <div class="row manage manage-item">
-            	<div class="col-lg-12">
-            		<div class="panel panel-default">
-                        <div class="panel-heading">
-                            Manage Items
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="dataTable_wrapper">
-                                <table class="table table-striped table-bordered table-hover" id="items-table">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Item Name</th>
-                                            <th>Item Description</th>
-                                            <th>Value</th>
-                                            <th>Organization</th>
-                                            <th>Is Rentable</th>
-                                            <th>Edit Item</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        %for item in items:
-                                        <tr class="odd gradeX">
-                                            <td>${item.id}</td>
-                                            <td>${item.name}</td>
-                                            <td>${item.description}</td>
-                                            <td>${item.value}</td>
-                                            <td>${item.organization}</td>
-                                            <td class="center">${item.is_rentable}</td>
-                                            <td class="center"><a href="/homepage/manager.edititem/${item.id}/">View/Edit Item</a></td>
-                                        </tr>
-                                        %endfor
-                                    </tbody>
-        						</table>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-plus-square-o fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">${countitems}</div>
+                                        <div>New Item!</div>
+                                    </div>
+                                </div>
                             </div>
-                            <!-- /.table-responsive -->
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left">Create New Item</span>
+                                    <span class="pull-right"><i class="fa fa-plus"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
                         </div>
-                        <!-- /.panel-body -->
                     </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->   
-            
-            
-            <div class="row manage manage-product">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Manage Products
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="dataTable_wrapper">
-                                <table class="table table-striped table-bordered table-hover" id="products-table">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Product Name</th>
-                                            <th>Product Description</th>
-                                            <th>Product Category</th>
-                                            <th>Product Price</th>
-                                            <th>View/Edit Event</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        %for product in products:
-                                        <tr class="odd gradeX">
-                                            <td>${product.id}</td>
-                                            <td>${product.name}</td>
-                                            <td>${product.description}</td>
-                                            <td>${product.category}</td>
-                                            <td class="center">${product.current_price}</td>
-                                            <td class="center"><a href="#">View/Edit Product</a></td>
-                                        </tr>
-                                        %endfor
-                                    </tbody>
-                                </table>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-shopping-cart fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">${countproducts}</div>
+                                        <div>New Product!</div>
+                                    </div>
+                                </div>
                             </div>
-                            <!-- /.table-responsive -->
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left">Create New Product</span>
+                                    <span class="pull-right"><i class="fa fa-plus"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
                         </div>
-                        <!-- /.panel-body -->
                     </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->       
-                                
+                </%block> 
+            </div><!-- /.row -->              
         </div>
         <!-- /#page-wrapper -->
     </div>

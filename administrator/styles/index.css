@@ -15,7 +15,12 @@
     }
 }
 
-
+table.dataTable thead .sorting_asc {
+background: url('/static/homepage/media/images/black-sort-asc.png') no-repeat center right;
+}
+table.dataTable thead .sorting_desc {
+background: url('/static/homepage/media/images/black-sort-dec.png') no-repeat center right;
+}
 
 .sidebar .sidebar-nav.navbar-collapse {
     padding-right: 0;
@@ -280,7 +285,5 @@ table.dataTable thead .sorting:after {
 .panel-yellow a:hover {
     color: #df8a13;
 }
-.manage {display: none; padding: 20px 0;}
 .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {vertical-align: middle;}
-.dataTables_filter input {border-radius: 4px;}
 
