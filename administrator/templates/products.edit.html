@@ -1,0 +1,23 @@
+<%inherit file="index.html" />
+
+<%block name="admincontent">
+<div class="container">
+    <div class="manager-edit">
+        <form class="form-horizontal signin-form" method="POST">
+    		${ productform.non_field_errors() }
+    		% for field in productform:
+    		<div class="form-group">
+    			<label class="col-md-2 control-label">${field.label}</label>
+    			<div class="col-md-10">
+    				${field} 
+    				<div class="form-constrol" style="padding-left: 0px">${field.errors}</div>
+    			</div>
+    		</div>
+    		% endfor
+    		<div class="form-group col-md-12"> 
+    			<button type="submit" class="btn btn-lg btn-primary">Save</button>
+    		</div>
+    	</form>
+    </div>
+</div>
+</%block>
