@@ -6,7 +6,7 @@
             <div class="navbar sidebar" role="navigation"><!-- Navigation -->
                 <div class="sidebar-nav navbar-collapse">
                     <div class="admin-profile">
-                        <img class="img-circle profile-image" src="${STATIC_URL}homepage/media/images/profile.jpg" />
+                        <img class="img-circle profile-image" src="${STATIC_URL}homepage/media/images/profile-pic.png" />
                         <div class="profile-dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
         							<i class="fa fa-user fa-fw"></i> ${user.get_full_name()}   <i class="fa fa-caret-down"></i>
@@ -37,7 +37,7 @@
                         </li>
                         
                         <li>
-                            <a class="event" href="#"><i class="fa fa-flag-o fa-fw"></i> Events</a>
+                            <a class="event" href="/administrator/events/"><i class="fa fa-flag-o fa-fw"></i> Public Events</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-cubes fa-fw"></i> Inventory<span class="fa arrow"></span></a>
@@ -50,9 +50,6 @@
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="/logout/"><i class="fa fa-power-off fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                 </div><!-- /.sidebar-collapse -->                

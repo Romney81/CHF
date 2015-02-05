@@ -14,13 +14,12 @@ class SiteUser(AbstractUser):
 class Organization(models.Model):
 	organization_type = models.CharField(max_length=30)
 	phone = models.CharField(max_length=30, blank=True, null=True)
-	creation_date = models.DateField()
-	address1 = models.CharField(max_length=60)
-	address2 = models.CharField(max_length=60)
-	city = models.CharField(max_length=30)
-	state = models.CharField(max_length=12)
-	zip_code = models.IntegerField(max_length=5)
-	email = models.EmailField()
+	creation_date = models.DateField(blank=True, null=True)
+	address1 = models.CharField(max_length=60, blank=True, null=True)
+	city = models.CharField(max_length=30, blank=True, null=True)
+	state = models.CharField(max_length=12, blank=True, null=True)
+	zip_code = models.IntegerField(max_length=5, blank=True, null=True)
+	email = models.EmailField(blank=True, null=True)
 
 class Artisan(SiteUser):
 	trade = models.CharField(max_length=30, blank=True, null=True)
@@ -83,15 +82,15 @@ class WardrobeItem(models.Model):
     is_rentable = models.BooleanField(default=False)
  
 class PublicEvent(models.Model):
-	name = models.CharField(max_length=30)
-	description = models.CharField(max_length=255)
-	start_date = models.DateField()
-	end_date = models.DateField()
+	name = models.CharField(max_length=30, blank=True, null=True)
+	description = models.CharField(max_length=255, blank=True, null=True)
+	start_date = models.DateField(blank=True, null=True)
+	end_date = models.DateField(blank=True, null=True)
 
 class Event(models.Model):
-	date = models.DateField()
-	start_time = models.DateTimeField()
-	map_url = models.URLField()
+	date = models.DateField(blank=True, null=True)
+	start_time = models.DateTimeField(blank=True, null=True)
+	map_url = models.URLField(blank=True, null=True)
 	public_event = models.ForeignKey(PublicEvent)
 	area = models.ForeignKey(Area)
 	venue = models.ForeignKey('Venue',null=True)
@@ -99,9 +98,9 @@ class Event(models.Model):
 class Venue(models.Model):
 	name = models.CharField(max_length=30)
 	address = models.CharField(max_length=30)
-	city = models.CharField(max_length=30)
-	state = models.CharField(max_length=30)
-	zip_code = models.IntegerField(max_length=5)
+	city = models.CharField(max_length=30, blank=True, null=True)
+	state = models.CharField(max_length=30, blank=True, null=True)
+	zip_code = models.IntegerField(max_length=5, blank=True, null=True)
 
 class Order(models.Model):
 	customer = models.ForeignKey(SiteUser)

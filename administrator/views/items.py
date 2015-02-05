@@ -28,7 +28,7 @@ def edit(request):
     try:
         item = hmod.Item.objects.get(id=request.urlparams[0])
     except:
-        HttpResponseRedirect('/administrator/index/')
+        HttpResponseRedirect('/administrator/items/')
      
   
     itemform = ItemEditForm(initial={
@@ -47,7 +47,7 @@ def edit(request):
             item.value = form.cleaned_data['value']
             item.is_rentable = form.cleaned_data['is_rentable']
             item.save()
-            return HttpResponseRedirect('/homepage/manager/')
+            return HttpResponseRedirect('/administrator/items/')
     
     params['itemform'] = itemform
       
