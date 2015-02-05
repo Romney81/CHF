@@ -9,7 +9,7 @@
 	<!-- DataTables CSS -->
     <link href="${STATIC_URL}homepage/media/thirdparties/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">    
     <!-- DataTables Responsive CSS -->
-    <link href="${STATIC_URL}homepage/media/thirdparties/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">	
+    <link href="https://cdn.datatables.net/responsive/1.0.3/css/dataTables.responsive.css" rel="stylesheet">	
 	<!-- Timeline CSS -->
 	<link href="${STATIC_URL}homepage/media/thirdparties/css/timeline.css" rel="stylesheet"> 	
 	<!-- Morris Charts CSS -->
@@ -24,7 +24,8 @@
 
 <%block name="footlinks">
     <!-- DataTables JavaScript -->
-    <script src="/static/homepage/media/thirdparties/DataTables/media/js/jquery.dataTables.min.js"></script>
+    <script src="${STATIC_URL}homepage/media/thirdparties/DataTables/media/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/1.0.3/js/dataTables.responsive.js"></script>
     <script src="${STATIC_URL}homepage/media/thirdparties/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
     <script src="${STATIC_URL}homepage/media/thirdparties/metisMenu/dist/metisMenu.min.js"></script>
     <script src="${STATIC_URL}homepage/media/thirdparties/raphael/raphael-min.js"></script>
