@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'social.apps.django_app.default',
     'django_mako_plus.controller',
+    'bootstrap3_datetime',
     'base',
     'homepage',
     'administrator',
@@ -93,9 +94,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
- BASE_DIR,  
+ BASE_DIR,
 )
-STATIC_ROOT = os.path.join(BASE_DIR, 'static') 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 #Mako Plus Extras
 DEBUG_PROPAGATE_EXCEPTIONS = DEBUG  # never set this True on a live site
@@ -130,7 +131,7 @@ LOGGING = {
 # the default app/templates/ directory is always included in the template search path
 # define any additional search directories here - this allows inheritance between apps
 # absolute paths are suggested
-DMP_TEMPLATES_DIRS = [ 
+DMP_TEMPLATES_DIRS = [
 # os.path.join(BASE_DIR, 'base_app', 'templates'),
 ]
 
@@ -138,7 +139,7 @@ DMP_TEMPLATES_DIRS = [
 DMP_TEMPLATES_CACHE_DIR = 'cached_templates'
 
 # the default app and page to render in Mako when the url is too short
-DMP_DEFAULT_PAGE = 'index'  
+DMP_DEFAULT_PAGE = 'index'
 DMP_DEFAULT_APP = 'homepage'
 
 # these are included in every template by default - if you put your most-used libraries here, you won't have to import them exlicitly in templates

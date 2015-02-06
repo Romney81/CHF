@@ -1,16 +1,19 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
-from django.contrib.auth.models import AbstractUser     
+from django.contrib.auth.models import AbstractUser
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 
-class SiteUser(AbstractUser): 	
+class SiteUser(AbstractUser):
 	address = models.CharField(max_length=60, blank=True, null=True)
 	city = models.CharField(max_length=30, blank=True, null=True)
 	state = models.CharField(max_length=12, blank=True, null=True)
-	zip_code = models.IntegerField(max_length=5, blank=True, null=True)	
+	zip_code = models.IntegerField(max_length=5, blank=True, null=True)
 	phone = models.CharField(max_length=30, blank=True, null=True)
-	
+
+	class Meta:
+	    verbose_name = 'Site User'
+
 class Organization(models.Model):
 	organization_type = models.CharField(max_length=30)
 	phone = models.CharField(max_length=30, blank=True, null=True)
@@ -26,8 +29,14 @@ class Artisan(SiteUser):
 	bio = models.TextField(blank=True, null=True)
 	start_year = models.DateField(blank=True, null=True)
 
+	class Meta:
+	    verbose_name = 'Site Artisan'
+
 class Agent(SiteUser):
 	date_appointed = models.DateField()
+
+	class Meta:
+	    verbose_name = 'Site Agent'
 
 class Product(models.Model):
 	name = models.CharField(max_length=30)
@@ -42,13 +51,16 @@ class IndividualProduct(Product):
 class Participant(SiteUser):
 	biographical_sketch = models.CharField(max_length=144)
 	contact_relationship = models.CharField(max_length=30)
-	emergency_contact = models.ForeignKey('self')  
+	emergency_contact = models.ForeignKey('self')
+
+	class Meta:
+	    verbose_name = 'Site Participant'
 
 class Area(models.Model):
 	name = models.CharField(max_length=255)
 	description = models.CharField(max_length=255)
-	supervisor = models.ForeignKey(Agent,null=True,related_name='supervises')	
-	coordinator = models.ForeignKey(Agent,null=True,related_name='coordinates')	
+	supervisor = models.ForeignKey(Agent,null=True,related_name='supervises')
+	coordinator = models.ForeignKey(Agent,null=True,related_name='coordinates')
 
 class Role(models.Model):
 	participant = models.ForeignKey(Participant)
@@ -80,7 +92,7 @@ class WardrobeItem(models.Model):
     end_year = models.DateField()
     note = models.CharField(max_length=255)
     is_rentable = models.BooleanField(default=False)
- 
+
 class PublicEvent(models.Model):
 	name = models.CharField(max_length=30, blank=True, null=True)
 	description = models.CharField(max_length=255, blank=True, null=True)
@@ -148,7 +160,7 @@ class Rental(models.Model):
 	discount_percent = models.DecimalField(max_digits=6,decimal_places=2)
 	renting_organization = models.ForeignKey(Organization,null=True)
 	rental_agent = models.ForeignKey(Agent,null=True,related_name='extends_rental')
-	renting_person = models.ForeignKey(SiteUser,null=True,related_name='rents')		
+	renting_person = models.ForeignKey(SiteUser,null=True,related_name='rents')
 
 class Return(models.Model):
 	return_time = models.DateTimeField()

@@ -1,23 +1,33 @@
 <%inherit file="index.html" />
 
 <%block name="admincontent">
-<div class="container">
-    <div class="manager-edit">
-        <form class="form-horizontal signin-form" method="POST">
-    		${ eventform.non_field_errors() }
-    		% for field in eventform:
-    		<div class="form-group">
-    			<label class="col-md-2 control-label">${field.label}</label>
-    			<div class="col-md-10">
-    				${field} 
-    				<div class="form-constrol" style="padding-left: 0px">${field.errors}</div>
-    			</div>
-    		</div>
-    		% endfor
-    		<div class="form-group col-md-12"> 
-    			<button type="submit" class="btn btn-lg btn-primary">Save</button>
-    		</div>
-    	</form>
+    <div class="container">
+        <div class="manager-edit">
+            <div class="row">
+                <div class="panel panel-default col-md-12 col-sm-12">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Edit Event</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal signin-form" method="POST">
+                            ${ eventform.non_field_errors() }
+                            ${eventform.media}
+                            % for field in eventform:
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">${field.label}</label>
+                                <div class="col-md-8">
+                                    ${field}
+                                    <div class="form-constrol" style="padding-left: 0px">${field.errors}</div>
+                                </div>
+                            </div>
+                            % endfor
+                            <div class="col-md-offset-2 col-md-2 save-btn-col">
+                                <button type="submit" class="btn btn-lg btn-white">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 </%block>

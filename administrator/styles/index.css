@@ -31,7 +31,22 @@
         border-left: 1px solid #e7e7e7;
     }
 }
-
+.form-horizontal .form-group {
+    font-weight: 200;
+}
+.form-horizontal .control-label {
+    font-weight: 200;
+}
+.save-btn-col {
+    padding-left: 4px;
+}
+.btn-white {
+    background-color: #FFF;
+    border-color: #ccc;
+}
+.btn-white:hover{
+    background-color: #fbfbfb;
+}
 .admin-profile{
     background-color: #13161c;
     padding: 20px;
@@ -203,39 +218,6 @@ background: url('/static/homepage/media/images/black-sort-dec.png') no-repeat ce
     width: 100%;
     height: 100%;
 }
-/*
-.dataTables_wrapper {
-    position: relative;
-    clear: both;
-}
-
-table.dataTable thead .sorting,
-table.dataTable thead .sorting_asc,
-table.dataTable thead .sorting_desc,
-table.dataTable thead .sorting_asc_disabled,
-table.dataTable thead .sorting_desc_disabled {
-    background: 0 0;
-}
-
-table.dataTable thead .sorting_asc:after {
-    content: "\f0de";
-    float: right;
-    font-family: fontawesome;
-}
-
-table.dataTable thead .sorting_desc:after {
-    content: "\f0dd";
-    float: right;
-    font-family: fontawesome;
-}
-
-table.dataTable thead .sorting:after {
-    content: "\f0dc";
-    float: right;
-    font-family: fontawesome;
-    color: rgba(50,50,50,.5);
-}
-*/
 .btn-circle {
     width: 30px;
     height: 30px;
@@ -274,63 +256,7 @@ table.dataTable thead .sorting:after {
 .show-grid {
     margin: 15px 0;
 }
-
-.huge {
-    font-size: 40px;
-}
-
-.panel-green {
-    border-color: #5cb85c;
-}
-
-.panel-green .panel-heading {
-    border-color: #5cb85c;
-    color: #fff;
-    background-color: #5cb85c;
-}
-
-.panel-green a {
-    color: #5cb85c;
-}
-
-.panel-green a:hover {
-    color: #3d8b3d;
-}
-
-.panel-red {
-    border-color: #d9534f;
-}
-
-.panel-red .panel-heading {
-    border-color: #d9534f;
-    color: #fff;
-    background-color: #d9534f;
-}
-
-.panel-red a {
-    color: #d9534f;
-}
-
-.panel-red a:hover {
-    color: #b52b27;
-}
-
-.panel-yellow {
-    border-color: #f0ad4e;
-}
-
-.panel-yellow .panel-heading {
-    border-color: #f0ad4e;
-    color: #fff;
-    background-color: #f0ad4e;
-}
-
-.panel-yellow a {
-    color: #f0ad4e;
-}
-
-.panel-yellow a:hover {
-    color: #df8a13;
+.container {
+width: 100%;
 }
 .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {vertical-align: middle;}
-

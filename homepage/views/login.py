@@ -1,7 +1,7 @@
 from django import forms
 from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-import django.contrib.auth 
+import django.contrib.auth
 from django.contrib.auth import login
 from homepage import models
 from homepage.models import SiteUser
@@ -23,8 +23,8 @@ def process_request(request):
 		form = LoginForm(request.POST)
 		if form.is_valid():
 			django.contrib.auth.login(request, form.user)
-			return HttpResponseRedirect('/administrator/')    
-                
+			return HttpResponseRedirect('/administrator/')
+
 
 	template_vars = {
 		'form': form,
@@ -37,14 +37,15 @@ class LoginForm(forms.Form):
 	username = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
 	password = forms.CharField(required=True, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
 
-	# These below functions are used to display error messages for incorrect 
+	# These below functions are used to display error messages for incorrect
 	# user name and password. Notice clean_(name) must match the field name.
-	
+
 	def clean(self):
 		username = self.cleaned_data.get('username')
 		password = self.cleaned_data.get('password')
 
 		self.user = django.contrib.auth.authenticate(username=username, password=password)
+		print(self.user)
 		if self.user == None:
 			raise forms.ValidationError('Incorrect username/password.')
 
@@ -59,5 +60,5 @@ def logout(request):
 
 	django.contrib.auth.logout(request)
 	request.session.flush()
-	
+
 	return HttpResponseRedirect('/homepage/login/')

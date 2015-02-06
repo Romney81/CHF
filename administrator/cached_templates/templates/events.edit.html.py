@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1423106159.583832
+_modified_time = 1423250918.969836
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/administrator/templates/events.edit.html'
 _template_uri = 'events.edit.html'
@@ -37,6 +37,7 @@ def render_body(context,**pageargs):
             context['self'].admincontent(**pageargs)
         
 
+        __M_writer('\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -49,18 +50,20 @@ def render_admincontent(context,**pageargs):
             return render_admincontent(context)
         eventform = context.get('eventform', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\n<div class="container">\n    <div class="manager-edit">\n        <form class="form-horizontal signin-form" method="POST">\n    \t\t')
+        __M_writer('\n    <div class="container">\n        <div class="manager-edit">\n            <div class="row">\n                <div class="panel panel-default col-md-12 col-sm-12">\n                    <div class="panel-heading">\n                        <h3 class="panel-title">Edit Event</h3>\n                    </div>\n                    <div class="panel-body">\n                        <form class="form-horizontal signin-form" method="POST">\n                            ')
         __M_writer(str( eventform.non_field_errors() ))
+        __M_writer('\n                            ')
+        __M_writer(str(eventform.media))
         __M_writer('\n')
         for field in eventform:
-            __M_writer('    \t\t<div class="form-group">\n    \t\t\t<label class="col-md-2 control-label">')
+            __M_writer('                            <div class="form-group">\n                                <label class="col-md-2 control-label">')
             __M_writer(str(field.label))
-            __M_writer('</label>\n    \t\t\t<div class="col-md-10">\n    \t\t\t\t')
+            __M_writer('</label>\n                                <div class="col-md-8">\n                                    ')
             __M_writer(str(field))
-            __M_writer(' \n    \t\t\t\t<div class="form-constrol" style="padding-left: 0px">')
+            __M_writer('\n                                    <div class="form-constrol" style="padding-left: 0px">')
             __M_writer(str(field.errors))
-            __M_writer('</div>\n    \t\t\t</div>\n    \t\t</div>\n')
-        __M_writer('    \t\t<div class="form-group col-md-12"> \n    \t\t\t<button type="submit" class="btn btn-lg btn-primary">Save</button>\n    \t\t</div>\n    \t</form>\n    </div>\n</div>\n')
+            __M_writer('</div>\n                                </div>\n                            </div>\n')
+        __M_writer('                            <div class="col-md-offset-2 col-md-2 save-btn-col">\n                                <button type="submit" class="btn btn-lg btn-white">Save</button>\n                            </div>\n                        </form>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -68,6 +71,6 @@ def render_admincontent(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"uri": "events.edit.html", "source_encoding": "ascii", "filename": "/Users/scottromney/SiteOne/administrator/templates/events.edit.html", "line_map": {"35": 1, "69": 63, "45": 3, "27": 0, "52": 3, "53": 7, "54": 7, "55": 8, "56": 9, "57": 10, "58": 10, "59": 12, "60": 12, "61": 13, "62": 13, "63": 17}}
+{"source_encoding": "ascii", "line_map": {"64": 20, "65": 20, "66": 24, "35": 1, "40": 33, "46": 3, "59": 16, "72": 66, "53": 3, "54": 13, "55": 13, "56": 14, "57": 14, "58": 15, "27": 0, "60": 17, "61": 17, "62": 19, "63": 19}, "filename": "/Users/scottromney/SiteOne/administrator/templates/events.edit.html", "uri": "events.edit.html"}
 __M_END_METADATA
 """
