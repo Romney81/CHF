@@ -3,6 +3,7 @@ from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 import django.contrib.auth
 from django.contrib.auth import login
+from django.contrib.auth.models import Group
 from homepage import models
 from homepage.models import SiteUser
 from django.core import validators
@@ -17,12 +18,20 @@ templater = get_renderer('homepage')
 @view_function
 def process_request(request):
 
+
+
+
 	#prepare the login form
 	form = LoginForm()
 	if request.method == 'POST':
 		form = LoginForm(request.POST)
 		if form.is_valid():
 			django.contrib.auth.login(request, form.user)
+
+			usersingroup = Group.objects.get(name = 'Guppies').user_set.all()
+			if request.user in usersingroup:
+				return HttpResponseRedirect('/homepage/index')
+
 			return HttpResponseRedirect('/administrator/')
 
 

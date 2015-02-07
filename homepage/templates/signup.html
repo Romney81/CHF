@@ -1,7 +1,7 @@
 <%inherit file="base.htm" />
 
-<%block name="content">
-<!-- 
+<%block name="index">
+    <!--
 <div class="panel panel-default">
 	<form class="form-signin">
         <h2 class="form-signin-heading">Please sign in</h2>
@@ -17,59 +17,27 @@
 	</form>
 </div>
 -->
-<div class="signup">
-    <div class="row">
-	    <div class="col-md-4 col-md-offset-2 col-xs-12">
-        <div class="user-registration">
-		    <h3>Create Your Account</h3>
-            <div class="login-or">
-			    <hr class="hr-or">
-		    </div>		
-		    <form class="signup-form" method="POST">
-    		    ${ form.non_field_errors() }
-                % for field in form:
-                    <div class="form-group">
-                        <label class="col-md-2 control-label">${field.label}</label>
-                        <div class="col-md-10">
-                        ${field} 
-                        <div class="form-constrol" style="padding-left: 0px">${field.errors}</div>
-			            </div>
-		            </div>
-                %endfor
-	        
-    	        <button type="submit" class="btn btn btn-primary">
-    	          Create Account
-    	        </button>
-	        </form>
-	    </div>
-	</div>
-	<div class="col-md-4 col-xs-12">
-	<div class="vendor-registration">
-		<h3>Register as a Vendor</h3>
-		<div class="login-or">
-			<hr class="hr-or">
-		</div>
-		
-		<form role="form">
-	        <div class="form-group">
-	          	<label for="inputUsernameEmail">Company Name</label>
-			  	<input type="text" class="form-control" id="inputUsernameEmail">
-	        </div>
-	        <div class="form-group">
-	          	<label for="inputPassword">Email</label>
-			  	<input type="text" class="form-control" id="inputPassword">
-	        </div>
-	        <div class="form-group">
-	         	 <label for="inputPassword">Phone</label>
-			 	 <input type="text" class="form-control" id="inputPassword">
-	        </div>
-	        <button type="submit" class="btn btn btn-primary">
-	          Register
-	        </button>
-	      </form>
-	</div>
-	</div>
-</div>
-</div>
-</div> 
+    <div class="signup">
+        <div class="row">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Sign Up</h3>
+                </div>
+                <form class="form-horizontal signin-form" method="POST">
+                    ${ form.non_field_errors() }
+                    % for field in form:
+                    <div class="form-group col-md-12">
+                        <!-- <label class="col-md-3 control-label">${field.label}</label> -->
+                        <div class="col-md-12">
+                            ${field}
+                        </div>
+                    </div>
+                    % endfor
+                    <div class="form-group col-md-12">
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </%block>

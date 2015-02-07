@@ -24,62 +24,20 @@ class Organization(models.Model):
 	zip_code = models.IntegerField(max_length=5, blank=True, null=True)
 	email = models.EmailField(blank=True, null=True)
 
-class Artisan(SiteUser):
-	trade = models.CharField(max_length=30, blank=True, null=True)
-	bio = models.TextField(blank=True, null=True)
-	start_year = models.DateField(blank=True, null=True)
-
-	class Meta:
-	    verbose_name = 'Site Artisan'
-
-class Agent(SiteUser):
-	date_appointed = models.DateField()
-
-	class Meta:
-	    verbose_name = 'Site Agent'
-
 class Product(models.Model):
 	name = models.CharField(max_length=30)
 	description = models.CharField(max_length=144)
 	category = models.CharField(max_length=144)
 	current_price = models.DecimalField(max_digits=6,decimal_places=2)
 
-class IndividualProduct(Product):
-	date_made = models.DateField()
-	artisan = models.ForeignKey(Artisan)
-
-class Participant(SiteUser):
-	biographical_sketch = models.CharField(max_length=144)
-	contact_relationship = models.CharField(max_length=30)
-	emergency_contact = models.ForeignKey('self')
-
-	class Meta:
-	    verbose_name = 'Site Participant'
-
 class Area(models.Model):
 	name = models.CharField(max_length=255)
 	description = models.CharField(max_length=255)
-	supervisor = models.ForeignKey(Agent,null=True,related_name='supervises')
-	coordinator = models.ForeignKey(Agent,null=True,related_name='coordinates')
-
-class Role(models.Model):
-	participant = models.ForeignKey(Participant)
-	area = models.ForeignKey(Area)
-	name = models.CharField(max_length=30)
-	role_type = models.CharField(max_length=30)
-
-class SaleItem(models.Model):
-	name = models.CharField(max_length=30)
-	description = models.CharField(max_length=140)
-	low_price = models.DecimalField(max_digits=6,decimal_places=2)
-	high_price = models.DecimalField(max_digits=6,decimal_places=2)
-	area = models.ForeignKey(Area)
 
 class Item(models.Model):
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=144)
     value = models.DecimalField(max_digits=6, decimal_places=2)
-    organization = models.ForeignKey('Organization')
     is_rentable = models.BooleanField(default=True)
 
 class WardrobeItem(models.Model):
@@ -113,61 +71,3 @@ class Venue(models.Model):
 	city = models.CharField(max_length=30, blank=True, null=True)
 	state = models.CharField(max_length=30, blank=True, null=True)
 	zip_code = models.IntegerField(max_length=5, blank=True, null=True)
-
-class Order(models.Model):
-	customer = models.ForeignKey(SiteUser)
-	order_date = models.DateTimeField()
-	phone = models.CharField(max_length=30, blank=True, null=True)
-	packaged_date = models.DateTimeField()
-	date_shipped = models.DateTimeField()
-	tracking_number = models.CharField(max_length=255)
-	shipper = models.ForeignKey(Agent,null=True,related_name='ships')
-	processor = models.ForeignKey(Agent,null=True,related_name='processes')
-	packer = models.ForeignKey(Agent,null=True,related_name='packs')
-
-class BulkProduct(Product):
-	quantity_on_hand = models.IntegerField()
-	bulk_detail = models.ManyToManyField(Order, through='BulkDetail',null=True)
-	producer = models.ForeignKey(Organization)
-
-class PersonalProduct(Product):
-	order_form_name = models.CharField(max_length=30)
-	production_time = models.DateTimeField()
-	details = models.ManyToManyField(Order, through='PersonalDetail')
-	artisan = models.ForeignKey(Artisan)
-
-class ProductPicture(models.Model):
-	picture = models.URLField()
-	caption = models.CharField(max_length=255)
-	product = models.ForeignKey(Product)
-
-class BulkDetail(models.Model):
-	bulk_product = models.ForeignKey(BulkProduct)
-	order = models.ForeignKey(Order)
-	quantity = models.IntegerField()
-	price = models.IntegerField()
-
-class RentedItem(models.Model):
-	condition = models.CharField(max_length=255)
-	new_damage = models.CharField(max_length=255)
-	late_fee = models.DecimalField(max_digits=6,decimal_places=2)
-	damage_fee = models.DecimalField(max_digits=6,decimal_places=2)
-	rented_item = models.ForeignKey('Rental')
-
-class Rental(models.Model):
-	rental_time = models.DateTimeField()
-	due_date = models.DateTimeField()
-	discount_percent = models.DecimalField(max_digits=6,decimal_places=2)
-	renting_organization = models.ForeignKey(Organization,null=True)
-	rental_agent = models.ForeignKey(Agent,null=True,related_name='extends_rental')
-	renting_person = models.ForeignKey(SiteUser,null=True,related_name='rents')
-
-class Return(models.Model):
-	return_time = models.DateTimeField()
-	fees_paid = models.DecimalField(max_digits=6,decimal_places=2)
-	item = models.ForeignKey(RentedItem)
-	return_agent = models.ForeignKey(Agent)
-
-class PersonalDetail(models.Model):
-	personal_product = models.ForeignKey(PersonalProduct)
-	order = models.ForeignKey(Order)

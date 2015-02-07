@@ -12,23 +12,23 @@ templater = get_renderer('administrator')
 @view_function
 def process_request(request):
     params = {}
-  
+
     #grab all products
     params['products'] = hmod.Product.objects.all()
-    return templater.render_to_response(request, 'products.html', params)  
-    
+    return templater.render_to_response(request, 'products.html', params)
 
-############################ Edit The Products  ############################# 
+
+############################ Edit The Products  #############################
 @view_function
 def edit(request):
     params = {}
-  
+
     try:
         product = hmod.Product.objects.get(id=request.urlparams[0])
     except:
         HttpResponseRedirect('/administrator/products/')
-     
-  
+
+
     productform = EditProductForm(initial={
         'name': product.name,
         'description': product.description,
@@ -36,7 +36,7 @@ def edit(request):
         'current_price': product.current_price,
 
     })
-    
+
     if request.method == 'POST':
         form = EditProductForm(request.POST)
         if form.is_valid():
@@ -46,14 +46,26 @@ def edit(request):
             product.current_price = form.cleaned_data['current_price']
             product.save()
             return HttpResponseRedirect('/administrator/products/')
-    
+
     params['productform'] = productform
-      
+
     return templater.render_to_response(request, 'products.edit.html', params)
-  
+
 class EditProductForm(forms.Form):
     name = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     description = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     category = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     current_price = forms.DecimalField(required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    
+
+@view_function
+def create(request):
+    params = {}
+
+    product = hmod.Product()
+    product.name = ''
+    product.category = ''
+    product.current_price = '0.0'
+
+    product.save()
+
+    return HttpResponseRedirect('/administrator/products.edit/{}/'.format(product.id))

@@ -3,14 +3,15 @@
 <%block name="admincontent">
 <div class="container">
     <div class="manager-edit">
-        <form class="form-horizontal" method="POST">
-            ${ itemform.non_field_errors() }
-            % for field in itemform:
+        <form class="form-horizontal signin-form" method="POST">
+            ${ organizationform.non_field_errors() }
+            ${ organizationform.media }
+            % for field in organizationform:
             <div class="form-group">
                 <label class="col-md-2 control-label">${field.label}</label>
                 <div class="col-md-10">
                     ${field}
-                    <div>${field.errors}</div>
+                    <div class="form-constrol" style="padding-left: 0px">${field.errors}</div>
                 </div>
             </div>
             % endfor
