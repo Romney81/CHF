@@ -3,6 +3,8 @@ from django.forms import fields, util
 from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.http import HttpRequest
+from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.decorators import login_required
 from django.core import validators
 from django.core import exceptions
 from django_mako_plus.controller import view_function
@@ -12,6 +14,8 @@ import homepage.models as hmod
 templater = get_renderer('administrator')
 
 @view_function
+@login_required(login_url='/homepage/login/')
+@permission_required('admin.delete_logentry', login_url='/homepage/login/')
 def process_request(request):
     params = {}
 

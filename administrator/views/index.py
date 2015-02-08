@@ -4,9 +4,9 @@ from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.http import HttpRequest
 from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.decorators import login_required
 from django_mako_plus.controller import view_function
 from django_mako_plus.controller.router import get_renderer
-from django.contrib.auth.decorators import login_required
 import homepage.models as hmod
 
 templater = get_renderer('administrator')
