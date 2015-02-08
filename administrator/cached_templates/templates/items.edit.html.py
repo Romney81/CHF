@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1423273752.776824
+_modified_time = 1423371351.894385
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/administrator/templates/items.edit.html'
 _template_uri = 'items.edit.html'
@@ -30,7 +30,7 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         def admincontent():
             return render_admincontent(context._locals(__M_locals))
-        itemform = context.get('itemform', UNDEFINED)
+        form = context.get('form', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'admincontent'):
@@ -48,20 +48,20 @@ def render_admincontent(context,**pageargs):
     try:
         def admincontent():
             return render_admincontent(context)
-        itemform = context.get('itemform', UNDEFINED)
+        form = context.get('form', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\n<div class="container">\n    <div class="manager-edit">\n        <form class="form-horizontal" method="POST">\n            ')
-        __M_writer(str( itemform.non_field_errors() ))
+        __M_writer('\n    <div class="container">\n        <div class="manager-edit">\n            <div class="row">\n                <div class="panel panel-default col-md-12 col-sm-12">\n                    <div class="panel-heading">\n                        <h3 class="panel-title">Edit Item</h3>\n                    </div>\n                    <div class="panel-body">\n                        <form class="form-horizontal signin-form" method="POST">\n                            ')
+        __M_writer(str( form.non_field_errors() ))
         __M_writer('\n')
-        for field in itemform:
-            __M_writer('            <div class="form-group">\n                <label class="col-md-2 control-label">')
+        for field in form:
+            __M_writer('                            <div class="form-group">\n                                <label class="col-md-2 control-label">')
             __M_writer(str(field.label))
-            __M_writer('</label>\n                <div class="col-md-10">\n                    ')
+            __M_writer('</label>\n                                <div class="col-md-8">\n                                    ')
             __M_writer(str(field))
-            __M_writer('\n                    <div>')
+            __M_writer('\n                                    <p>')
             __M_writer(str(field.errors))
-            __M_writer('</div>\n                </div>\n            </div>\n')
-        __M_writer('            <div class="form-group col-md-12">\n                <button type="submit" class="btn btn-lg btn-primary">Save</button>\n            </div>\n        </form>\n    </div>\n</div>\n')
+            __M_writer('</p>\n                                </div>\n                            </div>\n')
+        __M_writer('                            <div class="col-md-offset-2 col-md-2 save-btn-col">\n                                <button type="submit" class="btn btn-lg btn-white">Save</button>\n                            </div>\n                        </form>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -69,6 +69,6 @@ def render_admincontent(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/scottromney/SiteOne/administrator/templates/items.edit.html", "line_map": {"64": 17, "35": 1, "70": 64, "40": 23, "46": 3, "59": 10, "53": 3, "54": 7, "55": 7, "56": 8, "57": 9, "58": 10, "27": 0, "60": 12, "61": 12, "62": 13, "63": 13}, "uri": "items.edit.html", "source_encoding": "ascii"}
+{"uri": "items.edit.html", "filename": "/Users/scottromney/SiteOne/administrator/templates/items.edit.html", "line_map": {"64": 23, "35": 1, "70": 64, "40": 32, "46": 3, "59": 16, "53": 3, "54": 13, "55": 13, "56": 14, "57": 15, "58": 16, "27": 0, "60": 18, "61": 18, "62": 19, "63": 19}, "source_encoding": "ascii"}
 __M_END_METADATA
 """

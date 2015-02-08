@@ -32,7 +32,7 @@ def edit(request):
     except:
         HttpResponseRedirect('/administrator/events/')
 
-    eventform = EventEditForm(initial = {
+    form = EventEditForm(initial = {
         'name': event.name,
         'description': event.description,
         'start_date': event.start_date,
@@ -41,6 +41,7 @@ def edit(request):
 
     if request.method =='POST':
         form = EventEditForm(request.POST)
+        form.eventid = event.id
         if form.is_valid():
             event.name = form.cleaned_data['name']
             event.description = form.cleaned_data['description']
@@ -49,7 +50,7 @@ def edit(request):
             event.save()
             return HttpResponseRedirect('/administrator/events/')
 
-    params['eventform'] = eventform
+    params['form'] = form
 
     return templater.render_to_response(request, 'events.edit.html', params)
 
@@ -59,6 +60,13 @@ class EventEditForm(forms.Form):
     start_date = forms.DateField(widget=DateTimePicker(options={"format": "YYYY-MM-DD", "pickTime": False}))
     end_date = forms.DateField(widget=DateTimePicker(options={"format": "YYYY-MM-DD", "pickTime": False}))
 
+    def clean_name(self):
+        event_count = hmod.PublicEvent.objects.filter(name=self.cleaned_data['name']).exclude(id=self.eventid).count()
+        if event_count >= 1:
+            raise forms.ValidationError("That event already exists.")
+
+        return self.cleaned_data['name']
+
 @view_function
 def create(request):
     params = {}
@@ -66,9 +74,16 @@ def create(request):
     event = hmod.PublicEvent()
     event.name = ''
     event.description = ''
-    event.start_date = datetime.date.today
-    event.end_date = datetime.date.today
+    event.start_date = '1999-12-12'
+    event.end_date = '1999-12-12'
 
     event.save()
 
     return HttpResponseRedirect('/administrator/events.edit/{}/'.format(event.id))
+
+@view_function
+def delete(request):
+    event = hmod.PublicEvent.objects.get(id=request.urlparams[0])
+    event.delete()
+
+    return HttpResponseRedirect('/administrator/events/')

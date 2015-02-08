@@ -30,8 +30,7 @@ def edit(request):
     except:
         HttpResponseRedirect('/administrator/organizations/')
 
-
-    organizationform = EditOrganizationForm(initial={
+    form = EditOrganizationForm(initial={
         'organization_type': organization.organization_type,
         'phone': organization.phone,
         'creation_date': organization.creation_date,
@@ -44,6 +43,7 @@ def edit(request):
 
     if request.method == 'POST':
         form = EditOrganizationForm(request.POST)
+        form.organizationid = organization.id
         if form.is_valid():
             organization.organization_type = form.cleaned_data['organization_type']
             organization.phone = form.cleaned_data['phone']
@@ -56,7 +56,8 @@ def edit(request):
             organization.save()
             return HttpResponseRedirect('/administrator/organizations/')
 
-    params['organizationform'] = organizationform
+
+    params['form'] = form
 
     return templater.render_to_response(request, 'organizations.edit.html', params)
 
@@ -70,6 +71,12 @@ class EditOrganizationForm(forms.Form):
     zip_code = forms.IntegerField(required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
     email = forms.EmailField(required=False, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
 
+    def clean_organization_type(self):
+        organization_type_count = hmod.Organization.objects.filter(organization_type=self.cleaned_data['organization_type']).exclude(id=self.organizationid).count()
+        if organization_type_count >= 1:
+            raise forms.ValidationError("That Organization already exists.")
+
+        return self.cleaned_data['organization_type']
 
 @view_function
 def create(request):
@@ -81,3 +88,10 @@ def create(request):
     organization.save()
 
     return HttpResponseRedirect('/administrator/organizations.edit/{}/'.format(organization.id))
+
+@view_function
+def delete(request):
+    organization = hmod.Organization.objects.get(id=request.urlparams[0])
+    organization.delete()
+
+    return HttpResponseRedirect('/administrator/organizations/')

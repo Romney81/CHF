@@ -29,7 +29,7 @@ def edit(request):
         HttpResponseRedirect('/administrator/areas/')
 
 
-    areaform = EditAreaForm(initial={
+    form = EditAreaForm(initial={
         'name': area.name,
         'description': area.description,
 
@@ -37,19 +37,27 @@ def edit(request):
 
     if request.method == 'POST':
         form = EditAreaForm(request.POST)
+        form.areaid = area.id
         if form.is_valid():
             area.name = form.cleaned_data['name']
             area.description = form.cleaned_data['description']
             area.save()
             return HttpResponseRedirect('/administrator/areas/')
 
-    params['areaform'] = areaform
+    params['form'] = form
 
     return templater.render_to_response(request, 'areas.edit.html', params)
 
 class EditAreaForm(forms.Form):
     name = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     description = forms.CharField(required=True, max_length=250, widget=forms.TextInput(attrs={'class': 'form-control'}))
+
+    def clean_name(self):
+        event_area = hmod.Area.objects.filter(name=self.cleaned_data['name']).exclude(id=self.areaid).count()
+        if event_area >= 1:
+            raise forms.ValidationError("That area already exists.")
+
+        return self.cleaned_data['name']
 
 @view_function
 def create(request):
@@ -62,3 +70,10 @@ def create(request):
     area.save()
 
     return HttpResponseRedirect('/administrator/areas.edit/{}/'.format(area.id))
+
+@view_function
+def delete(request):
+    area = hmod.Area.objects.get(id=request.urlparams[0])
+    area.delete()
+
+    return HttpResponseRedirect('/administrator/areas/')

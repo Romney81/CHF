@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1423278493.00237
+_modified_time = 1423371027.337963
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/administrator/templates/organizations.edit.html'
 _template_uri = 'organizations.edit.html'
@@ -30,7 +30,7 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         def admincontent():
             return render_admincontent(context._locals(__M_locals))
-        organizationform = context.get('organizationform', UNDEFINED)
+        form = context.get('form', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'admincontent'):
@@ -48,22 +48,22 @@ def render_admincontent(context,**pageargs):
     try:
         def admincontent():
             return render_admincontent(context)
-        organizationform = context.get('organizationform', UNDEFINED)
+        form = context.get('form', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\n<div class="container">\n    <div class="manager-edit">\n        <form class="form-horizontal signin-form" method="POST">\n            ')
-        __M_writer(str( organizationform.non_field_errors() ))
-        __M_writer('\n            ')
-        __M_writer(str( organizationform.media ))
+        __M_writer('\n    <div class="container">\n        <div class="manager-edit">\n            <div class="row">\n                <div class="panel panel-default col-md-12 col-sm-12">\n                    <div class="panel-heading">\n                        <h3 class="panel-title">Edit Organization</h3>\n                    </div>\n                    <div class="panel-body">\n                        <form class="form-horizontal signin-form" method="POST">\n                            ')
+        __M_writer(str( form.non_field_errors() ))
+        __M_writer('\n                            ')
+        __M_writer(str(form.media))
         __M_writer('\n')
-        for field in organizationform:
-            __M_writer('            <div class="form-group">\n                <label class="col-md-2 control-label">')
+        for field in form:
+            __M_writer('                            <div class="form-group">\n                                <label class="col-md-2 control-label">')
             __M_writer(str(field.label))
-            __M_writer('</label>\n                <div class="col-md-10">\n                    ')
+            __M_writer('</label>\n                                <div class="col-md-8">\n                                    ')
             __M_writer(str(field))
-            __M_writer('\n                    <div class="form-constrol" style="padding-left: 0px">')
+            __M_writer('\n                                    <p>')
             __M_writer(str(field.errors))
-            __M_writer('</div>\n                </div>\n            </div>\n')
-        __M_writer('            <div class="form-group col-md-12">\n                <button type="submit" class="btn btn-lg btn-primary">Save</button>\n            </div>\n        </form>\n    </div>\n</div>\n')
+            __M_writer('</p>\n                                </div>\n                            </div>\n')
+        __M_writer('                            <div class="col-md-offset-2 col-md-2 save-btn-col">\n                                <button type="submit" class="btn btn-lg btn-white">Save</button>\n                            </div>\n                        </form>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -71,6 +71,6 @@ def render_admincontent(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"64": 14, "65": 14, "66": 18, "35": 1, "40": 24, "46": 3, "59": 10, "72": 66, "53": 3, "54": 7, "55": 7, "56": 8, "57": 8, "58": 9, "27": 0, "60": 11, "61": 11, "62": 13, "63": 13}, "filename": "/Users/scottromney/SiteOne/administrator/templates/organizations.edit.html", "source_encoding": "ascii", "uri": "organizations.edit.html"}
+{"uri": "organizations.edit.html", "filename": "/Users/scottromney/SiteOne/administrator/templates/organizations.edit.html", "line_map": {"64": 20, "65": 20, "66": 24, "35": 1, "40": 33, "46": 3, "59": 16, "72": 66, "53": 3, "54": 13, "55": 13, "56": 14, "57": 14, "58": 15, "27": 0, "60": 17, "61": 17, "62": 19, "63": 19}, "source_encoding": "ascii"}
 __M_END_METADATA
 """

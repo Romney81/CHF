@@ -10,14 +10,16 @@
                     </div>
                     <div class="panel-body">
                         <form class="form-horizontal signin-form" method="POST">
-                            ${ eventform.non_field_errors() }
-                            ${eventform.media}
-                            % for field in eventform:
+                            ${ form.non_field_errors() }
+                            ${form.media}
+                            % for field in form:
                             <div class="form-group">
                                 <label class="col-md-2 control-label">${field.label}</label>
                                 <div class="col-md-8">
                                     ${field}
-                                    <div class="form-constrol" style="padding-left: 0px">${field.errors}</div>
+                                    <p>
+                                        ${field.errors}
+                                    </p>
                                 </div>
                             </div>
                             % endfor

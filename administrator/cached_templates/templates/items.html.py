@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1423274472.974894
+_modified_time = 1423298763.872948
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/administrator/templates/items.html'
 _template_uri = 'items.html'
@@ -28,9 +28,9 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        items = context.get('items', UNDEFINED)
         def admincontent():
             return render_admincontent(context._locals(__M_locals))
-        items = context.get('items', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n<!-- Registered Users View -->\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'admincontent'):
@@ -46,9 +46,9 @@ def render_body(context,**pageargs):
 def render_admincontent(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        items = context.get('items', UNDEFINED)
         def admincontent():
             return render_admincontent(context)
-        items = context.get('items', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n <!-- Registered Items View -->\n    <div class="row manage manage-item">\n    \t<div class="col-lg-12">\n    \t\t<div class="panel panel-default">\n                <div class="panel-heading">\n                    Manage Items <a href="/administrator/items.create/" class="btn-xs btn-primary pull-right"><i class="fa fa-plus-square-o"> Create Item</i></a>\n                </div>\n                <!-- /.panel-heading -->\n                <div class="panel-body">\n                    <div class="dataTable_wrapper">\n                        <table class="table table-striped table-bordered table-hover" id="data-table">\n                            <thead>\n                                <tr>\n                                    <th>ID</th>\n                                    <th>Item Name</th>\n                                    <th>Item Description</th>\n                                    <th>Value</th>\n                                    <th>Is Rentable</th>\n                                    <th>Edit Item</th>\n                                </tr>\n                            </thead>\n                            <tbody>\n')
         for item in items:
@@ -75,6 +75,6 @@ def render_admincontent(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"64": 32, "65": 32, "66": 34, "67": 34, "68": 35, "69": 35, "70": 39, "76": 70, "27": 0, "35": 1, "40": 51, "46": 3, "53": 3, "54": 26, "55": 27, "56": 28, "57": 28, "58": 29, "59": 29, "60": 30, "61": 30, "62": 31, "63": 31}, "source_encoding": "ascii", "filename": "/Users/scottromney/SiteOne/administrator/templates/items.html", "uri": "items.html"}
+{"line_map": {"64": 32, "65": 32, "66": 34, "67": 34, "68": 35, "69": 35, "70": 39, "76": 70, "27": 0, "35": 1, "40": 51, "46": 3, "53": 3, "54": 26, "55": 27, "56": 28, "57": 28, "58": 29, "59": 29, "60": 30, "61": 30, "62": 31, "63": 31}, "source_encoding": "ascii", "uri": "items.html", "filename": "/Users/scottromney/SiteOne/administrator/templates/items.html"}
 __M_END_METADATA
 """

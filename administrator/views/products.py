@@ -29,7 +29,7 @@ def edit(request):
         HttpResponseRedirect('/administrator/products/')
 
 
-    productform = EditProductForm(initial={
+    form = EditProductForm(initial={
         'name': product.name,
         'description': product.description,
         'category': product.category,
@@ -39,6 +39,7 @@ def edit(request):
 
     if request.method == 'POST':
         form = EditProductForm(request.POST)
+        form.productid = product.id
         if form.is_valid():
             product.name = form.cleaned_data['name']
             product.description = form.cleaned_data['description']
@@ -47,7 +48,7 @@ def edit(request):
             product.save()
             return HttpResponseRedirect('/administrator/products/')
 
-    params['productform'] = productform
+    params['form'] = form
 
     return templater.render_to_response(request, 'products.edit.html', params)
 
@@ -57,6 +58,12 @@ class EditProductForm(forms.Form):
     category = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     current_price = forms.DecimalField(required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
 
+    def clean_name(self):
+        product_count = hmod.Product.objects.filter(name=self.cleaned_data['name']).exclude(id=self.productid).count()
+        if product_count >= 1:
+            raise forms.ValidationError("That product already exists.")
+
+        return self.cleaned_data['name']
 @view_function
 def create(request):
     params = {}
@@ -69,3 +76,11 @@ def create(request):
     product.save()
 
     return HttpResponseRedirect('/administrator/products.edit/{}/'.format(product.id))
+
+
+@view_function
+def delete(request):
+    product = hmod.Product.objects.get(id=request.urlparams[0])
+    product.delete()
+
+    return HttpResponseRedirect('/administrator/products/')

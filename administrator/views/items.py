@@ -31,16 +31,16 @@ def edit(request):
         HttpResponseRedirect('/administrator/items/')
 
 
-    itemform = ItemEditForm(initial={
+    form = ItemEditForm(initial={
         'name': item.name,
         'description': item.description,
         'value': item.value,
         'is_rentable': item.is_rentable,
 
     })
-
     if request.method == 'POST':
         form = ItemEditForm(request.POST)
+        form.itemid = item.id
         if form.is_valid():
             item.name = form.cleaned_data['name']
             item.description = form.cleaned_data['description']
@@ -49,7 +49,7 @@ def edit(request):
             item.save()
             return HttpResponseRedirect('/administrator/items/')
 
-    params['itemform'] = itemform
+    params['form'] = form
 
     return templater.render_to_response(request, 'items.edit.html', params)
 
@@ -58,6 +58,13 @@ class ItemEditForm(forms.Form):
     description = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     value = forms.DecimalField(required=False, min_value=0, widget=forms.TextInput(attrs={'class': 'form-control'}))
     is_rentable = forms.BooleanField(required=False)
+
+    def clean_name(self):
+        item_count = hmod.Item.objects.filter(name=self.cleaned_data['name']).exclude(id=self.itemid).count()
+        if item_count >= 1:
+            raise forms.ValidationError("That item already exists.")
+
+        return self.cleaned_data['name']
 
 @view_function
 def create(request):
@@ -71,3 +78,10 @@ def create(request):
     item.save()
 
     return HttpResponseRedirect('/administrator/items.edit/{}/'.format(item.id))
+
+@view_function
+def delete(request):
+    item = hmod.Item.objects.get(id=request.urlparams[0])
+    item.delete()
+
+    return HttpResponseRedirect('/administrator/items/')
