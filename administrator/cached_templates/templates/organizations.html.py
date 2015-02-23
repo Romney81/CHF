@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1423278721.627527
+_modified_time = 1423693061.512538
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/administrator/templates/organizations.html'
 _template_uri = 'organizations.html'
@@ -70,7 +70,7 @@ def render_admincontent(context,**pageargs):
             __M_writer(str(organization.zip_code))
             __M_writer('</td>\n                                    <td>')
             __M_writer(str(organization.email))
-            __M_writer('</td>\n                                    <td class="center">\n                                        <a class="btn btn-info btn-xs" href="/administrator/organizations.edit/')
+            __M_writer('</td>\n                                    <td class="text-center">\n                                        <a class="btn btn-info btn-xs" href="/administrator/organizations.edit/')
             __M_writer(str(organization.id))
             __M_writer('/"><i class="fa fa-pencil-square-o"> Edit</i></a>\n                                        <a class="btn btn-danger btn-xs" href="/administrator/organizations.delete/')
             __M_writer(str(organization.id))
@@ -83,6 +83,6 @@ def render_admincontent(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/scottromney/SiteOne/administrator/templates/organizations.html", "uri": "organizations.html", "source_encoding": "ascii", "line_map": {"64": 35, "65": 35, "66": 36, "67": 36, "68": 37, "69": 37, "70": 38, "71": 38, "72": 39, "73": 39, "74": 41, "75": 41, "76": 42, "77": 42, "78": 46, "84": 78, "27": 0, "35": 1, "40": 58, "46": 3, "53": 3, "54": 29, "55": 30, "56": 31, "57": 31, "58": 32, "59": 32, "60": 33, "61": 33, "62": 34, "63": 34}}
+{"uri": "organizations.html", "source_encoding": "ascii", "line_map": {"64": 35, "65": 35, "66": 36, "67": 36, "68": 37, "69": 37, "70": 38, "71": 38, "72": 39, "73": 39, "74": 41, "75": 41, "76": 42, "77": 42, "78": 46, "84": 78, "27": 0, "35": 1, "40": 58, "46": 3, "53": 3, "54": 29, "55": 30, "56": 31, "57": 31, "58": 32, "59": 32, "60": 33, "61": 33, "62": 34, "63": 34}, "filename": "/Users/scottromney/SiteOne/administrator/templates/organizations.html"}
 __M_END_METADATA
 """
