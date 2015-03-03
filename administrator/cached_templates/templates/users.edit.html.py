@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1423370703.636802
+_modified_time = 1425404894.612134
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/administrator/templates/users.edit.html'
 _template_uri = 'users.edit.html'
@@ -50,7 +50,7 @@ def render_admincontent(context,**pageargs):
             return render_admincontent(context)
         form = context.get('form', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\n    <div class="container">\n        <div class="manager-edit">\n            <div class="row">\n                <div class="panel panel-default col-md-12 col-sm-12">\n                    <div class="panel-heading">\n                        <h3 class="panel-title">Edit User</h3>\n                    </div>\n                    <div class="panel-body">\n                        <form class="form-horizontal signin-form" method="POST">\n                            ')
+        __M_writer('\n    <div class="container">\n        <div class="manager-edit">\n            <div class="row">\n                <div class="panel panel-default col-md-12 col-sm-12">\n                    <div class="panel-heading">\n                        <h3 class="panel-title">Edit User</h3>\n                    </div>\n                    <div class="panel-body">\n                        <form id="edit_form" class="form-horizontal signin-form" method="POST">\n                            ')
         __M_writer(str(form.non_field_errors()))
         __M_writer('\n')
         for field in form:
@@ -69,6 +69,6 @@ def render_admincontent(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"uri": "users.edit.html", "filename": "/Users/scottromney/SiteOne/administrator/templates/users.edit.html", "line_map": {"64": 25, "35": 1, "70": 64, "40": 34, "46": 3, "59": 16, "53": 3, "54": 13, "55": 13, "56": 14, "57": 15, "58": 16, "27": 0, "60": 18, "61": 18, "62": 20, "63": 20}, "source_encoding": "ascii"}
+{"filename": "/Users/scottromney/SiteOne/administrator/templates/users.edit.html", "line_map": {"64": 25, "35": 1, "70": 64, "40": 34, "46": 3, "59": 16, "53": 3, "54": 13, "55": 13, "56": 14, "57": 15, "58": 16, "27": 0, "60": 18, "61": 18, "62": 20, "63": 20}, "uri": "users.edit.html", "source_encoding": "ascii"}
 __M_END_METADATA
 """
