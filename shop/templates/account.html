@@ -1,0 +1,41 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+    <div class="container-fluid">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="panel with-nav-tabs account-container">
+                <div class="panel-heading">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab1default" data-toggle="tab">My Information</a>
+                        </li>
+                        <li><a href="#tab2default" data-toggle="tab">Settings</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="tab1default">
+                            <div class="container">
+                                <label for="firstname" class="col-lg-2">First Name:</label>
+                                <div class="col-lg-10">
+                                    <p id="firstname">${user.first_name}</p>
+                                </div>
+                                <label for="lastname" class="col-lg-2">Last Name:</label>
+                                <div class="col-lg-10">
+                                    <p id="lastname">${user.last_name}</p>
+                                </div>
+                                <label for="email" class="col-lg-2">Email:</label>
+                                <div class="col-lg-10">
+                                    <p id="email">${user.email}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab2default">
+                            Default 2
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</%block>

@@ -13,35 +13,43 @@ from django_mako_plus.controller.router import MakoTemplateRenderer
 from django_mako_plus.controller import view_function
 from django_mako_plus.controller.router import get_renderer
 
-templater = get_renderer('homepage')
+templater = get_renderer('shop')
 
+######################## main view function ########################
 @view_function
 def process_request(request):
 
 
+    template_vars = {
+
+    }
+
+    return templater.render_to_response(request, 'index.html', template_vars)
+
+######################## loginform view request ########################
+@view_function
+def loginform(request):
+    #prepare the login form
+    form = LoginForm()
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            django.contrib.auth.login(request, form.user)
+
+            return HttpResponse('''
+                <script>
+                    window.location.href = window.location.href;
+                </script>
+            ''')
 
 
-	#prepare the login form
-	form = LoginForm()
-	if request.method == 'POST':
-		form = LoginForm(request.POST)
-		if form.is_valid():
-			django.contrib.auth.login(request, form.user)
+    template_vars = {
+      'form': form,
+    }
 
-			usersingroup = Group.objects.get(name = 'Guppies').user_set.all()
-			if request.user in usersingroup:
-				return HttpResponseRedirect('/homepage/index')
+    return templater.render_to_response(request, 'index.loginform.html', template_vars)
 
-			return HttpResponseRedirect('/administrator/')
-
-
-	template_vars = {
-		'form': form,
-	}
-
-	return templater.render_to_response(request, 'login.html', template_vars)
-
-
+######################## Loing Form Class ########################
 class LoginForm(forms.Form):
 	username = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
 	password = forms.CharField(required=True, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
@@ -56,18 +64,6 @@ class LoginForm(forms.Form):
 		self.user = django.contrib.auth.authenticate(username=username, password=password)
 		print(self.user)
 		if self.user == None:
-			raise forms.ValidationError('Incorrect Username or Password.')
+			raise forms.ValidationError('Incorrect username/password.')
 
 		return self.cleaned_data
-
-
-
-@view_function
-def logout(request):
-	# check user permissions and prepare the params
-	params = prepare_params(request, require_authenticated=False)
-
-	django.contrib.auth.logout(request)
-	request.session.flush()
-
-	return HttpResponseRedirect('/homepage/login/')

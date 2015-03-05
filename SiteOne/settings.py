@@ -42,6 +42,8 @@ INSTALLED_APPS = (
     'base',
     'homepage',
     'administrator',
+    'shop',
+    'account',
 )
 
 MIDDLEWARE_CLASSES = (

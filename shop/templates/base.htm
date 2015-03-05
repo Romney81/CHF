@@ -1,0 +1,102 @@
+<%inherit file="/base/templates/base.htm" />
+
+<%block name="headlinks">
+
+</%block>
+
+<%block name="shop">
+    <nav class="navbar" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
+                            <i class="fa fa-shopping-cart"></i> Cart (0)
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="/administrator/"><i class="fa fa-user fa-fw"></i>
+                                    %if user.is_authenticated():
+                                        View ${user.first_name}'s Cart
+                                    %else:
+                                        View Guest Cart
+                                    %endif
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
+                            %if user.is_authenticated():
+                                Hi, ${user.first_name}
+                            %else:
+                                Login or Signup
+                            %endif
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            %if user.is_authenticated():
+                            <li><a href="/shop/account/"><i class="fa fa-gear fa-fw"></i> My Account</a>
+                            </li>
+                            %else:
+                                <li><a id="login-modal-button" href="#"><i class="fa fa-user fa-fw"></i> Login</a>
+                                </li>
+                                <li><a href="/homepage/signup/"><i class="fa fa-user fa-fw"></i> Create Account</a>
+                                </li>
+                            %endif
+                            %if user.is_authenticated():
+                            <li class="divider"></li>
+                            <li><a href="/logout/"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                            </li>
+                            %endif
+                        </ul>
+                    </li>
+                </ul>
+
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <!-- LOGIN MODAL -->
+    <div class="modal custom fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%block name="content">
+
+    </%block>
+</%block>
+
+<%block name="footlinks">
+
+</%block>

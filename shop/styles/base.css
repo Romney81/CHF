@@ -1,0 +1,52 @@
+.navbar {
+    position: relative;
+    min-height: 80px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 15px;
+}
+.modal.custom .modal-dialog {
+    width: 30%;
+}
+.modal.custom h3 {
+    margin-top: 5px;
+}
+.btn.custom {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    background-color: rgba(0, 87, 140, 0.82);;
+    color: #fff;
+}
+.btn.custom:hover{
+    background-color: rgba(0, 100, 161, 0.82);;
+    color: #fff;
+}
+.modal-container{
+    margin: 15px 40px;
+}
+.modal-backdrop.in {
+filter: alpha(opacity=50);
+opacity: 0.7;
+}
+.modal-content {border: none;}
+@media (min-width: 768px){
+    .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
+    background: rgba(255, 255, 255, 0);
+    }
+}
+
+.alert {
+padding: 10px;
+margin-bottom: 20px;
+border: 1px solid transparent;
+border-radius: 4px;
+}
