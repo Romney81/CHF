@@ -1,0 +1,22 @@
+<%inherit file="base_ajax.htm" />
+
+<%block name="content">
+    <form id="user_edit" class="form-horizontal" method="POST"  action="/shop/account.edit/">
+        ${form.non_field_errors()}
+        % for field in form:
+        <div class="form-group">
+            <label class="col-md-2 control-label">${field.label}</label>
+            <div class="col-md-8">
+                ${field}
+                <p>
+                    ${field.errors}
+                </p>
+            </div>
+        </div>
+        % endfor
+        <div class="text-center">
+            <button type="submit" class="btn btn-lg btn-blue">Save</button>
+        </div>
+
+    </form>
+</%block>

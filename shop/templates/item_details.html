@@ -1,0 +1,38 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+    <div class="container-fluid">
+        <div class="col-md-6 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">${item.name}</h3>
+                </div>
+                <div class="panel-body">
+
+                    <div class="item_image">
+                        <img src="${STATIC_URL}/homepage/media/images/${item.id}.jpg" alt="" />
+                    </div>
+                    <p>
+                        ${item.description}
+
+                    </p>
+                    <p>
+                        ${item.value}
+                    </p>
+                    <div data-pid="${item.id}" class="btn btn-blue add_button">
+                        <a href="#">Add to Cart</a>
+                    </div>
+                    <div class="dropdown">
+                        <select id="quantity" name="Item Quantity">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</%block>

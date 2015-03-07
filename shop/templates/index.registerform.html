@@ -1,0 +1,27 @@
+<%inherit file="base_ajax.htm" />
+
+<%block name="content">
+<div class="modal-container">
+        <div class="text-center">
+	        <h3>Register Now</h3>
+        </div>
+
+    	<form id="registerform" autocomplete="off" class="form-horizontal signin-form" method="POST" action="/shop/index.registerform/">
+            %if form.non_field_errors():
+            <div class="alert alert-danger" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                ${ form.non_field_errors() }
+            </div>
+            %endif
+    		% for field in form:
+    		<div class="form-group">
+    			<!-- <label class="col-md-3 control-label">${field.label}</label> -->
+    			<div class="col-md-12">
+    				${field}
+    			</div>
+    		</div>
+    		% endfor
+    		<button type="submit" class="btn custom">Create Account</button>
+    	</form>
+</div>
+</%block>

@@ -1,0 +1,52 @@
+<%inherit file="base_ajax.htm" />
+
+<%block name="content">
+
+
+<div class="item_container">
+    <table class="table table-striped tcart">
+
+        <thead>
+			<tr>
+			  <th>Name</th>
+			  <th>Quantity</th>
+			  <th>Price</th>
+              <th>Item Total</th>
+			</tr>
+		</thead>
+
+        <tbody>
+            <% grand_total = 0 %>
+
+            %for key,value in items.items():
+
+            <%
+                price = int(value[0].value)
+                qty = value[1]
+
+                sub_total = (price * qty)
+                grand_total += sub_total
+            %>
+
+			<tr>
+			  <td>${value[0].name}</td>
+			  <td>${value[1]}</td>
+			  <td>$${value[0].value}</td>
+              <td>$${sub_total}</td>
+			</tr>
+            %endfor
+		</tbody>
+
+        <tfoot>
+            <tr>
+                <td>Total: </td>
+                <td></td>
+                <td></td>
+                <td>$${grand_total}</td>
+            </tr>
+        </tfoot>
+
+    </table>
+</div>
+
+</%block>

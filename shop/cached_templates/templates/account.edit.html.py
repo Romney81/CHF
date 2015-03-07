@@ -4,10 +4,10 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1425585184.064535
+_modified_time = 1425680344.003307
 _enable_loop = True
-_template_filename = '/Users/scottromney/SiteOne/shop/templates/index.loginform.html'
-_template_uri = 'index.loginform.html'
+_template_filename = '/Users/scottromney/SiteOne/shop/templates/account.edit.html'
+_template_uri = 'account.edit.html'
 _source_encoding = 'ascii'
 import os, os.path, re
 _exports = ['content']
@@ -28,9 +28,9 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        form = context.get('form', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        form = context.get('form', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -46,22 +46,22 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        form = context.get('form', UNDEFINED)
         def content():
             return render_content(context)
-        form = context.get('form', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\n<div class="modal-container">\n        <div class="text-center">\n\t        <h3>Log In</h3>\n        </div>\n\n    \t<form id="loginform" autocomplete="off" class="form-horizontal signin-form" method="POST" action="/shop/index.loginform/">\n')
-        if form.non_field_errors():
-            __M_writer('            <div class="alert alert-danger" role="alert">\n                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>\n                ')
-            __M_writer(str( form.non_field_errors() ))
-            __M_writer('\n            </div>\n')
+        __M_writer('\n    <form id="user_edit" class="form-horizontal" method="POST"  action="/shop/account.edit/">\n        ')
+        __M_writer(str(form.non_field_errors()))
+        __M_writer('\n')
         for field in form:
-            __M_writer('    \t\t<div class="form-group">\n    \t\t\t<!-- <label class="col-md-3 control-label">')
+            __M_writer('        <div class="form-group">\n            <label class="col-md-2 control-label">')
             __M_writer(str(field.label))
-            __M_writer('</label> -->\n    \t\t\t<div class="col-md-12">\n    \t\t\t\t')
+            __M_writer('</label>\n            <div class="col-md-8">\n                ')
             __M_writer(str(field))
-            __M_writer('\n    \t\t\t</div>\n    \t\t</div>\n')
-        __M_writer('    \t\t<button type="submit" class="btn custom">Sign In</button>\n    \t</form>\n</div>\n')
+            __M_writer('\n                <p>\n                    ')
+            __M_writer(str(field.errors))
+            __M_writer('\n                </p>\n            </div>\n        </div>\n')
+        __M_writer('        <div class="text-center">\n            <button type="submit" class="btn btn-lg btn-blue">Save</button>\n        </div>\n\n    </form>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -69,6 +69,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "ascii", "filename": "/Users/scottromney/SiteOne/shop/templates/index.loginform.html", "uri": "index.loginform.html", "line_map": {"64": 24, "35": 1, "70": 64, "40": 27, "46": 3, "59": 17, "53": 3, "54": 10, "55": 11, "56": 13, "57": 13, "58": 16, "27": 0, "60": 18, "61": 18, "62": 20, "63": 20}}
+{"filename": "/Users/scottromney/SiteOne/shop/templates/account.edit.html", "uri": "account.edit.html", "line_map": {"64": 17, "35": 1, "70": 64, "40": 22, "46": 3, "59": 8, "53": 3, "54": 5, "55": 5, "56": 6, "57": 7, "58": 8, "27": 0, "60": 10, "61": 10, "62": 12, "63": 12}, "source_encoding": "ascii"}
 __M_END_METADATA
 """

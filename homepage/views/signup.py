@@ -19,7 +19,6 @@ templater = get_renderer('homepage')
 def process_request(request):
     params = {}
     user = hmod.SiteUser()
-    group = Group.objects.get(name="Guppies")
 
     form = UserCreationForm()
     if request.method == 'POST':

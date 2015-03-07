@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1425520947.350658
+_modified_time = 1425686273.780661
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/shop/templates/account.html'
 _template_uri = 'account.html'
@@ -56,7 +56,9 @@ def render_content(context,**pageargs):
         __M_writer(str(user.last_name))
         __M_writer('</p>\n                                </div>\n                                <label for="email" class="col-lg-2">Email:</label>\n                                <div class="col-lg-10">\n                                    <p id="email">')
         __M_writer(str(user.email))
-        __M_writer('</p>\n                                </div>\n                            </div>\n                        </div>\n                        <div class="tab-pane fade" id="tab2default">\n                            Default 2\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n')
+        __M_writer('</p>\n                                </div>\n                                <a href="#" data-uid="')
+        __M_writer(str(user.id))
+        __M_writer('"class="btn btn-blue editaccount">Edit User Information</a>\n                            </div>\n                        </div>\n                        <div class="tab-pane fade" id="tab2default">\n                            <label for="changePassword" class="col-lg-3">Change Your Password:</label>\n                            <a href="#" id="changepassword" class="btn btn-blue changepassword">Change Password</a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -64,6 +66,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "ascii", "filename": "/Users/scottromney/SiteOne/shop/templates/account.html", "line_map": {"65": 59, "35": 1, "40": 41, "46": 3, "59": 29, "53": 3, "54": 21, "55": 21, "56": 25, "57": 25, "58": 29, "27": 0}, "uri": "account.html"}
+{"filename": "/Users/scottromney/SiteOne/shop/templates/account.html", "line_map": {"35": 1, "40": 43, "46": 3, "59": 29, "67": 61, "53": 3, "54": 21, "55": 21, "56": 25, "57": 25, "58": 29, "27": 0, "60": 31, "61": 31}, "source_encoding": "ascii", "uri": "account.html"}
 __M_END_METADATA
 """

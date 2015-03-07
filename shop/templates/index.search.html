@@ -1,0 +1,33 @@
+<%inherit file="base_ajax.htm" />
+
+<%block name="content">
+    %for item in items:
+    <div class="col-md-3 col-sm-4">
+        <div class="item">
+            <!-- Item image -->
+            <div class="item-image">
+                <a href="/shop/item_details/${item.id}">
+                    <img src="${STATIC_URL}homepage/media/images/${item.id}.jpg" alt="" />
+                </a>
+            </div>
+            <!-- Item details -->
+            <div class="item-details">
+                <!-- Name -->
+                <!-- Use the span tag with the class "ico" and icon link (hot, sale, deal, new) -->
+                <h5><a href="single-item.html">${item.name}</a>
+                </h5>
+                <div class="clearfix"></div>
+                <!-- Para. Note more than 2 lines. -->
+                <p>${item.description}</p>
+                <hr />
+                <!-- Price -->
+                <div class="item-price pull-left">$${item.value}</div>
+                <!-- Add to cart -->
+                <div data-pid="${item.id}" class="button pull-right add_button"><a href="#">Add to Cart</a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    %endfor
+</%block>

@@ -1,0 +1,11 @@
+.btn-blue {
+    background-color: rgba(0, 87, 140, 0.82);
+    color: #fff;
+    transition: background 1s ease;
+}
+
+.btn-blue:hover {
+    background-color: rgba(0, 100, 161, 0.82);
+    color: #fff;
+    transition: background 1s ease;
+}

@@ -23,11 +23,11 @@
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="#"></a></li>
                 </ul>
-                <form class="navbar-form navbar-left" role="search">
+                <form id="search_go" class="navbar-form navbar-left" method="POST" action="/shop/index.search/" >
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" id="search_input" name="searchfield" class="form-control" placeholder="Search">
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="submit" id="search_button" class="btn btn-default">Submit</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
@@ -36,7 +36,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li>
-                                <a href="/administrator/"><i class="fa fa-user fa-fw"></i>
+                                <a class="cart-modal" href="#"><i class="fa fa-user fa-fw"></i>
                                     %if user.is_authenticated():
                                         View ${user.first_name}'s Cart
                                     %else:
@@ -64,7 +64,7 @@
                             %else:
                                 <li><a id="login-modal-button" href="#"><i class="fa fa-user fa-fw"></i> Login</a>
                                 </li>
-                                <li><a href="/homepage/signup/"><i class="fa fa-user fa-fw"></i> Create Account</a>
+                                <li><a id="register-modal-button" href="#"><i class="fa fa-user fa-fw"></i> Create Account</a>
                                 </li>
                             %endif
                             %if user.is_authenticated():
@@ -81,8 +81,8 @@
     </nav>
 
 
-    <!-- LOGIN MODAL -->
-    <div class="modal custom fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <!-- MODAL -->
+    <div class="modal custom fade" id="custom-modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">

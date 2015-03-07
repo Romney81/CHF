@@ -1,3 +1,4 @@
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
@@ -11,13 +12,10 @@ class SiteUser(AbstractUser):
 	zip_code = models.IntegerField(max_length=5, blank=True, null=True)
 	phone = models.CharField(max_length=30, blank=True, null=True)
 
-	class Meta:
-	    verbose_name = 'Site User'
 
 class Organization(models.Model):
 	organization_type = models.CharField(max_length=30)
 	phone = models.CharField(max_length=30, blank=True, null=True)
-	creation_date = models.DateField(blank=True, null=True)
 	address1 = models.CharField(max_length=60, blank=True, null=True)
 	city = models.CharField(max_length=30, blank=True, null=True)
 	state = models.CharField(max_length=12, blank=True, null=True)
@@ -28,17 +26,34 @@ class Product(models.Model):
 	name = models.CharField(max_length=30)
 	description = models.CharField(max_length=144)
 	category = models.CharField(max_length=144)
-	current_price = models.DecimalField(max_digits=6,decimal_places=2)
+	current_price = models.DecimalField(max_digits=6,decimal_places=2, null=True)
+	is_active = models.NullBooleanField(default=True, blank=True, null=True)
 
-class Area(models.Model):
+	def __str__(self):
+		return self.name
+
+
+class Location(models.Model):
 	name = models.CharField(max_length=255)
 	description = models.CharField(max_length=255)
+	city = models.CharField(max_length=30, blank=True, null=True)
+	state = models.CharField(max_length=30, blank=True, null=True)
+	is_active = models.NullBooleanField(default=True, blank=True, null=True)
+
+	def __str__(self):
+		return self.name
+
 
 class Item(models.Model):
-    name = models.CharField(max_length=30)
-    description = models.CharField(max_length=144)
-    value = models.DecimalField(max_digits=6, decimal_places=2)
-    is_rentable = models.BooleanField(default=True)
+	name = models.CharField(max_length=30, blank=True, null=True)
+	description = models.CharField(max_length=144, blank=True, null=True)
+	value = models.DecimalField(max_digits=6, decimal_places=2, null=True)
+	organization = models.CharField(max_length=144, blank=True, null=True)
+	is_rentable = models.NullBooleanField(default=True,blank=True, null=True)
+	is_active = models.NullBooleanField(default=True, blank=True, null=True)
+
+	def __str__(self):
+		return self.name
 
 class WardrobeItem(models.Model):
     size = models.CharField(max_length=2)
@@ -51,6 +66,10 @@ class WardrobeItem(models.Model):
     note = models.CharField(max_length=255)
     is_rentable = models.BooleanField(default=False)
 
+class Area(models.Model):
+	name = models.CharField(max_length=255)
+	description = models.CharField(max_length=255)
+
 class PublicEvent(models.Model):
 	name = models.CharField(max_length=30, blank=True, null=True)
 	description = models.CharField(max_length=255, blank=True, null=True)
@@ -58,16 +77,25 @@ class PublicEvent(models.Model):
 	end_date = models.DateField(blank=True, null=True)
 
 class Event(models.Model):
-	date = models.DateField(blank=True, null=True)
-	start_time = models.DateTimeField(blank=True, null=True)
-	map_url = models.URLField(blank=True, null=True)
-	public_event = models.ForeignKey(PublicEvent)
-	area = models.ForeignKey(Area)
-	venue = models.ForeignKey('Venue',null=True)
+	name = models.CharField(max_length=255)
+	description = models.CharField(max_length=255)
+	start_date = models.DateTimeField(blank=True, null=True)
+	end_date = models.DateTimeField(blank=True, null=True)
+	location = models.CharField(max_length=255)
+	is_active = models.NullBooleanField(default=True, blank=True, null=True)
+
+	def __str__(self):
+		return self.name
+
 
 class Venue(models.Model):
 	name = models.CharField(max_length=30)
+	description = models.CharField(max_length=255)
 	address = models.CharField(max_length=30)
 	city = models.CharField(max_length=30, blank=True, null=True)
 	state = models.CharField(max_length=30, blank=True, null=True)
-	zip_code = models.IntegerField(max_length=5, blank=True, null=True)
+	zip_code = models.CharField(max_length=5, blank=True, null=True)
+	is_active = models.NullBooleanField(default=True, blank=True, null=True)
+
+	def __str__(self):
+		return self.name
