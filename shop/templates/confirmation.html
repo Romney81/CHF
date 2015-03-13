@@ -1,0 +1,75 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+    <div class="confirmation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <!-- Title with number of items in shopping kart -->
+                    <h3 class="title">Thank You For Purchasing!</h3>
+                    <br />
+                    <div class="table-responsive">
+                        <!-- Table -->
+                        <table class="table tcart">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Image</th>
+                                    <th>Quantity</th>
+                                    <th>Unit Price</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% grand_total = 0 %>
+                                %for key,value in items.items():
+                                <%
+                                    price = int(value[0].value)
+                                    qty = value[1]
+
+                                    sub_total = (price * qty)
+                                    grand_total += sub_total
+                                %>
+                                <tr>
+                                    <!-- Index -->
+                                    <td>${value[0].id}</td>
+                                    <!-- Product  name -->
+                                    <td>${value[0].name}</td>
+                                    <!-- Product image -->
+                                    <td>
+                                        <a href="single-item.html">
+                                            <img src="${STATIC_URL}homepage/media/images/${value[0].id}.jpg" alt="" />
+                                        </a>
+                                    </td>
+                                    <!-- Quantity with refresh and remove button -->
+                                    <td>
+                                        ${value[1]}
+                                    </td>
+                                    <!-- Unit price -->
+                                    <td>$${value[0].value}</td>
+                                    <!-- Total cost -->
+                                    <td>$${sub_total}</td>
+                                </tr>
+                                %endfor
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Total</th>
+                                    <th>$${grand_total}</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-center">
+                        <h3>Purchase Process Comlete!</h3>
+                        <h4><a href="/shop/">Continue Shoping</a></h3>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</%block>

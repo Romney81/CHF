@@ -1,0 +1,97 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+
+
+    <div class="checkout">
+        <div class="container-fluid">
+            <div class="col-lg-6 col-lg-offset-3">
+                <div class="panel panel-default custom-panel">
+                    <div class="panel-body">
+                        <!-- Checkout page title -->
+                        <h4 class="title"><i class="fa fa-shopping-cart"></i> Checkout</h4>
+                        <!-- Sub title -->
+                        <h5 class="title">Shipping &amp; Billing Details</h5>
+                        <!-- Address and Shipping details form -->
+                        <div class="form form-small">
+                            <form class="form-horizontal">
+                                %for field in form:
+                                <div class="form-group">
+
+                                    <label class="control-label col-md-2" for="name1">${field.label}</label>
+                                    <div class="col-md-8">
+                                        ${field}
+                                    </div>
+                                </div>
+                                %endfor
+                            </form>
+                        </div>
+                        <hr />
+                        <!-- Payment details section -->
+                        <!-- Title -->
+                        <h5 class="title">Payment Details</h5>
+
+                        <!-- Radio buttons to select payment type -->
+
+                        <label class="radio-inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="1" checked> Debit Card
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="2"> Credit Card
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios3" value="3"> Internet Banking
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios4" value="4"> Cash On Delivery
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios5" value="5"> Paypal
+                        </label>
+
+                        <hr />
+
+                        <div class="form form-small">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="cardnumber">Name</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" id="cardnumber" placeholder="Full Name on Card">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="cardnumber">Card Number</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" id="cardnumber" placeholder="0000-0000-0000-0000">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="expdate">Expiration Date</label>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" id="expdate" placeholder="09/19/2019">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="expdate">CVV</label>
+                                    <div class="col-md-2">
+                                        <input type="text" class="form-control" id="expdate" placeholder="801">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Confirm order button -->
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-8">
+                                <div class="pull-right">
+                                    <a href="/shop/checkout.confirmation/" class="btn btn-danger">Purchase</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</%block>

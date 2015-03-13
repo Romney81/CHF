@@ -39,6 +39,18 @@ $(function() {
         $.loadmodal({
             url: "/shop/shopping_cart.add/" + pid + "/" + qty,
             title: "Shopping Cart",
+            width: "50%",
+            onShow: function() {
+
+                $('.button-panel').find('button').hide();
+                $('.button-panel').css({"height": "40px"});
+                $('.button-panel').html("<a href=\"/shop/checkout\" class=\"btn btn-blue pull-right\">Checkout</a>");
+            },
+            buttons:{
+                "Checkout": function() {
+
+                }
+            },
 
         });
     });
@@ -48,6 +60,18 @@ $(function() {
         $.loadmodal({
             url: "/shop/shopping_cart/",
             title: "Shopping Cart",
+            width: "50%",
+            onShow: function() {
+
+                $('.button-panel').find('button').hide();
+                $('.button-panel').css({"height": "40px"});
+                $('.button-panel').html("<a href=\"/shop/view-cart\" class=\"btn btn-blue pull-right\">View Cart</a>");
+            },
+            buttons:{
+                "Checkout": function() {
+
+                }
+            },
 
         });
     });
@@ -55,8 +79,6 @@ $(function() {
     $('#search_button').click(function() {
 
         var input = $("#search_input").val()
-
-        console.log(input)
 
         var options = {
 
@@ -71,7 +93,5 @@ $(function() {
 
         $('#search_go').ajaxForm(options);
     });
-
-
 
 });

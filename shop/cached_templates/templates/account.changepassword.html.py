@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1425686410.392426
+_modified_time = 1425782244.194856
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/shop/templates/account.changepassword.html'
 _template_uri = 'account.changepassword.html'
@@ -56,7 +56,7 @@ def render_content(context,**pageargs):
         for field in form:
             __M_writer('        <div class="form-group">\n            <label class="col-md-3 control-label">')
             __M_writer(str(field.label))
-            __M_writer('</label>\n            <div class="col-md-9">\n                ')
+            __M_writer('</label>\n            <div class="col-md-8">\n                ')
             __M_writer(str(field))
             __M_writer('\n                <p>\n                    ')
             __M_writer(str(field.errors))
@@ -69,6 +69,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"uri": "account.changepassword.html", "filename": "/Users/scottromney/SiteOne/shop/templates/account.changepassword.html", "line_map": {"64": 17, "35": 1, "70": 64, "40": 22, "46": 3, "59": 8, "53": 3, "54": 5, "55": 5, "56": 6, "57": 7, "58": 8, "27": 0, "60": 10, "61": 10, "62": 12, "63": 12}, "source_encoding": "ascii"}
+{"filename": "/Users/scottromney/SiteOne/shop/templates/account.changepassword.html", "uri": "account.changepassword.html", "line_map": {"64": 17, "35": 1, "70": 64, "40": 22, "46": 3, "59": 8, "53": 3, "54": 5, "55": 5, "56": 6, "57": 7, "58": 8, "27": 0, "60": 10, "61": 10, "62": 12, "63": 12}, "source_encoding": "ascii"}
 __M_END_METADATA
 """

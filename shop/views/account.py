@@ -1,11 +1,12 @@
-from django import forms
-from django.conf import settings
+from __future__ import unicode_literals
 from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django import forms
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
+from django.conf import settings
 import django.contrib.auth
-from django.contrib.auth import login
-from django.contrib.auth.models import Group
-from homepage import models
 from homepage.models import SiteUser
+import homepage.models as hmod
 from django.core import validators
 from django.forms import fields, util
 from django.core import exceptions
@@ -14,11 +15,14 @@ from django.contrib.auth.decorators import login_required
 from django_mako_plus.controller.router import MakoTemplateRenderer
 from django_mako_plus.controller import view_function
 from django_mako_plus.controller.router import get_renderer
-import homepage.models as hmod
+from django.contrib.auth import authenticate, get_user_model
+from django.contrib.auth.hashers import UNUSABLE_PASSWORD_PREFIX, identify_hasher
+from collections import OrderedDict
+from collections import OrderedDict
 
 templater = get_renderer('shop')
 
-######################## main view function ########################
+###################################### PROCESS REQUEST ######################################
 @view_function
 @login_required(login_url='/homepage/login/')
 def process_request(request):
@@ -29,6 +33,8 @@ def process_request(request):
     return templater.render_to_response(request, 'account.html', params)
 
 
+
+###################################### EDIT USER ######################################
 @view_function
 def edit(request):
     params = {}
@@ -76,6 +82,10 @@ class UserEditForm(forms.Form):
 
         return self.cleaned_data['username']
 
+
+
+
+###################################### CHANGE PASSWORD ######################################
 @view_function
 def changepassword(request):
     params = {}
@@ -83,12 +93,13 @@ def changepassword(request):
 
     user = hmod.SiteUser.objects.get(id=request.user.id)
 
-    form = PasswordChangeForm()
+    form = PasswordChangeForm(user)
     if request.method == 'POST':
-        form = PasswordChangeForm(request.POST)
+        form = PasswordChangeForm(user, data = request.POST)
         if form.is_valid():
 
-            user.save()
+            form.save()
+            update_session_auth_hash(request, form.user)
 
             return HttpResponse('''
                 <script>
@@ -97,14 +108,6 @@ def changepassword(request):
             ''')
 
     params['form'] = form
-
+    print("passing bad form")
     return templater.render_to_response(request, 'account.changepassword.html', params)
-class SetPasswordForm(forms.Form):
-    new_password1 = forms.CharField(label=("New password"),
-                                    widget=forms.PasswordInput(attrs={'class': 'form-control'}))
-    new_password2 = forms.CharField(label=("New password confirmation"),
-                                    widget=forms.PasswordInput(attrs={'class': 'form-control'}))
-
-class PasswordChangeForm(SetPasswordForm):
-    old_password = forms.CharField(label=("Old password"),
-                                   widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    

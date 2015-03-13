@@ -9,3 +9,6 @@
     color: #fff;
     transition: background 1s ease;
 }
+.navbar-nav>li>.dropdown-menu {
+    border-radius: 4px;
+}

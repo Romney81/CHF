@@ -118,6 +118,29 @@ for data in [
     e.save()
     print(e)
 
+
+###############################rentals##############################
+
+#Delete old rentals
+hmod.Rentals.objects.all().delete()
+
+#Create new Rentals: name, rental, due
+for data in [
+  ['Breeches','2015-03-05','2015-03-10'],
+  ['Red Coat','2015-02-02','2015-03-06'],
+  ['Blue Coat','2015-01-02','2015-02-02'],
+  ['Hat','2015-01-02','2015-02-02'],
+]:
+
+    #set attributes
+    rr = hmod.Rentals()
+    rr.name = data[0]
+    rr.rental_date = data[1]
+    rr.due_date = data[2]
+    #save
+    rr.save()
+    print(rr)
+
 ###############################ITEMS###############################
 #Delete old items
 hmod.Item.objects.all().delete()

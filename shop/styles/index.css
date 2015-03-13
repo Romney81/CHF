@@ -1,9 +1,15 @@
-.title {
-    margin-bottom: 8px;
-    padding-bottom: 3px;
-    border-bottom: 1px solid #f3f3f3;
+/* Title */
+
+.title{
+	margin-bottom: 8px;
+	padding-bottom: 3px;
+	border-bottom: 1px solid #f3f3f3;
+    font-size: 20px;
 }
 
+.title i{
+	margin-right: 3px;
+}
 /* Item */
 
 .items{
@@ -104,9 +110,6 @@ form.form-inline .btn{
 	margin-left:20px;
 }
 
-a.btn, a.btn:visited, a.btn:hover{
-	color:#333 !important;
-}
 
 a.btn-primary,a.btn-primary:visited,a.btn-primary:hover,
 a.btn-warning,a.btn-warning:visited,a.btn-warning:hover,

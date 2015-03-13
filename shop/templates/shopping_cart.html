@@ -12,6 +12,7 @@
 			  <th>Quantity</th>
 			  <th>Price</th>
               <th>Item Total</th>
+              <th>Remove</th>
 			</tr>
 		</thead>
 
@@ -33,16 +34,19 @@
 			  <td>${value[1]}</td>
 			  <td>$${value[0].value}</td>
               <td>$${sub_total}</td>
+              <td><a class="btn btn-danger delete_button" data-pid="${value[0].id}" href="#"><i class="fa fa-times"></i></a></td>
 			</tr>
+
             %endfor
 		</tbody>
 
         <tfoot>
             <tr>
-                <td>Total: </td>
+                <td><b>Total:</b> </td>
                 <td></td>
                 <td></td>
-                <td>$${grand_total}</td>
+                <td></td>
+                <td><b>$${grand_total}</b></td>
             </tr>
         </tfoot>
 

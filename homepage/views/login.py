@@ -28,11 +28,7 @@ def process_request(request):
 		if form.is_valid():
 			django.contrib.auth.login(request, form.user)
 
-			usersingroup = Group.objects.get(name = 'Guppies').user_set.all()
-			if request.user in usersingroup:
-				return HttpResponseRedirect('/homepage/index')
-
-			return HttpResponseRedirect('/administrator/')
+			return HttpResponseRedirect('/homepage/index/')
 
 
 	template_vars = {

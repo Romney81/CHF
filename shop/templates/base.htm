@@ -1,7 +1,7 @@
 <%inherit file="/base/templates/base.htm" />
 
 <%block name="headlinks">
-
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </%block>
 
 <%block name="shop">
@@ -21,6 +21,7 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
+                    <li class="active"><a href="/shop/">Shop</a></li>
                     <li><a href="#"></a></li>
                 </ul>
                 <form id="search_go" class="navbar-form navbar-left" method="POST" action="/shop/index.search/" >
@@ -32,7 +33,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
-                            <i class="fa fa-shopping-cart"></i> Cart (0)
+                            <i class="fa fa-shopping-cart"></i> Cart
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li>
@@ -64,7 +65,7 @@
                             %else:
                                 <li><a id="login-modal-button" href="#"><i class="fa fa-user fa-fw"></i> Login</a>
                                 </li>
-                                <li><a id="register-modal-button" href="#"><i class="fa fa-user fa-fw"></i> Create Account</a>
+                                <li><a id="register-modal-button" href="#"><i class="fa fa-user-plus fa-fw"></i> Create Account</a>
                                 </li>
                             %endif
                             %if user.is_authenticated():

@@ -43,7 +43,6 @@ INSTALLED_APPS = (
     'homepage',
     'administrator',
     'shop',
-    'account',
 )
 
 MIDDLEWARE_CLASSES = (

@@ -47,6 +47,7 @@ def process_request(request):
 
 @view_function
 def add(request):
+
     if 'shopping_cart' not in request.session:
         request.session['shopping_cart'] = {}
 
@@ -63,6 +64,19 @@ def add(request):
     else:
         request.session['shopping_cart'][pid] = qty
         request.session.modified = True
+
+
+    return HttpResponseRedirect('/shop/shopping_cart/')
+
+@view_function
+def delete(request):
+
+    pid = request.urlparams[0]
+
+    del request.session['shopping_cart'][pid]
+    request.session.modified = True
+
+
 
 
     return HttpResponseRedirect('/shop/shopping_cart/')

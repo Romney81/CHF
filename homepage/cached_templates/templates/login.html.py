@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1423359854.390485
+_modified_time = 1425791741.419788
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/homepage/templates/login.html'
 _template_uri = 'login.html'
@@ -67,6 +67,6 @@ def render_index(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/scottromney/SiteOne/homepage/templates/login.html", "source_encoding": "ascii", "line_map": {"35": 1, "68": 62, "40": 43, "46": 3, "59": 30, "53": 3, "54": 27, "55": 27, "56": 28, "57": 29, "58": 30, "27": 0, "60": 32, "61": 32, "62": 36}, "uri": "login.html"}
+{"uri": "login.html", "filename": "/Users/scottromney/SiteOne/homepage/templates/login.html", "source_encoding": "ascii", "line_map": {"35": 1, "68": 62, "40": 43, "46": 3, "59": 30, "53": 3, "54": 27, "55": 27, "56": 28, "57": 29, "58": 30, "27": 0, "60": 32, "61": 32, "62": 36}}
 __M_END_METADATA
 """

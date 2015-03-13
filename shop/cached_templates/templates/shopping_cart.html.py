@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1425670727.220481
+_modified_time = 1425788479.457343
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/shop/templates/shopping_cart.html'
 _template_uri = 'shopping_cart.html'
@@ -28,10 +28,10 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def content():
-            return render_content(context._locals(__M_locals))
         items = context.get('items', UNDEFINED)
         int = context.get('int', UNDEFINED)
+        def content():
+            return render_content(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -47,12 +47,12 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def content():
-            return render_content(context)
         items = context.get('items', UNDEFINED)
         int = context.get('int', UNDEFINED)
+        def content():
+            return render_content(context)
         __M_writer = context.writer()
-        __M_writer('\n\n\n<div class="item_container">\n    <table class="table table-striped tcart">\n\n        <thead>\n\t\t\t<tr>\n\t\t\t  <th>Name</th>\n\t\t\t  <th>Quantity</th>\n\t\t\t  <th>Price</th>\n              <th>Item Total</th>\n\t\t\t</tr>\n\t\t</thead>\n\n        <tbody>\n            ')
+        __M_writer('\n\n\n<div class="item_container">\n    <table class="table table-striped tcart">\n\n        <thead>\n\t\t\t<tr>\n\t\t\t  <th>Name</th>\n\t\t\t  <th>Quantity</th>\n\t\t\t  <th>Price</th>\n              <th>Item Total</th>\n              <th>Remove</th>\n\t\t\t</tr>\n\t\t</thead>\n\n        <tbody>\n            ')
         grand_total = 0 
         
         __M_writer('\n\n')
@@ -74,10 +74,12 @@ def render_content(context,**pageargs):
             __M_writer(str(value[0].value))
             __M_writer('</td>\n              <td>$')
             __M_writer(str(sub_total))
-            __M_writer('</td>\n\t\t\t</tr>\n')
-        __M_writer('\t\t</tbody>\n\n        <tfoot>\n            <tr>\n                <td>Total: </td>\n                <td></td>\n                <td></td>\n                <td>$')
+            __M_writer('</td>\n              <td><a class="btn btn-danger delete_button" data-pid="')
+            __M_writer(str(value[0].id))
+            __M_writer('" href="#"><i class="fa fa-times"></i></a></td>\n\t\t\t</tr>\n\n')
+        __M_writer('\t\t</tbody>\n\n        <tfoot>\n            <tr>\n                <td><b>Total:</b> </td>\n                <td></td>\n                <td></td>\n                <td></td>\n                <td><b>$')
         __M_writer(str(grand_total))
-        __M_writer('</td>\n            </tr>\n        </tfoot>\n\n    </table>\n</div>\n\n')
+        __M_writer('</b></td>\n            </tr>\n        </tfoot>\n\n    </table>\n</div>\n\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -85,6 +87,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "ascii", "filename": "/Users/scottromney/SiteOne/shop/templates/shopping_cart.html", "uri": "shopping_cart.html", "line_map": {"69": 29, "70": 32, "71": 32, "72": 33, "73": 33, "74": 34, "75": 34, "76": 35, "77": 35, "78": 38, "79": 45, "80": 45, "86": 80, "27": 0, "36": 1, "41": 52, "47": 3, "55": 3, "56": 19, "58": 19, "59": 21, "60": 22, "61": 23}}
+{"source_encoding": "ascii", "filename": "/Users/scottromney/SiteOne/shop/templates/shopping_cart.html", "uri": "shopping_cart.html", "line_map": {"69": 30, "70": 33, "71": 33, "72": 34, "73": 34, "74": 35, "75": 35, "76": 36, "77": 36, "78": 37, "79": 37, "80": 41, "81": 49, "82": 49, "88": 82, "27": 0, "36": 1, "41": 56, "47": 3, "55": 3, "56": 20, "58": 20, "59": 22, "60": 23, "61": 24}}
 __M_END_METADATA
 """

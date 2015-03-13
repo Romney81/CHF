@@ -1,8 +1,11 @@
+a {color: rgb(102, 102, 102);}
 .navbar {
     position: relative;
     min-height: 80px;
     margin-bottom: 20px;
-    border: 1px solid transparent;
+    border-bottom: 2px solid rgba(0, 87, 140, 1);
+    border-radius: 0px;
+
 }
 .container-fluid {
     padding-right: 15px;

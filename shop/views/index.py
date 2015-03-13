@@ -2,7 +2,7 @@ from django import forms
 from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 import django.contrib.auth
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import Group
 from homepage import models
 import homepage.models as hmod
@@ -13,6 +13,8 @@ from django.core import exceptions
 from django_mako_plus.controller.router import MakoTemplateRenderer
 from django_mako_plus.controller import view_function
 from django_mako_plus.controller.router import get_renderer
+from django.contrib.auth.forms import UserCreationForm
+from django.forms import ModelForm
 
 templater = get_renderer('shop')
 
@@ -86,25 +88,22 @@ class LoginForm(forms.Form):
 @view_function
 def registerform(request):
     params = {}
-    user = SiteUser()
 
-    form = UserCreationForm()
+    form = MyUserCreationForm()
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = MyUserCreationForm(request.POST)
         if form.is_valid():
+            user = SiteUser()
+            user.username = form.cleaned_data['username']
+            user.first_name = form.cleaned_data['first_name']
+            user.last_name = form.cleaned_data['last_name']
+            user.set_password( form.cleaned_data['password2'] )
+            user.save()
 
-            #Create new user
-           user.username = form.cleaned_data['username']
-           user.first_name = form.cleaned_data['first_name']
-           user.last_name = form.cleaned_data['last_name']
-           user.email = form.cleaned_data['email']
-           user.set_password( form.cleaned_data['password2'] )
-           user.save()
-
-           #login user after authentication
-           user = authenticate(username = form.cleaned_data['username'], password=form.cleaned_data['password2'])
-           login(request, user)
-           return HttpResponse('''
+            #login user after authentication
+            user = authenticate(username = form.cleaned_data['username'], password = form.cleaned_data['password2'])
+            login(request, user)
+            return HttpResponse('''
                <script>
                    window.location.href = window.location.href;
                </script>
@@ -112,14 +111,37 @@ def registerform(request):
 
     params['form'] = form
     return templater.render_to_response(request, 'index.registerform.html', params)
-
-class UserCreationForm(forms.Form):
+class MyUserCreationForm(forms.Form):
+    error_messages = {
+        'duplicate_username': ("A user with that username already exists."),
+        'password_mismatch': ("The two password fields didn't match."),
+    }
     username = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
     first_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}))
     last_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}))
-    email = forms.EmailField(required=True, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email'}))
     password1 = forms.CharField(required=True, max_length=30,widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'password1'}))
     password2 = forms.CharField(required=True, max_length=30,widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'password2'}))
+
+    def clean_username(self):
+        username = self.cleaned_data["username"]
+        try:
+            SiteUser._default_manager.get(username=username)
+        except SiteUser.DoesNotExist:
+            return username
+        raise forms.ValidationError(
+            self.error_messages['duplicate_username'],
+            code='duplicate_username',
+        )
+
+    def clean_password2(self):
+        password1 = self.cleaned_data.get("password1")
+        password2 = self.cleaned_data.get("password2")
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError(
+                self.error_messages['password_mismatch'],
+                code='password_mismatch',
+            )
+        return password2
 
 
 @view_function
@@ -130,9 +152,11 @@ def search(request):
     searchfor = request.REQUEST.get('input')
 
     items = []
-
-    if request.method == 'POST':
-        items = hmod.Item.objects.filter(name = searchfor)
+    if searchfor != '':
+        if request.method == 'POST':
+            items = hmod.Item.objects.filter(name = searchfor)
+    else:
+        items = hmod.Item.objects.all()
 
 
     params['items'] = items
