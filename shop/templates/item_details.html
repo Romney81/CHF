@@ -1,8 +1,8 @@
 <%inherit file="base.htm" />
 
 <%block name="content">
-    <div class="container-fluid">
-        <div class="col-md-6 col-md-offset-2">
+    <div class="container-fluid text-center">
+        <div class="col-md-3 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">${item.name}</h3>
@@ -19,8 +19,8 @@
                     <p>
                         ${item.value}
                     </p>
-                    <div data-pid="${item.id}" class="btn btn-blue add_button">
-                        <a href="#">Add to Cart</a>
+                    <div>
+                        <a data-pid="${item.id}" class="btn btn-blue add_button" href="#">Add to Cart</a>
                     </div>
                     <div class="dropdown">
                         <select id="quantity" name="Item Quantity">

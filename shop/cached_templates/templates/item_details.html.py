@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1425693762.016353
+_modified_time = 1426632870.807834
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/shop/templates/item_details.html'
 _template_uri = 'item_details.html'
@@ -28,10 +28,10 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        item = context.get('item', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        item = context.get('item', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -47,12 +47,12 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        item = context.get('item', UNDEFINED)
         def content():
             return render_content(context)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        item = context.get('item', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\n    <div class="container-fluid">\n        <div class="col-md-6 col-md-offset-2">\n            <div class="panel panel-default">\n                <div class="panel-heading">\n                    <h3 class="panel-title">')
+        __M_writer('\n    <div class="container-fluid text-center">\n        <div class="col-md-3 col-md-offset-4">\n            <div class="panel panel-default">\n                <div class="panel-heading">\n                    <h3 class="panel-title">')
         __M_writer(str(item.name))
         __M_writer('</h3>\n                </div>\n                <div class="panel-body">\n\n                    <div class="item_image">\n                        <img src="')
         __M_writer(str(STATIC_URL))
@@ -62,9 +62,9 @@ def render_content(context,**pageargs):
         __M_writer(str(item.description))
         __M_writer('\n\n                    </p>\n                    <p>\n                        ')
         __M_writer(str(item.value))
-        __M_writer('\n                    </p>\n                    <div data-pid="')
+        __M_writer('\n                    </p>\n                    <div>\n                        <a data-pid="')
         __M_writer(str(item.id))
-        __M_writer('" class="btn btn-blue add_button">\n                        <a href="#">Add to Cart</a>\n                    </div>\n                    <div class="dropdown">\n                        <select id="quantity" name="Item Quantity">\n                            <option value="1">1</option>\n                            <option value="2">2</option>\n                            <option value="3">3</option>\n                            <option value="4">4</option>\n                            <option value="5">5</option>\n                        </select>\n                    </div>\n\n                </div>\n\n            </div>\n        </div>\n    </div>\n')
+        __M_writer('" class="btn btn-blue add_button" href="#">Add to Cart</a>\n                    </div>\n                    <div class="dropdown">\n                        <select id="quantity" name="Item Quantity">\n                            <option value="1">1</option>\n                            <option value="2">2</option>\n                            <option value="3">3</option>\n                            <option value="4">4</option>\n                            <option value="5">5</option>\n                        </select>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -72,6 +72,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"64": 20, "65": 20, "66": 22, "27": 0, "36": 1, "41": 40, "47": 3, "67": 22, "73": 67, "55": 3, "56": 8, "57": 8, "58": 13, "59": 13, "60": 13, "61": 13, "62": 16, "63": 16}, "uri": "item_details.html", "source_encoding": "ascii", "filename": "/Users/scottromney/SiteOne/shop/templates/item_details.html"}
+{"line_map": {"64": 20, "65": 20, "66": 23, "27": 0, "36": 1, "41": 38, "47": 3, "67": 23, "73": 67, "55": 3, "56": 8, "57": 8, "58": 13, "59": 13, "60": 13, "61": 13, "62": 16, "63": 16}, "filename": "/Users/scottromney/SiteOne/shop/templates/item_details.html", "uri": "item_details.html", "source_encoding": "ascii"}
 __M_END_METADATA
 """

@@ -88,6 +88,15 @@ USE_L10N = True
 
 USE_TZ = True
 
+#Emails
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'romney81@gmail.com'
+SERVER_EMAIL = 'test@gmail.com'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'romney81@gmail.com'
+EMAIL_HOST_PASSWORD = 'mmc0911!!!'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/

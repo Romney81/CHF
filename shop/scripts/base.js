@@ -44,7 +44,7 @@ $(function() {
 
                 $('.button-panel').find('button').hide();
                 $('.button-panel').css({"height": "40px"});
-                $('.button-panel').html("<a href=\"/shop/checkout\" class=\"btn btn-blue pull-right\">Checkout</a>");
+                $('.button-panel').html("<a href=\"/shop/view-cart\" class=\"btn btn-blue pull-right\">View Cart</a>");
             },
             buttons:{
                 "Checkout": function() {

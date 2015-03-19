@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1425791597.353574
+_modified_time = 1426694978.882262
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/shop/templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['headlinks', 'shop', 'footlinks', 'content']
+_exports = ['footlinks', 'headlinks', 'shop', 'content']
 
 
 def _mako_get_namespace(context, name):
@@ -28,6 +28,8 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        def footlinks():
+            return render_footlinks(context._locals(__M_locals))
         def headlinks():
             return render_headlinks(context._locals(__M_locals))
         def shop():
@@ -35,8 +37,6 @@ def render_body(context,**pageargs):
         user = context.get('user', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        def footlinks():
-            return render_footlinks(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'headlinks'):
@@ -54,6 +54,18 @@ def render_body(context,**pageargs):
         
 
         __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_footlinks(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def footlinks():
+            return render_footlinks(context)
+        __M_writer = context.writer()
+        __M_writer('\n\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -80,7 +92,7 @@ def render_shop(context,**pageargs):
         def content():
             return render_content(context)
         __M_writer = context.writer()
-        __M_writer('\n    <nav class="navbar" role="navigation">\n        <div class="container-fluid">\n            <div class="navbar-header">\n                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">\n                    <span class="sr-only">Toggle navigation</span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                </button>\n                <a class="navbar-brand" href="#"></a>\n            </div>\n\n            <!-- Collect the nav links, forms, and other content for toggling -->\n            <div class="collapse navbar-collapse" id="navbar">\n                <ul class="nav navbar-nav">\n                    <li class="active"><a href="#">Home</a></li>\n                    <li class="active"><a href="/shop/">Shop</a></li>\n                    <li><a href="#"></a></li>\n                </ul>\n                <form id="search_go" class="navbar-form navbar-left" method="POST" action="/shop/index.search/" >\n                    <div class="form-group">\n                        <input type="text" id="search_input" name="searchfield" class="form-control" placeholder="Search">\n                    </div>\n                    <button type="submit" id="search_button" class="btn btn-default">Submit</button>\n                </form>\n                <ul class="nav navbar-nav navbar-right">\n                    <li class="dropdown">\n                        <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">\n                            <i class="fa fa-shopping-cart"></i> Cart\n                        </a>\n                        <ul class="dropdown-menu dropdown-user">\n                            <li>\n                                <a class="cart-modal" href="#"><i class="fa fa-user fa-fw"></i>\n')
+        __M_writer('\n    <nav class="navbar" role="navigation">\n        <div class="container-fluid">\n            <div class="navbar-header">\n                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">\n                    <span class="sr-only">Toggle navigation</span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                </button>\n                <a class="navbar-brand" href="#"></a>\n            </div>\n\n            <!-- Collect the nav links, forms, and other content for toggling -->\n            <div class="collapse navbar-collapse" id="navbar">\n                <ul class="nav navbar-nav">\n                    <li class="active"><a href="/homepage/">Homepage</a></li>\n                    <li class="active"><a href="/shop/">Shop</a></li>\n                    <li class="active"><a href="/shop/rentals/">Rentals</a></li>\n                    <li><a href="#"></a></li>\n                </ul>\n                <form id="search_go" class="navbar-form navbar-left" method="POST" action="/shop/index.search/" >\n                    <div class="form-group">\n                        <input type="text" id="search_input" name="searchfield" class="form-control" placeholder="Search">\n                    </div>\n                    <button type="submit" id="search_button" class="btn btn-default">Submit</button>\n                </form>\n                <ul class="nav navbar-nav navbar-right">\n                    <li class="dropdown">\n                        <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">\n                            <i class="fa fa-shopping-cart"></i> Cart\n                        </a>\n                        <ul class="dropdown-menu dropdown-user">\n                            <li>\n                                <a class="cart-modal" href="#"><i class="fa fa-user fa-fw"></i>\n')
         if user.is_authenticated():
             __M_writer('                                        View ')
             __M_writer(str(user.first_name))
@@ -101,24 +113,12 @@ def render_shop(context,**pageargs):
             __M_writer('                                <li><a id="login-modal-button" href="#"><i class="fa fa-user fa-fw"></i> Login</a>\n                                </li>\n                                <li><a id="register-modal-button" href="#"><i class="fa fa-user-plus fa-fw"></i> Create Account</a>\n                                </li>\n')
         if user.is_authenticated():
             __M_writer('                            <li class="divider"></li>\n                            <li><a href="/logout/"><i class="fa fa-sign-out fa-fw"></i>Logout</a>\n                            </li>\n')
-        __M_writer('                        </ul>\n                    </li>\n                </ul>\n\n            </div><!-- /.navbar-collapse -->\n        </div><!-- /.container-fluid -->\n    </nav>\n\n\n    <!-- MODAL -->\n    <div class="modal custom fade" id="custom-modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">\n        <div class="modal-dialog">\n            <div class="modal-content">\n                <div class="modal-body">\n\n                </div>\n            </div>\n        </div>\n    </div>\n\n    ')
+        __M_writer('                        </ul>\n                    </li>\n                </ul>\n\n            </div><!-- /.navbar-collapse -->\n        </div><!-- /.container-fluid -->\n    </nav>\n\n\n\n    <!-- MODAL -->\n    <div class="modal custom fade" id="custom-modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">\n        <div class="modal-dialog">\n            <div class="modal-content">\n                <div class="modal-body">\n\n                </div>\n            </div>\n        </div>\n    </div>\n\n    ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
             context['self'].content(**pageargs)
         
 
-        __M_writer('\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_footlinks(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def footlinks():
-            return render_footlinks(context)
-        __M_writer = context.writer()
-        __M_writer('\n\n')
+        __M_writer('\n\n    <!-- Footer starts -->\n\t\t<footer class="shop-footer">\n\t\t\t<div class="container">\n\t\t\t\t<div class="row">\n\t\t\t\t\t<div class="col-md-12">\n\t\t\t\t\t\t<div class="row">\n\t\t\t\t\t\t\t<div class="col-md-4">\n\t\t\t\t\t\t\t\t<div class="widget">\n\t\t\t\t\t\t\t\t\t<h5>Contact</h5>\n\t\t\t\t\t\t\t\t\t<hr />\n\t\t\t\t\t\t\t\t\t<div class="social">\n\t\t\t\t\t\t\t\t\t\t<a href="#"><i class="fa fa-facebook facebook"></i></a>\n\t\t\t\t\t\t\t\t\t\t<a href="#"><i class="fa fa-twitter twitter"></i></a>\n\t\t\t\t\t\t\t\t\t\t<a href="#"><i class="fa fa-linkedin linkedin"></i></a>\n\t\t\t\t\t\t\t\t\t\t<a href="#"><i class="fa fa-google-plus google-plus"></i></a>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<hr />\n\t\t\t\t\t\t\t\t\t<i class="fa fa-home"></i> &nbsp; 123, Some Area. Los Angeles, CA, 54321.\n\t\t\t\t\t\t\t\t\t<hr />\n\t\t\t\t\t\t\t\t\t<i class="fa fa-phone"></i> &nbsp; +239-3823-3434\n\t\t\t\t\t\t\t\t\t<hr />\n\t\t\t\t\t\t\t\t\t<i class="fa fa-envelope-o"></i> &nbsp; <a href="mailto:#">chf@colonialheritageutah.com</a>\n\t\t\t\t\t\t\t\t\t<hr />\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class="col-md-4">\n\t\t\t\t\t\t\t\t<div class="widget">\n\t\t\t\t\t\t\t\t\t<h5>About Us</h5>\n\t\t\t\t\t\t\t\t\t<hr />\n\t\t\t\t\t\t\t\t\t<p>The Colonial Heritage Foundation (the Foundation) is a 501(c)(3) corporation dedicated to the preservation of the values, culture, skills and history of America\'s founding. To accomplish this mission, the Foundation engages in a broad array of activities.</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class="col-md-4">\n\t\t\t\t\t\t\t\t<div class="widget">\n\t\t\t\t\t\t\t\t\t<h5>Common Links</h5>\n\t\t\t\t\t\t\t\t\t<hr />\n\t\t\t\t\t\t\t\t\t<div class="two-col">\n\t\t\t\t\t\t\t\t\t\t<div class="col-left">\n\t\t\t\t\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a href="#">Home</a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a href="#">Contact Us</a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a href="#">Login</a></li>\n\n\t\t\t\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class="col-right">\n\t\t\t\t\t\t\t\t\t\t\t<ul>\n                                                <li><a href="#">Register</a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a href="#">Shop</a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a href="#">Rentals</a></li>\n\t\t\t\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class="clearfix"></div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<hr />\n\t\t\t\t\t\t<!-- Copyright info -->\n\t\t\t\t\t\t<p class="copy">Copyright &copy; 2012 | <a href="#">Your Site</a> - <a href="#">Home</a> | <a href="#">About Us</a> | <a href="#">Service</a> | <a href="#">Contact Us</a></p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class="clearfix"></div>\n\t\t\t</div>\n\t\t</footer>\n\t\t<!--/ Footer ends -->\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -138,6 +138,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"uri": "base.htm", "filename": "/Users/scottromney/SiteOne/shop/templates/base.htm", "source_encoding": "ascii", "line_map": {"115": 101, "68": 3, "133": 96, "74": 7, "139": 133, "83": 7, "84": 41, "85": 42, "86": 42, "87": 42, "88": 43, "89": 44, "90": 46, "91": 55, "92": 56, "93": 56, "94": 56, "95": 57, "96": 58, "97": 60, "98": 62, "27": 0, "100": 65, "101": 66, "102": 71, "103": 72, "104": 76, "41": 1, "109": 98, "46": 5, "99": 63, "51": 99, "56": 103, "121": 101, "62": 3, "127": 96}}
+{"filename": "/Users/scottromney/SiteOne/shop/templates/base.htm", "source_encoding": "ascii", "line_map": {"115": 73, "68": 170, "133": 98, "74": 3, "139": 133, "80": 3, "110": 63, "86": 7, "27": 0, "95": 7, "96": 42, "97": 43, "98": 43, "99": 43, "100": 44, "101": 45, "102": 47, "103": 56, "104": 57, "41": 1, "106": 57, "107": 58, "108": 59, "109": 61, "46": 5, "111": 64, "112": 66, "113": 67, "114": 72, "51": 168, "116": 77, "105": 57, "56": 172, "121": 100, "62": 170, "127": 98}, "uri": "base.htm"}
 __M_END_METADATA
 """

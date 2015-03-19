@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1423265889.464754
+_modified_time = 1426695110.940996
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/homepage/templates/signup.html'
 _template_uri = 'signup.html'
@@ -50,9 +50,7 @@ def render_index(context,**pageargs):
         def index():
             return render_index(context)
         __M_writer = context.writer()
-        __M_writer('\n    <!--\n<div class="panel panel-default">\n\t<form class="form-signin">\n        <h2 class="form-signin-heading">Please sign in</h2>\n        <p class="text-warning">Invalid Email/Password Please Try Again</p>\n        <label for="inputEmail" class="sr-only">Email address</label>\n        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>\n        <label for="inputPassword" class="sr-only">Password</label>\n        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>\n        <div class="checkbox">\n        \t<label><input type="checkbox" value="remember-me"> Remember me</label>\n\t\t</div>\n        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>\n\t</form>\n</div>\n-->\n    <div class="signup">\n        <div class="row">\n            <div class="row">\n                <div class="col-md-12">\n                    <h3>Sign Up</h3>\n                </div>\n                <form class="form-horizontal signin-form" method="POST">\n                    ')
-        __M_writer(str( form.non_field_errors() ))
-        __M_writer('\n')
+        __M_writer('\n    <!--\n<div class="panel panel-default">\n\t<form class="form-signin">\n        <h2 class="form-signin-heading">Please sign in</h2>\n        <p class="text-warning">Invalid Email/Password Please Try Again</p>\n        <label for="inputEmail" class="sr-only">Email address</label>\n        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>\n        <label for="inputPassword" class="sr-only">Password</label>\n        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>\n        <div class="checkbox">\n        \t<label><input type="checkbox" value="remember-me"> Remember me</label>\n\t\t</div>\n        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>\n\t</form>\n</div>\n-->\n    <div class="signup">\n        <div class="row">\n            <div class="row">\n                <div class="col-md-12">\n                    <h3>Sign Up</h3>\n                </div>\n                <form class="form-horizontal signin-form" method="POST">\n')
         for field in form:
             __M_writer('                    <div class="form-group col-md-12">\n                        <!-- <label class="col-md-3 control-label">')
             __M_writer(str(field.label))
@@ -67,6 +65,6 @@ def render_index(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"35": 1, "68": 62, "40": 43, "46": 3, "59": 30, "53": 3, "54": 27, "55": 27, "56": 28, "57": 29, "58": 30, "27": 0, "60": 32, "61": 32, "62": 36}, "source_encoding": "ascii", "filename": "/Users/scottromney/SiteOne/homepage/templates/signup.html", "uri": "signup.html"}
+{"filename": "/Users/scottromney/SiteOne/homepage/templates/signup.html", "source_encoding": "ascii", "line_map": {"66": 60, "35": 1, "40": 42, "46": 3, "59": 31, "53": 3, "54": 27, "55": 28, "56": 29, "57": 29, "58": 31, "27": 0, "60": 35}, "uri": "signup.html"}
 __M_END_METADATA
 """

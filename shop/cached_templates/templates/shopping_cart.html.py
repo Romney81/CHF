@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1425788479.457343
+_modified_time = 1426747601.623382
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/shop/templates/shopping_cart.html'
 _template_uri = 'shopping_cart.html'
@@ -28,8 +28,8 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        items = context.get('items', UNDEFINED)
         int = context.get('int', UNDEFINED)
+        items = context.get('items', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
         __M_writer = context.writer()
@@ -47,39 +47,44 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        items = context.get('items', UNDEFINED)
         int = context.get('int', UNDEFINED)
+        items = context.get('items', UNDEFINED)
         def content():
             return render_content(context)
         __M_writer = context.writer()
-        __M_writer('\n\n\n<div class="item_container">\n    <table class="table table-striped tcart">\n\n        <thead>\n\t\t\t<tr>\n\t\t\t  <th>Name</th>\n\t\t\t  <th>Quantity</th>\n\t\t\t  <th>Price</th>\n              <th>Item Total</th>\n              <th>Remove</th>\n\t\t\t</tr>\n\t\t</thead>\n\n        <tbody>\n            ')
-        grand_total = 0 
-        
-        __M_writer('\n\n')
-        for key,value in items.items():
-            __M_writer('\n            ')
+        __M_writer('\n\n\n\n<div class="item_container">\n')
+        if items:
+            __M_writer('    <table class="table table-striped tcart">\n\n        <thead>\n\t\t\t<tr>\n\t\t\t  <th>Name</th>\n\t\t\t  <th>Quantity</th>\n\t\t\t  <th>Price</th>\n              <th>Item Total</th>\n              <th>Remove</th>\n\t\t\t</tr>\n\t\t</thead>\n\n        <tbody>\n            ')
+            grand_total = 0 
+            
+            __M_writer('\n\n')
+            for key,value in items.items():
+                __M_writer('\n            ')
 
-            price = int(value[0].value)
-            qty = value[1]
-            
-            sub_total = (price * qty)
-            grand_total += sub_total
-                        
-            
-            __M_writer('\n\n\t\t\t<tr>\n\t\t\t  <td>')
-            __M_writer(str(value[0].name))
-            __M_writer('</td>\n\t\t\t  <td>')
-            __M_writer(str(value[1]))
-            __M_writer('</td>\n\t\t\t  <td>$')
-            __M_writer(str(value[0].value))
-            __M_writer('</td>\n              <td>$')
-            __M_writer(str(sub_total))
-            __M_writer('</td>\n              <td><a class="btn btn-danger delete_button" data-pid="')
-            __M_writer(str(value[0].id))
-            __M_writer('" href="#"><i class="fa fa-times"></i></a></td>\n\t\t\t</tr>\n\n')
-        __M_writer('\t\t</tbody>\n\n        <tfoot>\n            <tr>\n                <td><b>Total:</b> </td>\n                <td></td>\n                <td></td>\n                <td></td>\n                <td><b>$')
-        __M_writer(str(grand_total))
-        __M_writer('</b></td>\n            </tr>\n        </tfoot>\n\n    </table>\n</div>\n\n')
+                price = int(value[0].value)
+                qty = value[1]
+                
+                sub_total = (price * qty)
+                grand_total += sub_total
+                            
+                
+                __M_writer('\n\n\t\t\t<tr>\n\t\t\t  <td>')
+                __M_writer(str(value[0].name))
+                __M_writer('</td>\n\t\t\t  <td>')
+                __M_writer(str(value[1]))
+                __M_writer('</td>\n\t\t\t  <td>$')
+                __M_writer(str(value[0].value))
+                __M_writer('</td>\n              <td>$')
+                __M_writer(str(sub_total))
+                __M_writer('</td>\n              <td><a class="btn btn-danger delete_button" data-pid="')
+                __M_writer(str(value[0].id))
+                __M_writer('" href="#"><i class="fa fa-times"></i></a></td>\n\t\t\t</tr>\n\n')
+            __M_writer('\t\t</tbody>\n\n        <tfoot>\n            <tr>\n                <td><b>Total:</b> </td>\n                <td></td>\n                <td></td>\n                <td></td>\n                <td><b>$')
+            __M_writer(str(grand_total))
+            __M_writer('</b></td>\n            </tr>\n        </tfoot>\n\n    </table>\n')
+        else:
+            __M_writer('    <div class="text-center">\n        <i class="fa fa-shopping-cart bigcart"></i>\n        <p>\n            Shopping cart is empty! Get Shopping!\n        </p>\n    </div>\n')
+        __M_writer('\n</div>\n\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -87,6 +92,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "ascii", "filename": "/Users/scottromney/SiteOne/shop/templates/shopping_cart.html", "uri": "shopping_cart.html", "line_map": {"69": 30, "70": 33, "71": 33, "72": 34, "73": 34, "74": 35, "75": 35, "76": 36, "77": 36, "78": 37, "79": 37, "80": 41, "81": 49, "82": 49, "88": 82, "27": 0, "36": 1, "41": 56, "47": 3, "55": 3, "56": 20, "58": 20, "59": 22, "60": 23, "61": 24}}
+{"line_map": {"71": 32, "72": 35, "73": 35, "74": 36, "75": 36, "76": 37, "77": 37, "78": 38, "79": 38, "80": 39, "81": 39, "82": 43, "83": 51, "84": 51, "85": 56, "86": 57, "87": 64, "27": 0, "93": 87, "36": 1, "41": 67, "47": 3, "55": 3, "56": 8, "57": 9, "58": 22, "60": 22, "61": 24, "62": 25, "63": 26}, "source_encoding": "ascii", "uri": "shopping_cart.html", "filename": "/Users/scottromney/SiteOne/shop/templates/shopping_cart.html"}
 __M_END_METADATA
 """

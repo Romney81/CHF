@@ -3,7 +3,9 @@
 <%block name="content">
 
 
+
 <div class="item_container">
+    %if items:
     <table class="table table-striped tcart">
 
         <thead>
@@ -51,6 +53,15 @@
         </tfoot>
 
     </table>
+    %else:
+    <div class="text-center">
+        <i class="fa fa-shopping-cart bigcart"></i>
+        <p>
+            Shopping cart is empty! Get Shopping!
+        </p>
+    </div>
+    %endif
+
 </div>
 
 </%block>
