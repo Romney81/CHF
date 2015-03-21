@@ -91,7 +91,7 @@ USE_TZ = True
 #Emails
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'romney81@gmail.com'
-SERVER_EMAIL = 'test@gmail.com'
+SERVER_EMAIL = 'localhost'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'romney81@gmail.com'

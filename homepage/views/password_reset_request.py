@@ -68,8 +68,6 @@ def change(request):
 	return templater.render_to_response(request, 'password_reset_request.change.html', params)
 
 class newpassword(forms.Form):
-	old_password = forms.CharField(label=("Old password"),
-	                               widget=forms.PasswordInput)
 	new_password1 = forms.CharField(label=("New password"),
 	                                widget=forms.PasswordInput)
 	new_password2 = forms.CharField(label=("New password confirmation"),
