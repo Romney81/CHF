@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1426694978.882262
+_modified_time = 1428210457.574228
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/shop/templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['footlinks', 'headlinks', 'shop', 'content']
+_exports = ['shop', 'footlinks', 'content', 'headlinks']
 
 
 def _mako_get_namespace(context, name):
@@ -28,15 +28,15 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def footlinks():
-            return render_footlinks(context._locals(__M_locals))
-        def headlinks():
-            return render_headlinks(context._locals(__M_locals))
-        def shop():
-            return render_shop(context._locals(__M_locals))
-        user = context.get('user', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        def shop():
+            return render_shop(context._locals(__M_locals))
+        def footlinks():
+            return render_footlinks(context._locals(__M_locals))
+        user = context.get('user', UNDEFINED)
+        def headlinks():
+            return render_headlinks(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'headlinks'):
@@ -59,30 +59,6 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_footlinks(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def footlinks():
-            return render_footlinks(context)
-        __M_writer = context.writer()
-        __M_writer('\n\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_headlinks(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def headlinks():
-            return render_headlinks(context)
-        __M_writer = context.writer()
-        __M_writer('\n<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_shop(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -92,7 +68,7 @@ def render_shop(context,**pageargs):
         def content():
             return render_content(context)
         __M_writer = context.writer()
-        __M_writer('\n    <nav class="navbar" role="navigation">\n        <div class="container-fluid">\n            <div class="navbar-header">\n                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">\n                    <span class="sr-only">Toggle navigation</span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                </button>\n                <a class="navbar-brand" href="#"></a>\n            </div>\n\n            <!-- Collect the nav links, forms, and other content for toggling -->\n            <div class="collapse navbar-collapse" id="navbar">\n                <ul class="nav navbar-nav">\n                    <li class="active"><a href="/homepage/">Homepage</a></li>\n                    <li class="active"><a href="/shop/">Shop</a></li>\n                    <li class="active"><a href="/shop/rentals/">Rentals</a></li>\n                    <li><a href="#"></a></li>\n                </ul>\n                <form id="search_go" class="navbar-form navbar-left" method="POST" action="/shop/index.search/" >\n                    <div class="form-group">\n                        <input type="text" id="search_input" name="searchfield" class="form-control" placeholder="Search">\n                    </div>\n                    <button type="submit" id="search_button" class="btn btn-default">Submit</button>\n                </form>\n                <ul class="nav navbar-nav navbar-right">\n                    <li class="dropdown">\n                        <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">\n                            <i class="fa fa-shopping-cart"></i> Cart\n                        </a>\n                        <ul class="dropdown-menu dropdown-user">\n                            <li>\n                                <a class="cart-modal" href="#"><i class="fa fa-user fa-fw"></i>\n')
+        __M_writer('\n    <nav class="navbar" role="navigation">\n        <div class="container-fluid">\n            <div class="navbar-header">\n                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">\n                    <span class="sr-only">Toggle navigation</span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                </button>\n                <a class="navbar-brand" href="#"></a>\n            </div>\n\n            <!-- Collect the nav links, forms, and other content for toggling -->\n            <div class="collapse navbar-collapse" id="navbar">\n                <ul class="nav navbar-nav">\n                    <li class="active"><a href="/homepage/">Homepage</a></li>\n                    <li class="active"><a href="/shop/">Shop</a></li>\n                    <li class="active"><a href="/shop/rentals/">Rentals</a></li>\n                    <li class="active"><a href="/shop/festivals/">Festivals</a></li>\n                    <li><a href="#"></a></li>\n                </ul>\n                <form id="search_go" class="navbar-form navbar-left" method="POST" action="/shop/index.search/" >\n                    <div class="form-group">\n                        <input type="text" id="search_input" name="searchfield" class="form-control" placeholder="Search">\n                    </div>\n                    <button type="submit" id="search_button" class="btn btn-default">Submit</button>\n                </form>\n                <ul class="nav navbar-nav navbar-right">\n                    <li class="dropdown">\n                        <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">\n                            <i class="fa fa-shopping-cart"></i> Cart\n                        </a>\n                        <ul class="dropdown-menu dropdown-user">\n                            <li>\n                                <a class="cart-modal" href="#"><i class="fa fa-user fa-fw"></i>\n')
         if user.is_authenticated():
             __M_writer('                                        View ')
             __M_writer(str(user.first_name))
@@ -124,6 +100,18 @@ def render_shop(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_footlinks(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def footlinks():
+            return render_footlinks(context)
+        __M_writer = context.writer()
+        __M_writer('\n\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -136,8 +124,20 @@ def render_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_headlinks(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def headlinks():
+            return render_headlinks(context)
+        __M_writer = context.writer()
+        __M_writer('\n<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/scottromney/SiteOne/shop/templates/base.htm", "source_encoding": "ascii", "line_map": {"115": 73, "68": 170, "133": 98, "74": 3, "139": 133, "80": 3, "110": 63, "86": 7, "27": 0, "95": 7, "96": 42, "97": 43, "98": 43, "99": 43, "100": 44, "101": 45, "102": 47, "103": 56, "104": 57, "41": 1, "106": 57, "107": 58, "108": 59, "109": 61, "46": 5, "111": 64, "112": 66, "113": 67, "114": 72, "51": 168, "116": 77, "105": 57, "56": 172, "121": 100, "62": 170, "127": 98}, "uri": "base.htm"}
+{"source_encoding": "ascii", "line_map": {"115": 99, "133": 3, "71": 7, "72": 43, "73": 44, "74": 44, "75": 44, "76": 45, "77": 46, "78": 48, "79": 57, "80": 58, "81": 58, "82": 58, "83": 59, "84": 60, "85": 62, "86": 64, "87": 65, "88": 67, "89": 68, "90": 73, "27": 0, "92": 78, "97": 101, "91": 74, "139": 133, "103": 171, "41": 1, "109": 171, "46": 5, "51": 169, "56": 173, "121": 99, "62": 7, "127": 3}, "uri": "base.htm", "filename": "/Users/scottromney/SiteOne/shop/templates/base.htm"}
 __M_END_METADATA
 """

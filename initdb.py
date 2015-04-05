@@ -103,18 +103,18 @@ hmod.Event.objects.all().delete()
 
 #Create new events: name, description, start, end, venue
 for data in [
-  ['Questival','The best day of your life','2015-04-06','2015-04-07','#igutah'],
-  ['Baptism','For Dan','2015-03-12','2015-03-12','Provo Temple'],
-  ['Bonfire','For the besties','2015-02-28','2015-02-28','Provo Canyon'],
-  ['Dinner Nite','Going away dinner for Jeff','2015-05-05','2015-05-05','SLAB Pizza'],
+  ['Bread Making','Make bread using ovens they used back in the old days','2015-05-06','2015-05-06','Centenial Park'],
+  ['LARP','Come join us in our exciteing Live Action Role Play ','2015-05-12','2015-05-12','Centenial Park'],
+  ['Feather Pen Writing','Come and learn how to write like to used to with feathers and ink','2015-05-28','2015-05-28','Centenial Park'],
+  ['Musket Shooting','Come give your aim a try with us as we practice shooting','2015-06-05','2015-06-05','Centenial Park'],
 ]:
 
     #set attributes
     e = hmod.Event()
     e.name = data[0]
     e.description = data[1]
-    e.start = data[2]
-    e.end = data[3]
+    e.start_date = data[2]
+    e.end_date = data[3]
     e.location = data[4]
     #save
     e.save()
@@ -248,14 +248,14 @@ hmod.Area.objects.all().delete()
 #create new Area: name, description
 
 for data in [
-    ['Kiwanis Park','decent tree coverage, close to the creamery'],
-    ['Veterans Memorial Park','Two pavillions with basketball courts'],
-    ['Larsen Park','Attached to larsen Elementary school'],
-    ['Brookhollow Park','a bit colder, but tons of open space'],
+    ['Knead The Dough','Knead the dough before we start the cookin!'],
+    ['Shooting Range','Safe area located on the far end of the park'],
+    ['Pen Writing Station','Pen writing desks that lets us write'],
+    ['Fake Village','Fake village located in the soutwest corner'],
 
 ]:
 
-    ar = hmod.Location()
+    ar = hmod.Area()
     ar.name = data[0]
     ar.description = data[1]
 

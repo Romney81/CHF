@@ -80,8 +80,8 @@ class PublicEvent(models.Model):
 class Event(models.Model):
 	name = models.CharField(max_length=255)
 	description = models.CharField(max_length=255)
-	start_date = models.DateTimeField(blank=True, null=True)
-	end_date = models.DateTimeField(blank=True, null=True)
+	start_date = models.DateField(blank=True, null=True)
+	end_date = models.DateField(blank=True, null=True)
 	location = models.CharField(max_length=255)
 	is_active = models.NullBooleanField(default=True, blank=True, null=True)
 
