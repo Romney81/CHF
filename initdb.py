@@ -38,7 +38,7 @@ subprocess.call([sys.executable, "manage.py", "migrate"])
 ##########################################################################################
 #########User
 
-##### CREATE PERMISSIONS/GROUPS #####################
+######################### -CREATE PERMISSIONS/GROUPS- #####################
 Permission.objects.all().delete()
 Group.objects.all().delete()
 
@@ -59,7 +59,7 @@ print('permissions initialized')
 hmod.SiteUser.objects.all().delete()
 
 #create som users
-###############################ADD FIRST USER ###############################
+############################### -ADD FIRST USER- ###############################
 u = hmod.SiteUser()
 u.name = "users"
 u.first_name = "scott"
@@ -71,13 +71,13 @@ u.is_staff= True
 u.save()
 
 
-###############################ARRAY OF users###############################
-#Create new users: username, password, first_name, last_name, is_superuser
+############################### -ARRAY OF USERS- ###############################
+#Create new users: username, password, first_name, last_name, is_superuser, accountbalance
 for data in [
-  ['rodcox89', 'password', 'Rodney', 'Cox', True, True],
-  ['stunna81', 'password', 'scott', 'romney', False, True],
-  ['cody123', 'password', 'cody', 'anderson', False, True],
-  ['csmith12', 'password', 'carter', 'Smith', False, True],
+  ['rodcox89', 'password', 'Rodney', 'Cox', True, True, '0', 'rodcox89@gmail.com'],
+  ['stunna81', 'password', 'scott', 'romney', False, True, '0', 'romney81@gmail.com'],
+  ['cody123', 'password', 'cody', 'anderson', False, True, '0', 'asdf@gmail.com'],
+  ['csmith12', 'password', 'carter', 'Smith', False, True, '0', 'aa@gmail.com'],
 ]:
 
     #set attributes
@@ -88,13 +88,15 @@ for data in [
     u.last_name = data[3]
     u.is_superuser = data[4]
     u.is_staff = data[5]
+    u.account_balance = int(data[6])
+    u.email = data[7]
 
     #save
     u.save()
     print(u.username)
     print(u.set_password)
 
-###############################events##############################
+############################### -EVENTS- #################################
 
 #Delete old events
 hmod.Event.objects.all().delete()
@@ -119,17 +121,17 @@ for data in [
     print(e)
 
 
-###############################rentals##############################
+############################### -RENTALS- ##############################
 
 #Delete old rentals
 hmod.Rentals.objects.all().delete()
 
-#Create new Rentals: name, rental, due
+#Create new Rentals: name, rental, due, person, damage, was_returned
 for data in [
-  ['Breeches','2015-03-05','2015-03-10'],
-  ['Red Coat','2015-02-02','2015-03-06'],
-  ['Blue Coat','2015-01-02','2015-02-02'],
-  ['Hat','2015-01-02','2015-02-02'],
+  ['Breeches','2015-02-03','2015-03-03', '2', ' ', False],
+  ['Red Coat','2015-01-02','2015-03-03', '3', ' ', False],
+  ['Blue Coat','2014-12-04','2015-01-01', '4', ' ', False],
+  ['Hat','2015-05-02','2015-06-02', '5', ' ', False],
 ]:
 
     #set attributes
@@ -137,11 +139,38 @@ for data in [
     rr.name = data[0]
     rr.rental_date = data[1]
     rr.due_date = data[2]
+    rr.person = hmod.SiteUser.objects.get(id=data[3])
+    rr.new_damage = data[4]
+    rr.was_returned = data[5]
     #save
     rr.save()
     print(rr)
 
-###############################ITEMS###############################
+
+############################### -PURCHASES- ##############################
+
+#Delete old rentals
+hmod.Purchases.objects.all().delete()
+
+#Create new Rentals: name, rental, due, person, damage, was_returned
+for data in [
+  ['2','100','2015-03-10', 'asdf'],
+  ['3','200','2015-03-06', 'asdff'],
+  ['4','150','2015-02-02', 'asdfff'],
+  ['5','175','2015-02-02', 'asdffff'],
+]:
+
+    #set attributes
+    pu = hmod.Purchases()
+    pu.customer = hmod.SiteUser.objects.get(id=data[0])
+    pu.total = data[1]
+    pu.purchase_date = data[2]
+    pu.charge_id = data[3]
+    #save
+    pu.save()
+    print(pu)
+
+############################### -ITEMS- ###############################
 #Delete old items
 hmod.Item.objects.all().delete()
 
@@ -162,17 +191,17 @@ for data in [
     i.save()
     print(i)
 
-###############################Products###############################
+############################### -PRODUCTS- ###############################
 #
 # #Delete old Products
 hmod.Product.objects.all().delete()
 
 #Create new Products: name, description, category, current_price
 for data in [
-  ['Poem Journal', 'Jot down anything that comes to your mind', 'Crafts', '14'],
-  ['Ice', 'Cool off with this stuff', 'Household', '2'],
-  ['Quil', 'Birds of a feather', 'Collectors', '8'],
-  ['Abicus', 'Count better than anyone', 'Business', '13'],
+  ['Musket', 'This non-functional replica is as real as it gets', 'Crafts', '14'],
+  ['Mayflower', 'Cool Mayflower Replica that will be sure to impress those who see it', 'Crafts', '2'],
+  ['Quil', 'An exact replica of a feather quil used in the colonial era', 'Collectors', '8'],
+  ['Abacus', 'This authentic Abacus is what they used to count', 'Business', '13'],
 
 ]:
 
@@ -188,7 +217,7 @@ for data in [
 
 
 
-###############################LOCATIONS###############################
+############################### -LOCATIONS- ###############################
 
 hmod.Location.objects.all().delete()
 
@@ -212,7 +241,7 @@ for data in [
     print(l)
 
 
-###############################AREAS###############################
+############################### -AREAS- ###############################
 
 hmod.Area.objects.all().delete()
 
@@ -234,7 +263,7 @@ for data in [
     print(ar)
 
 
-###############################Venues###############################
+############################### -VENUES- ###############################
 #delete previous venues
 
 hmod.Venue.objects.all().delete()
@@ -263,5 +292,5 @@ for data in [
 
 
 #runs server
-###############################RUN SERVER###############################
+############################### -RUN SERVER- ###############################
 subprocess.call([sys.executable, "manage.py", "runserver"])

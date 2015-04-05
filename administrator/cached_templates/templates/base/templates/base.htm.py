@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1425776732.441076
+_modified_time = 1428201817.568478
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/base/templates/base.htm'
 _template_uri = '/base/templates/base.htm'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['account', 'headlinks', 'homepage', 'footlinks', 'shop', 'administrator']
+_exports = ['homepage', 'footlinks', 'administrator', 'headlinks', 'shop', 'account']
 
 
 from django_mako_plus.controller import static_files 
@@ -19,21 +19,21 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def account():
-            return render_account(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def homepage():
             return render_homepage(context._locals(__M_locals))
         request = context.get('request', UNDEFINED)
-        def headlinks():
-            return render_headlinks(context._locals(__M_locals))
-        def footlinks():
-            return render_footlinks(context._locals(__M_locals))
-        def shop():
-            return render_shop(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def administrator():
             return render_administrator(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        def account():
+            return render_account(context._locals(__M_locals))
+        def footlinks():
+            return render_footlinks(context._locals(__M_locals))
+        def headlinks():
+            return render_headlinks(context._locals(__M_locals))
+        def shop():
+            return render_shop(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\n')
         __M_writer('\n')
@@ -44,7 +44,9 @@ def render_body(context,**pageargs):
         __M_writer('\n<!DOCTYPE html>\n<html>\n  \t<meta charset="UTF-8">\n  \t<head>\n    \t<title>Colonial Heritage Foundation</title>\n\n')
         __M_writer('\t\t<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>\n\t\t<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>\n\t\t<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">\n        <link href="')
         __M_writer(str(STATIC_URL))
-        __M_writer('homepage/media/thirdparties/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">\n\t\t<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.1/slate/bootstrap.min.css"> -->\n\t\t<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>\n        <script src="')
+        __M_writer('homepage/media/thirdparties/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">\n        <link href="')
+        __M_writer(str(STATIC_URL))
+        __M_writer('homepage/media/animate.css" rel="stylesheet" type="text/css">\n\t\t<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.1/slate/bootstrap.min.css"> -->\n\t\t<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>\n        <script src="')
         __M_writer(str(STATIC_URL))
         __M_writer('homepage/media/thirdparties/jquery.form.js"></script>\n        <script src="')
         __M_writer(str(STATIC_URL))
@@ -92,30 +94,6 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_account(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def account():
-            return render_account(context)
-        __M_writer = context.writer()
-        __M_writer('\n\n\t    ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_headlinks(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def headlinks():
-            return render_headlinks(context)
-        __M_writer = context.writer()
-        __M_writer('\n\n\t    ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_homepage(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -140,18 +118,6 @@ def render_footlinks(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_shop(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def shop():
-            return render_shop(context)
-        __M_writer = context.writer()
-        __M_writer('\n\n\t    ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_administrator(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -164,8 +130,44 @@ def render_administrator(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_headlinks(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def headlinks():
+            return render_headlinks(context)
+        __M_writer = context.writer()
+        __M_writer('\n\n\t    ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_shop(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def shop():
+            return render_shop(context)
+        __M_writer = context.writer()
+        __M_writer('\n\n\t    ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_account(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def account():
+            return render_account(context)
+        __M_writer = context.writer()
+        __M_writer('\n\n\t    ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"uri": "/base/templates/base.htm", "source_encoding": "ascii", "filename": "/Users/scottromney/SiteOne/base/templates/base.htm", "line_map": {"66": 43, "131": 60, "71": 47, "167": 161, "137": 60, "76": 51, "143": 49, "16": 4, "81": 55, "18": 0, "83": 58, "84": 58, "149": 49, "89": 62, "155": 45, "125": 41, "95": 53, "161": 45, "82": 58, "101": 53, "38": 2, "39": 4, "40": 5, "107": 23, "44": 5, "45": 13, "46": 16, "47": 16, "48": 19, "49": 19, "50": 20, "51": 20, "113": 23, "119": 41, "56": 25, "57": 35, "58": 35, "59": 35, "60": 36, "61": 36}}
+{"filename": "/Users/scottromney/SiteOne/base/templates/base.htm", "uri": "/base/templates/base.htm", "line_map": {"115": 61, "68": 44, "133": 24, "73": 48, "139": 24, "78": 52, "109": 61, "16": 4, "145": 50, "18": 0, "83": 56, "84": 59, "85": 59, "86": 59, "151": 50, "127": 46, "91": 63, "157": 54, "97": 42, "163": 54, "38": 2, "39": 4, "40": 5, "169": 163, "103": 42, "44": 5, "45": 13, "46": 16, "47": 16, "48": 17, "49": 17, "50": 20, "51": 20, "52": 21, "53": 21, "121": 46, "58": 26, "59": 36, "60": 36, "61": 36, "62": 37, "63": 37}, "source_encoding": "ascii"}
 __M_END_METADATA
 """

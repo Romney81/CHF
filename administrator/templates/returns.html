@@ -1,0 +1,46 @@
+<%inherit file="index.html" />
+<!-- Registered Users View -->
+<%block name="admincontent">
+    <div class="row">
+    	<div class="col-lg-12">
+    			<div class="panel panel-default">
+                    <div class="panel-heading">
+                        Manage Users<a href="#" id="add_button" class="btn-xs btn-primary pull-right"><i class="fa fa-plus-square-o"> Create User</i></a>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="dataTable_wrapper">
+                            <table class="table responsive no-wrap table-striped table-bordered table-hover" id="data-table" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Rental Date</th>
+                                        <th>Return Date</th>
+                                        <th>Person</th>
+                                        <th>Return</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                %for renter in renters:
+                                    <tr>
+                                        <td>${renter.name}</td>
+                                        <td>${renter.rental_date}</td>
+                                        <td>${renter.due_date}</td>
+                                        <td>${renter.person.first_name}</td>
+                                        <td class="text-center">
+                                            <a class="btn btn-info btn-xs return" data-rid="${renter.id}" href="#"><i class="fa fa-pencil-square-o"> Return</i></a>
+                                        </td>
+                                    </tr>
+                                %endfor
+                                </tbody>
+    					</table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+</%block>

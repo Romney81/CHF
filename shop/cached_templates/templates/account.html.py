@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1425686273.780661
+_modified_time = 1428112585.508062
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/shop/templates/account.html'
 _template_uri = 'account.html'
@@ -50,7 +50,7 @@ def render_content(context,**pageargs):
             return render_content(context)
         user = context.get('user', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\n    <div class="container-fluid">\n        <div class="col-lg-8 col-lg-offset-2">\n            <div class="panel with-nav-tabs account-container">\n                <div class="panel-heading">\n                    <ul class="nav nav-tabs">\n                        <li class="active"><a href="#tab1default" data-toggle="tab">My Information</a>\n                        </li>\n                        <li><a href="#tab2default" data-toggle="tab">Settings</a>\n                        </li>\n                    </ul>\n                </div>\n                <div class="panel-body">\n                    <div class="tab-content">\n                        <div class="tab-pane fade in active" id="tab1default">\n                            <div class="container">\n                                <label for="firstname" class="col-lg-2">First Name:</label>\n                                <div class="col-lg-10">\n                                    <p id="firstname">')
+        __M_writer('\n    <div class="container-fluid account-info">\n        <div class="col-lg-8 col-lg-offset-2">\n            <div class="panel with-nav-tabs account-container">\n                <div class="panel-heading">\n                    <ul class="nav nav-tabs">\n                        <li class="active"><a href="#tab1default" data-toggle="tab">My Information</a>\n                        </li>\n                        <li><a href="#tab2default" data-toggle="tab">Settings</a>\n                        </li>\n                    </ul>\n                </div>\n                <div class="panel-body">\n                    <div class="tab-content">\n                        <div class="tab-pane fade in active" id="tab1default">\n                            <div class="container">\n                                <label for="firstname" class="col-lg-2">First Name:</label>\n                                <div class="col-lg-10">\n                                    <p id="firstname">')
         __M_writer(str(user.first_name))
         __M_writer('</p>\n                                </div>\n                                <label for="lastname" class="col-lg-2">Last Name:</label>\n                                <div class="col-lg-10">\n                                    <p id="lastname">')
         __M_writer(str(user.last_name))
@@ -66,6 +66,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/scottromney/SiteOne/shop/templates/account.html", "line_map": {"35": 1, "40": 43, "46": 3, "59": 29, "67": 61, "53": 3, "54": 21, "55": 21, "56": 25, "57": 25, "58": 29, "27": 0, "60": 31, "61": 31}, "source_encoding": "ascii", "uri": "account.html"}
+{"source_encoding": "ascii", "uri": "account.html", "filename": "/Users/scottromney/SiteOne/shop/templates/account.html", "line_map": {"35": 1, "40": 43, "46": 3, "59": 29, "67": 61, "53": 3, "54": 21, "55": 21, "56": 25, "57": 25, "58": 29, "27": 0, "60": 31, "61": 31}}
 __M_END_METADATA
 """

@@ -90,9 +90,7 @@ footer{
 	font-size: 12px;
 	box-shadow: inset 0px 0px 10px #000;
     border-top: 4px solid rgba(0, 87, 140, 1);
-    position: absolute;
     width: 100%;
-    bottom: 0;
 }
 
 footer a, footer a:visited{

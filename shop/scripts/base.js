@@ -30,6 +30,7 @@ $(function() {
     $('.add_button').on('click', function() {
         event.preventDefault();
         var pid = $(this).attr('data-pid');
+        var rent = $(this).attr('data-rental');
         var qty = $('#quantity').val();
 
         if (! qty){
@@ -37,7 +38,7 @@ $(function() {
         }
 
         $.loadmodal({
-            url: "/shop/shopping_cart.add/" + pid + "/" + qty,
+            url: "/shop/shopping_cart.add/" + pid + "/" + qty + "/" + rent,
             title: "Shopping Cart",
             width: "50%",
             onShow: function() {

@@ -1,0 +1,8 @@
+.dataTable_wrapper {
+    padding: 20px 40px;
+}
+.dataTable_wrapper a.btn {
+    display: block;
+    margin: 0 auto;
+    width: 20%;
+}

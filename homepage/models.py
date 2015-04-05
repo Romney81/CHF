@@ -11,6 +11,7 @@ class SiteUser(AbstractUser):
 	state = models.CharField(max_length=12, blank=True, null=True)
 	zip_code = models.IntegerField(max_length=5, blank=True, null=True)
 	phone = models.CharField(max_length=30, blank=True, null=True)
+	account_balance = models.IntegerField(blank=True, null=True)
 
 
 class Organization(models.Model):
@@ -104,3 +105,15 @@ class Rentals(models.Model):
 	name = models.CharField(max_length=30)
 	rental_date = models.DateField(blank=True, null=True)
 	due_date = models.DateField(blank=True, null=True)
+	person = models.ForeignKey(SiteUser, null=True)
+	new_damage = models.CharField(max_length = 1000)
+	was_returned = models.NullBooleanField(default = False, blank = True, null = True)
+
+	def __str__(self):
+		return self.person.first_name
+
+class Purchases(models.Model):
+	customer = models.ForeignKey(SiteUser, null=True)
+	total = models.DecimalField(max_digits=6,decimal_places=2, null=True)
+	purchase_date = models.DateField(blank=True, null=True)
+	charge_id = models.CharField(max_length=200)

@@ -28,11 +28,10 @@ templater = get_renderer('homepage')
 def process_request(request):
 
 	#prepare the login form
-	form = PasswordResetForm()
+	form = UserForgotPasswordForm(request.POST or None)
 	if request.method == 'POST':
-		form = PasswordResetForm(request.POST)
 		if form.is_valid():
-			form.save()
+			form.save(from_email = 'romney81@gmail.com', email_template_name= 'password_reset_email.html', use_https = False, token_generator = default_token_generator, html_email_template_name=None)
 
 
 
@@ -41,6 +40,10 @@ def process_request(request):
 	}
 
 	return templater.render_to_response(request, 'password_reset_request.html', template_vars)
+
+class UserForgotPasswordForm(PasswordResetForm):
+	email = forms.EmailField(required=True,max_length=254)
+
 
 @view_function
 def change(request):

@@ -73,6 +73,56 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="table-responsive">
+                        <!-- Table -->
+                        <table class="table tcart">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Image</th>
+                                    <th>Unit Price</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% grand_total = 0 %>
+                                %for rental in rentals:
+                                <%
+                                    price = rental.current_price
+
+                                    sub_total = price
+                                    grand_total += sub_total
+                                %>
+                                <tr>
+                                    <!-- Index -->
+                                    <td>${rental.id}</td>
+                                    <!-- Product  name -->
+                                    <td>${rental.name}</td>
+                                    <!-- Product image -->
+                                    <td>
+                                        <a href="single-item.html">
+                                            <img src="${STATIC_URL}homepage/media/images/rental${rental.id}.jpg" alt="" />
+                                        </a>
+                                    </td>
+                                    <!-- Unit price -->
+                                    <td>$${rental.current_price}</td>
+                                    <!-- Total cost -->
+                                    <td>$${sub_total}</td>
+                                </tr>
+                                %endfor
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Total</th>
+                                    <th>$${grand_total}</th>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
                     <h5 class="title">Gift Coupen</h5>
                     <form class="form-inline">
                 <!-- Gift coupen -->

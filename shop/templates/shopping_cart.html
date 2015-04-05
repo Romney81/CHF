@@ -5,9 +5,8 @@
 
 
 <div class="item_container">
-    %if items:
+    %if items or rentals:
     <table class="table table-striped tcart">
-
         <thead>
 			<tr>
 			  <th>Name</th>
@@ -38,10 +37,8 @@
               <td>$${sub_total}</td>
               <td><a class="btn btn-danger delete_button" data-pid="${value[0].id}" href="#"><i class="fa fa-times"></i></a></td>
 			</tr>
-
             %endfor
 		</tbody>
-
         <tfoot>
             <tr>
                 <td><b>Total:</b> </td>
@@ -51,7 +48,48 @@
                 <td><b>$${grand_total}</b></td>
             </tr>
         </tfoot>
+    </table>
 
+    <table class="table table-striped tcart">
+        <thead>
+			<tr>
+			  <th>Name</th>
+              <th>Quantity</th>
+			  <th>Price</th>
+              <th>Item Total</th>
+              <th>Remove</th>
+			</tr>
+		</thead>
+
+        <tbody>
+            <% grand_total = 0 %>
+
+            %for rental in rentals:
+
+            <%
+                price = rental.current_price
+
+                sub_total = price
+                grand_total += sub_total
+            %>
+			<tr>
+			  <td>${rental.name}</td>
+              <td> - </td>
+			  <td>$${rental.current_price}</td>
+              <td>$${sub_total}</td>
+              <td><a class="btn btn-danger delete_button" data-pid="${rental.id}" href="#"><i class="fa fa-times"></i></a></td>
+			</tr>
+            %endfor
+		</tbody>
+        <tfoot>
+            <tr>
+                <td><b>Total:</b> </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><b>$${grand_total}</b></td>
+            </tr>
+        </tfoot>
     </table>
     %else:
     <div class="text-center">

@@ -25,7 +25,7 @@ def process_request(request):
 
     params = {}
 
-    items = hmod.Item.objects.all()
+    items = hmod.Product.objects.all()
 
     # item_ids = request.session['shopping_cart']
     #

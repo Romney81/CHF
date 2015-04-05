@@ -15,80 +15,109 @@
                         <h5 class="title">Shipping &amp; Billing Details</h5>
                         <!-- Address and Shipping details form -->
                         <div class="form form-small">
-                            <form class="form-horizontal">
-                                %for field in form:
+                            <form class="form-horizontal" METHOD="POST">
                                 <div class="form-group">
+                                    <label class="control-label col-md-2" for="name1">${ form['name'].label}</label>
 
-                                    <label class="control-label col-md-2" for="name1">${field.label}</label>
                                     <div class="col-md-8">
-                                        ${field}
+                                        ${ form['name']}
+                                        ${ form['name'].errors}
                                     </div>
                                 </div>
-                                %endfor
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="name1">${ form['email'].label}</label>
+                                    <div class="col-md-8">
+                                        ${ form['email']}
+                                        ${ form['email'].errors}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="name1">${ form['phone'].label}</label>
+                                    <div class="col-md-8">
+                                        ${ form['phone']}
+                                        ${ form['phone'].errors}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="name1">${ form['address'].label}</label>
+                                    <div class="col-md-8">
+                                        ${ form['address']}
+                                        ${ form['address'].errors}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="name1">${ form['country'].label}</label>
+                                    <div class="col-md-8">
+                                        ${ form['country']}
+                                        ${ form['country'].errors}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="name1">${ form['state'].label}</label>
+                                    <div class="col-md-8">
+                                        ${ form['state']}
+                                        ${ form['state'].errors}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="name1">${ form['city'].label}</label>
+                                    <div class="col-md-8">
+                                        ${ form['city']}
+                                        ${ form['city'].errors}
+                                    </div>
+
+                                </div>
+
+                                <hr />
+                                <!-- Payment details section -->
+                                <!-- Title -->
+                                <h5 class="title">Payment Details</h5>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="cardnumber">${ form['ccname'].label}</label>
+                                    <div class="col-md-8">
+                                        ${ form['ccname']}
+                                        ${ form['ccname'].errors}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="cardnumber">${ form['cardnumber'].label}</label>
+                                    <div class="col-md-8">
+                                        ${ form['cardnumber']}
+                                        ${ form['cardnumber'].errors}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="expdate">${ form['expmonth'].label}</label>
+                                    <div class="col-md-6">
+                                        ${ form['expmonth']}
+                                        ${ form['expmonth'].errors}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="expdate">${ form['expyear'].label}</label>
+                                    <div class="col-md-6">
+                                        ${ form['expyear']}
+                                        ${ form['expyear'].errors}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="expdate">${ form['cvc'].label}</label>
+                                    <div class="col-md-6">
+                                        ${ form['cvc']}
+                                        ${ form['cvc'].errors}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 col-md-offset-8">
+                                        <div class="pull-right">
+                                            <button type="submit" class="btn btn-danger">Purchase</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
                         </div>
-                        <hr />
-                        <!-- Payment details section -->
-                        <!-- Title -->
-                        <h5 class="title">Payment Details</h5>
-
-                        <!-- Radio buttons to select payment type -->
-
-                        <label class="radio-inline">
-                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="1" checked> Debit Card
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="2"> Credit Card
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="optionsRadios" id="optionsRadios3" value="3"> Internet Banking
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="optionsRadios" id="optionsRadios4" value="4"> Cash On Delivery
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="optionsRadios" id="optionsRadios5" value="5"> Paypal
-                        </label>
-
-                        <hr />
-
-                        <div class="form form-small">
-                            <form class="form-horizontal">
-                                <div class="form-group">
-                                    <label class="control-label col-md-2" for="cardnumber">Name</label>
-                                    <div class="col-md-8">
-                                        <input type="text" class="form-control" id="cardnumber" placeholder="Full Name on Card">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2" for="cardnumber">Card Number</label>
-                                    <div class="col-md-8">
-                                        <input type="text" class="form-control" id="cardnumber" placeholder="0000-0000-0000-0000">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2" for="expdate">Expiration Date</label>
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control" id="expdate" placeholder="09/19/2019">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2" for="expdate">CVV</label>
-                                    <div class="col-md-2">
-                                        <input type="text" class="form-control" id="expdate" placeholder="801">
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
                         <!-- Confirm order button -->
-                        <div class="row">
-                            <div class="col-md-4 col-md-offset-8">
-                                <div class="pull-right">
-                                    <a href="/shop/checkout.confirmation/" class="btn btn-danger">Purchase</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

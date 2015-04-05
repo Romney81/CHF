@@ -42,8 +42,21 @@ def process_request(request):
 
         items[item.id] = item_container
 
+    rental_ids = request.session['rental_cart']
+
+    rentals = []
+
+    for rental in rental_ids:
+
+        rents = hmod.Product.objects.get(id = rental)
+
+        rentals.append(rents)
+        item_count += 1
+
+
 
 
     params['item_count'] = item_count
     params['items'] = items
+    params['rentals'] = rentals
     return templater.render_to_response(request, 'view-cart.html', params)

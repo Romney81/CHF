@@ -19,14 +19,15 @@ templater = get_renderer('shop')
 @view_function
 def process_request(request):
     params = {}
-
-
     if 'shopping_cart' not in request.session:
         request.session['shopping_cart'] = {}
+    if 'rental_cart' not in request.session:
+        request.session['rental_cart'] = []
 
     item_ids = request.session['shopping_cart']
 
     items = {}
+
 
     for key,value in item_ids.items():
 
@@ -39,7 +40,20 @@ def process_request(request):
         items[item.id] = item_container
 
 
+    rent_ids = request.session['rental_cart']
+    print(rent_ids)
+
+    rentals = []
+
+    for rents in rent_ids:
+
+        rentalitem = hmod.Product.objects.get(id=rents)
+
+        rentals.append(rentalitem)
+
     params['items'] = items
+    params['rentals'] = rentals
+    print(params)
 
 
     return templater.render_to_response(request, 'shopping_cart.html', params)
@@ -53,19 +67,28 @@ def add(request):
 
     pid = request.urlparams[0]
     qty = int(request.urlparams[1])
+    rent = request.urlparams[2]
+
+    print(rent)
+
+    if rent == "False":
+        if pid in request.session['shopping_cart']:
+            request.session['shopping_cart'][pid] += qty
 
 
 
-    if pid in request.session['shopping_cart']:
-        request.session['shopping_cart'][pid] += qty
-        request.session.modified = True
-
+        else:
+            request.session['shopping_cart'][pid] = qty
 
     else:
-        request.session['shopping_cart'][pid] = qty
-        request.session.modified = True
+        if 'rental_cart' not in request.session:
+            request.session['rental_cart'] = []
+
+        if pid not in request.session['rental_cart']:
+            request.session['rental_cart'].append(pid)
 
 
+    request.session.modified = True
     return HttpResponseRedirect('/shop/shopping_cart/')
 
 @view_function
