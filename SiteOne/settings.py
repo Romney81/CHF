@@ -30,19 +30,20 @@ ALLOWED_HOSTS = ['localhost:8000']
 
 # Application definition
 INSTALLED_APPS = (
+    'password_reset',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social.apps.django_app.default',
     'django_mako_plus.controller',
     'bootstrap3_datetime',
     'base',
     'homepage',
     'administrator',
     'shop',
+
 )
 
 MIDDLEWARE_CLASSES = (
