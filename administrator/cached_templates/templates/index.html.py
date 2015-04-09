@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1428112970.599173
+_modified_time = 1428547090.404173
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/administrator/templates/index.html'
 _template_uri = 'index.html'
@@ -28,15 +28,15 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        user = context.get('user', UNDEFINED)
         countitems = context.get('countitems', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        countproducts = context.get('countproducts', UNDEFINED)
         def admincontent():
             return render_admincontent(context._locals(__M_locals))
         countusers = context.get('countusers', UNDEFINED)
-        countproducts = context.get('countproducts', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        user = context.get('user', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -73,15 +73,15 @@ def render_admincontent(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        user = context.get('user', UNDEFINED)
         countitems = context.get('countitems', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        countproducts = context.get('countproducts', UNDEFINED)
         def admincontent():
             return render_admincontent(context)
         countusers = context.get('countusers', UNDEFINED)
-        countproducts = context.get('countproducts', UNDEFINED)
         def content():
             return render_content(context)
+        user = context.get('user', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n    <div class="manager-view">\n\t\t<div id="wrapper">\n            <div class="navbar sidebar" role="navigation"><!-- Navigation -->\n                <div class="sidebar-nav navbar-collapse">\n                    <div class="admin-profile">\n                        <img class="img-circle profile-image" src="')
         __M_writer(str(STATIC_URL))
@@ -89,7 +89,7 @@ def render_content(context,**pageargs):
         __M_writer(str(user.get_full_name()))
         __M_writer('   <i class="fa fa-caret-down"></i>\n        \t\t\t\t\t\t</a>\n        \t\t\t\t\t\t<ul class="dropdown-menu dropdown-user">\n        \t\t\t\t\t\t\t<li><a href="/manager/"><i class="fa fa-user fa-fw"></i> ')
         __M_writer(str(user.get_full_name()))
-        __M_writer('</a>\n        \t\t\t\t\t\t\t</li>\n        \t\t\t\t\t\t\t<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>\n        \t\t\t\t\t\t\t</li>\n        \t\t\t\t\t\t\t<li class="divider"></li>\n        \t\t\t\t\t\t\t<li><a href="/logout/"><i class="fa fa-sign-out fa-fw"></i>Logout</a>\n        \t\t\t\t\t\t\t</li>\n        \t\t\t\t\t\t</ul>\n                        </div>\n                    </div>\n                    <ul class="nav" id="side-menu">\n                        <li>\n                            <a href="/administrator/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>\n                        </li>\n                        <li>\n                            <a href="#"><i class="fa fa-user fa-fw"></i> Users<span class="fa arrow"></span></a>\n                            <ul class="nav nav-second-level">\n                                <li>\n                                    <a class="ru" href="/administrator/users/">Users</a>\n                                </li>\n                            </ul>\n                            <!-- /.nav-second-level -->\n                        </li>\n                        <li>\n                            <a href="#"><i class="fa fa-cubes fa-fw"></i> Inventory<span class="fa arrow"></span></a>\n                            <ul class="nav nav-second-level">\n                                <li>\n                                    <a class="item" href="/administrator/items/">Items</a>\n                                </li>\n                                <li>\n                                    <a class="product" href="/administrator/products/">Products</a>\n                                </li>\n                                <li>\n                                    <a class="product" href="/administrator/returns/">Returns</a>\n                                </li>\n                            </ul>\n                            <!-- /.nav-second-level -->\n                        </li>\n                        <li>\n                            <a class="event" href="/administrator/events/"><i class="fa fa-flag-o fa-fw"></i> Public Events</a>\n                        </li>\n                        <li>\n                            <a class="event" href="/administrator/areas/"><i class="fa fa-compass fa-fw"></i> Areas</a>\n                        </li>\n                        <li>\n                            <a class="event" href="/administrator/organizations/"><i class="fa fa-users fa-fw"></i> Organizations</a>\n                        </li>\n                        <li>\n                            <a class="event" href="/administrator/overdue/"><i class="fa fa-exchange fa-fw"></i> Overdue Rentals</a>\n                        </li>\n                        <li>\n                            <a class="event" href="/administrator/overdue/"><i class="fa fa-envelope-o fa-fw"></i> Batch Emails</a>\n                        </li>\n                    </ul>\n                </div><!-- /.sidebar-collapse -->\n            </div><!-- /.navbar-static-side -->\n\n            <!--Main Page Content-->\n            <div id="page-wrapper">\n                ')
+        __M_writer('</a>\n        \t\t\t\t\t\t\t</li>\n        \t\t\t\t\t\t\t<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>\n        \t\t\t\t\t\t\t</li>\n        \t\t\t\t\t\t\t<li class="divider"></li>\n        \t\t\t\t\t\t\t<li><a href="/user_logout/"><i class="fa fa-sign-out fa-fw"></i>Logout</a>\n        \t\t\t\t\t\t\t</li>\n        \t\t\t\t\t\t</ul>\n                        </div>\n                    </div>\n                    <ul class="nav" id="side-menu">\n                        <li>\n                            <a href="/administrator/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>\n                        </li>\n                        <li>\n                            <a href="#"><i class="fa fa-user fa-fw"></i> Users<span class="fa arrow"></span></a>\n                            <ul class="nav nav-second-level">\n                                <li>\n                                    <a class="ru" href="/administrator/users/">Users</a>\n                                </li>\n                            </ul>\n                            <!-- /.nav-second-level -->\n                        </li>\n                        <li>\n                            <a href="#"><i class="fa fa-cubes fa-fw"></i> Inventory<span class="fa arrow"></span></a>\n                            <ul class="nav nav-second-level">\n                                <li>\n                                    <a class="item" href="/administrator/items/">Items</a>\n                                </li>\n                                <li>\n                                    <a class="product" href="/administrator/products/">Products</a>\n                                </li>\n                                <li>\n                                    <a class="product" href="/administrator/returns/">Returns</a>\n                                </li>\n                            </ul>\n                            <!-- /.nav-second-level -->\n                        </li>\n                        <li>\n                            <a class="event" href="/administrator/events/"><i class="fa fa-flag-o fa-fw"></i> Public Events</a>\n                        </li>\n                        <li>\n                            <a class="event" href="/administrator/areas/"><i class="fa fa-compass fa-fw"></i> Areas</a>\n                        </li>\n                        <li>\n                            <a class="event" href="/administrator/organizations/"><i class="fa fa-users fa-fw"></i> Organizations</a>\n                        </li>\n                        <li>\n                            <a class="event" href="/administrator/overdue/"><i class="fa fa-exchange fa-fw"></i> Overdue Rentals</a>\n                        </li>\n                    </ul>\n                </div><!-- /.sidebar-collapse -->\n            </div><!-- /.navbar-static-side -->\n\n            <!--Main Page Content-->\n            <div id="page-wrapper">\n                ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'admincontent'):
             context['self'].admincontent(**pageargs)
         
@@ -102,6 +102,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"uri": "index.html", "line_map": {"64": 133, "65": 133, "66": 155, "67": 155, "97": 169, "103": 97, "41": 1, "87": 9, "46": 176, "91": 15, "52": 74, "86": 3, "73": 3, "88": 9, "89": 12, "90": 12, "27": 0, "92": 15, "61": 74, "62": 89, "63": 89}, "filename": "/Users/scottromney/SiteOne/administrator/templates/index.html", "source_encoding": "ascii"}
+{"line_map": {"64": 130, "65": 130, "66": 152, "67": 152, "97": 166, "103": 97, "41": 1, "87": 9, "46": 173, "91": 15, "52": 71, "86": 3, "73": 3, "88": 9, "89": 12, "90": 12, "27": 0, "92": 15, "61": 71, "62": 86, "63": 86}, "filename": "/Users/scottromney/SiteOne/administrator/templates/index.html", "source_encoding": "ascii", "uri": "index.html"}
 __M_END_METADATA
 """

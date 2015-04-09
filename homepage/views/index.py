@@ -8,8 +8,30 @@ templater = get_renderer('homepage')
 
 @view_function
 def process_request(request):
-  template_vars = {  
+  template_vars = {
   }
 
   return templater.render_to_response(request, 'index.html', template_vars)
-    
+
+
+@view_function
+def loginform(request):
+    #prepare the login form
+    form = LoginForm()
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            django.contrib.auth.login(request, form.user)
+
+            return HttpResponse('''
+                <script>
+                    window.location.href = window.location.href;
+                </script>
+            ''')
+
+
+    template_vars = {
+      'form': form,
+    }
+
+    return templater.render_to_response(request, 'index.loginform.html', template_vars)

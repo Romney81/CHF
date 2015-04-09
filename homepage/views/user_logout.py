@@ -18,13 +18,8 @@ def process_request(request):
 	template_vars = {
 	}
 	django.contrib.auth.logout(request)
-	return templater.render_to_response(request, 'index.html', template_vars)
-	
+	return HttpResponseRedirect('/')
+
 def logout_view(request):
     logout(request)
-    return HttpResponseRedirect('/homepage/index/')
-	  
-
-
-
-
+    return HttpResponseRedirect('/')

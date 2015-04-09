@@ -31,6 +31,10 @@
                         </li>
                         <li><a href="/shop/">Shop</a>
                         </li>
+                        %if request.user.is_superuser:
+                        <li><a href="/administrator/">Admin</a>
+                        </li>
+                        %endif
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         %if user.is_authenticated():
@@ -41,16 +45,14 @@
                             <ul class="dropdown-menu dropdown-user">
                                 <li><a href="/administrator/"><i class="fa fa-user fa-fw"></i> ${user.get_full_name()}</a>
                                 </li>
-                                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                                </li>
                                 <li class="divider"></li>
-                                <li><a href="/logout/"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                                <li><a href="/user_logout/"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
                                 </li>
                             </ul>
                             <!-- /.dropdown-user -->
                         </li>
                         %else:
-                        <li><a href="/login/">Login</a>
+                        <li><a id="login-modal-button" href="/login/">Login</a>
                         </li>
                         %endif
                     </ul>
@@ -81,6 +83,17 @@
             </%block>
         </div>
         <!-- /.col-xs-12 main -->
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal custom fade" id="custom-modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+
+                </div>
+            </div>
+        </div>
     </div>
     <!--/.container-->
     <footer class="footer">

@@ -24,7 +24,10 @@
                     <li class="active"><a href="/shop/">Shop</a></li>
                     <li class="active"><a href="/shop/rentals/">Rentals</a></li>
                     <li class="active"><a href="/shop/festivals/">Festivals</a></li>
-                    <li><a href="#"></a></li>
+                    %if request.user.is_superuser:
+                    <li><a href="/administrator/">Admin</a>
+                    </li>
+                    %endif
                 </ul>
                 <form id="search_go" class="navbar-form navbar-left" method="POST" action="/shop/index.search/" >
                     <div class="form-group">
@@ -72,7 +75,7 @@
                             %endif
                             %if user.is_authenticated():
                             <li class="divider"></li>
-                            <li><a href="/logout/"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                            <li><a href="/user_logout/"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
                             </li>
                             %endif
                         </ul>

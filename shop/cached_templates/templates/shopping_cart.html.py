@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1428111831.293993
+_modified_time = 1428537837.445753
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/shop/templates/shopping_cart.html'
 _template_uri = 'shopping_cart.html'
@@ -30,8 +30,8 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         def content():
             return render_content(context._locals(__M_locals))
-        int = context.get('int', UNDEFINED)
         rentals = context.get('rentals', UNDEFINED)
+        int = context.get('int', UNDEFINED)
         items = context.get('items', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n\n')
@@ -50,8 +50,8 @@ def render_content(context,**pageargs):
     try:
         def content():
             return render_content(context)
-        int = context.get('int', UNDEFINED)
         rentals = context.get('rentals', UNDEFINED)
+        int = context.get('int', UNDEFINED)
         items = context.get('items', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n\n\n\n<div class="item_container">\n')
@@ -78,7 +78,7 @@ def render_content(context,**pageargs):
                 __M_writer(str(value[0].value))
                 __M_writer('</td>\n              <td>$')
                 __M_writer(str(sub_total))
-                __M_writer('</td>\n              <td><a class="btn btn-danger delete_button" data-pid="')
+                __M_writer('</td>\n              <td><a class="btn btn-danger delete_button" data-rental="False" data-pid="')
                 __M_writer(str(value[0].id))
                 __M_writer('" href="#"><i class="fa fa-times"></i></a></td>\n\t\t\t</tr>\n')
             __M_writer('\t\t</tbody>\n        <tfoot>\n            <tr>\n                <td><b>Total:</b> </td>\n                <td></td>\n                <td></td>\n                <td></td>\n                <td><b>$')
@@ -102,7 +102,7 @@ def render_content(context,**pageargs):
                 __M_writer(str(rental.current_price))
                 __M_writer('</td>\n              <td>$')
                 __M_writer(str(sub_total))
-                __M_writer('</td>\n              <td><a class="btn btn-danger delete_button" data-pid="')
+                __M_writer('</td>\n              <td><a class="btn btn-danger delete_button" data-rental="True" data-pid="')
                 __M_writer(str(rental.id))
                 __M_writer('" href="#"><i class="fa fa-times"></i></a></td>\n\t\t\t</tr>\n')
             __M_writer('\t\t</tbody>\n        <tfoot>\n            <tr>\n                <td><b>Total:</b> </td>\n                <td></td>\n                <td></td>\n                <td></td>\n                <td><b>$')
@@ -118,6 +118,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/scottromney/SiteOne/shop/templates/shopping_cart.html", "uri": "shopping_cart.html", "line_map": {"27": 0, "37": 1, "42": 105, "48": 3, "57": 3, "58": 8, "59": 9, "60": 21, "62": 21, "63": 23, "64": 24, "65": 25, "73": 31, "74": 34, "75": 34, "76": 35, "77": 35, "78": 36, "79": 36, "80": 37, "81": 37, "82": 38, "83": 38, "84": 41, "85": 48, "86": 48, "87": 65, "89": 65, "90": 67, "91": 68, "92": 69, "99": 74, "100": 76, "101": 76, "102": 78, "103": 78, "104": 79, "105": 79, "106": 80, "107": 80, "108": 83, "109": 90, "110": 90, "111": 94, "112": 95, "113": 102, "119": 113}, "source_encoding": "ascii"}
+{"line_map": {"27": 0, "37": 1, "42": 105, "48": 3, "57": 3, "58": 8, "59": 9, "60": 21, "62": 21, "63": 23, "64": 24, "65": 25, "73": 31, "74": 34, "75": 34, "76": 35, "77": 35, "78": 36, "79": 36, "80": 37, "81": 37, "82": 38, "83": 38, "84": 41, "85": 48, "86": 48, "87": 65, "89": 65, "90": 67, "91": 68, "92": 69, "99": 74, "100": 76, "101": 76, "102": 78, "103": 78, "104": 79, "105": 79, "106": 80, "107": 80, "108": 83, "109": 90, "110": 90, "111": 94, "112": 95, "113": 102, "119": 113}, "uri": "shopping_cart.html", "filename": "/Users/scottromney/SiteOne/shop/templates/shopping_cart.html", "source_encoding": "ascii"}
 __M_END_METADATA
 """

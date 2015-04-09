@@ -41,8 +41,6 @@ def process_request(request):
 
 
     rent_ids = request.session['rental_cart']
-    print(rent_ids)
-
     rentals = []
 
     for rents in rent_ids:
@@ -53,7 +51,6 @@ def process_request(request):
 
     params['items'] = items
     params['rentals'] = rentals
-    print(params)
 
 
     return templater.render_to_response(request, 'shopping_cart.html', params)
@@ -62,44 +59,51 @@ def process_request(request):
 @view_function
 def add(request):
 
+    #Creates shopping cart session if necessary.
     if 'shopping_cart' not in request.session:
         request.session['shopping_cart'] = {}
 
+    #gets params from url
     pid = request.urlparams[0]
     qty = int(request.urlparams[1])
     rent = request.urlparams[2]
 
-    print(rent)
 
+    #Determines if item is rental or not
     if rent == "False":
         if pid in request.session['shopping_cart']:
             request.session['shopping_cart'][pid] += qty
-
-
-
         else:
             request.session['shopping_cart'][pid] = qty
 
     else:
         if 'rental_cart' not in request.session:
             request.session['rental_cart'] = []
+            request.session.modified = True
 
         if pid not in request.session['rental_cart']:
             request.session['rental_cart'].append(pid)
+            request.session.modified = True
 
-
+    #Tell django the session has been modified for reload.
     request.session.modified = True
+
     return HttpResponseRedirect('/shop/shopping_cart/')
 
 @view_function
 def delete(request):
-
+    print(request.session['shopping_cart'])
+    print(request.session['rental_cart'])
     pid = request.urlparams[0]
+    rent = request.urlparams[1]
+    print(int(pid))
+    #Determines if item is rental or not
+    if rent == "False":
+        del request.session['shopping_cart'][pid]
+    else:
+        request.session['rental_cart'].remove(pid)
 
-    del request.session['shopping_cart'][pid]
+    #Tell django the session has been modified for reload.
     request.session.modified = True
-
-
-
 
     return HttpResponseRedirect('/shop/shopping_cart/')
