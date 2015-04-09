@@ -184,17 +184,16 @@ hmod.Item.objects.all().delete()
 
 #Create new items: name, description, value
 for data in [
-  ['Blue Coat' , 'Original blue coat of the colonial army', '129','chf'],
+  ['Blue Coat' , 'Original blue coat of the colonial army', '129'],
   ['Red Coat' , 'Original red coat of the colonial army', '129'],
-  ['Backpack' , 'From deep within the cotopaxi warehouse', '29','chf'],
-  ['Canteen' , '12 oz canteen thats sure to keep your thirst quenched', '5','chf'],
+  ['Backpack' , 'From deep within the cotopaxi warehouse', '29'],
+  ['Canteen' , '12 oz canteen thats sure to keep your thirst quenched', '5'],
 ]:
 
     i = hmod.Item()
     i.name = data[0]
     i.description = data[1]
     i.value = data[2]
-    i.organization = [3]
 
     i.save()
     print(i)

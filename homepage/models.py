@@ -14,15 +14,6 @@ class SiteUser(AbstractUser):
 	account_balance = models.IntegerField(blank=True, null=True)
 
 
-class Organization(models.Model):
-	organization_type = models.CharField(max_length=30)
-	phone = models.CharField(max_length=30, blank=True, null=True)
-	address1 = models.CharField(max_length=60, blank=True, null=True)
-	city = models.CharField(max_length=30, blank=True, null=True)
-	state = models.CharField(max_length=12, blank=True, null=True)
-	zip_code = models.IntegerField(max_length=5, blank=True, null=True)
-	email = models.EmailField(blank=True, null=True)
-
 class Product(models.Model):
 	name = models.CharField(max_length=30)
 	description = models.CharField(max_length=144)
@@ -49,7 +40,6 @@ class Item(models.Model):
 	name = models.CharField(max_length=30, blank=True, null=True)
 	description = models.CharField(max_length=144, blank=True, null=True)
 	value = models.DecimalField(max_digits=6, decimal_places=2, null=True)
-	organization = models.CharField(max_length=144, blank=True, null=True)
 	is_rentable = models.NullBooleanField(default=True,blank=True, null=True)
 	is_active = models.NullBooleanField(default=True, blank=True, null=True)
 
