@@ -108,12 +108,6 @@ for data in [
   ['Feather Pen Writing','Come and learn how to write like to used to with feathers and ink','2015-05-28','2015-05-28','Centenial Park'],
   ['Musket Shooting','Come give your aim a try with us as we practice shooting','2015-06-05','2015-06-05','Centenial Park'],
   ['Questival','The most intense magical journey you have every experienced','2015-04-06','2015-04-07','Energy Solutions'],
-  ['Bread Making','Come see how amazing Gove Allen is at making bread','2015-03-12','2015-03-12','Liberty Park'],
-  ['Bonfire','We will make the flames touch the heavens','2015-02-28','2015-02-28','Provo Library'],
-  ['Lunch Special','Come meet the employees of dunder miflin paper company','2015-05-05','2015-05-05','Slab Pizza'],
-  ['Park Revival','With special musical guests, this activity cannot me missed','2015-05-06','2015-05-06','Scera Theatre'],
-  ['Grape Mashing Festival','Ready for Summer? Come join us by mashing into the summer','2015-06-06','2015-05-06','Brockbank Elementary'],
-  ['Battle of the Little Bighorn reenactment','Since the 1990s there have been two events conducted annually close to the anniversary of the battle in late June, although in 2015 only one event has been scheduled to take place','2015-06-06','2015-05-06','the banks of the Little Bighorn River'],
 
 ]:
 
