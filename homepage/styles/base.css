@@ -1,6 +1,11 @@
 @import "http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600";
 @import "http://fonts.googleapis.com/css?family=Miss+Fajardose";
 
+.navbar{
+	background-color: white;
+	opacity: .9;
+}
+
 body, html {
 	font-family:'Source Sans Pro',sans-serif;
 	overflow-x: hidden;
@@ -10,7 +15,7 @@ a:hover {
     color: #FF0000;
 }
 a {
-    color: #fff;
+	color:#337ab7;
 	text-transform: capitalize;
 }
 #homepage {
@@ -44,6 +49,13 @@ a {
 
 .navbar-header {
 	margin:0 0 0 14px;
+	height: 65px;
+}
+
+.navbar-brand{
+	height: 65px;
+	width: 335px;
+	margin-top: 5px;
 }
 
 .round {
@@ -77,7 +89,8 @@ a {
 }
 
 .header img.nav-logo{
-	height: 31px;
+	height: 48px;
+	padding-top: 0px;
 }
 .header img.nav-logo-dark{
     height: 31px;
@@ -86,7 +99,7 @@ a {
 
 .hero {
 	text-align:center;
-	background: url("/static/homepage/media/images/hero.svg") no-repeat center center fixed;
+	background: url("/static/homepage/media/images/tools.jpg") no-repeat center center fixed;
 	height: 48em;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
@@ -95,9 +108,9 @@ a {
 }
 .hero h1 {
     font-size: 8em;
-    font-family: 'Miss Fajardose', cursive;
+    font-family: inherit;
     margin-bottom: 10px;
-    color: #fff;
+    color: #121212;
 }
 
 .hero h2 {
@@ -112,6 +125,25 @@ a {
 	font-size:1.5em;
 	margin:20px 0 30px;
 	font-weight:300;
+}
+
+.mighthide {
+	margin-left: 136px;
+	margin-top: 15px;
+	font-family: Lato;
+	font-weight: 300;
+	font-size: large;
+}
+
+.login{
+	font-family: lato;
+	font-weight: 300;
+	font-size: large;
+}
+
+.navbar-right .login{
+	margin-top: 16px;
+
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------*/
