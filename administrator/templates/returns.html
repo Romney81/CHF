@@ -1,4 +1,5 @@
 <%inherit file="index.html" />
+<%import datetime%>
 <!-- Registered Users View -->
 <%block name="admincontent">
     <div class="row">
@@ -15,7 +16,7 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Rental Date</th>
-                                        <th>Return Date</th>
+                                        <th>Due Date</th>
                                         <th>Person</th>
                                         <th>Return</th>
                                     </tr>
@@ -24,11 +25,11 @@
                                 %for renter in renters:
                                     <tr>
                                         <td>${renter.name}</td>
-                                        <td>${renter.rental_date}</td>
-                                        <td>${renter.due_date}</td>
-                                        <td>${renter.person.first_name}</td>
+                                        <td>${renter.rental_date.strftime("%A, %b %d")}</td>
+                                        <td>${renter.due_date.strftime("%A, %b %d")}</td>
+                                        <td>${renter.person.first_name} ${renter.person.last_name}</td>
                                         <td class="text-center">
-                                            <a class="btn btn-info btn-xs return" data-rid="${renter.id}" href="#"><i class="fa fa-pencil-square-o"> Return</i></a>
+                                            <a class="btn btn-info btn-xs return" data-rid="${renter.id}" href="#"><i class="fa fa-reply"> Return</i></a>
                                         </td>
                                     </tr>
                                 %endfor

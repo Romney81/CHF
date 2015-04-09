@@ -9,8 +9,11 @@
                     <h3 class="title"><i class="fa fa-shopping-cart"></i> Items in your cart [
                         <span class="color">${item_count}</span> ]</h3>
                     <br />
+                    %if items:
+                    <h2>Purchases</h2>
                     <div class="table-responsive">
                         <!-- Table -->
+
                         <table class="table tcart">
                             <thead>
                                 <tr>
@@ -46,12 +49,10 @@
                                     <!-- Quantity with refresh and remove button -->
                                     <td class="item-input">
                                         <div class="input-group">
-                                            <input class="form-control" type="text" value="1">
+                                            <input class="form-control" type="text" value="1" readonly>
                                             <span class="input-group-btn">
-                                                <button class="btn btn-default" type="button"><i class="fa fa-refresh"></i>
-                                                </button>
-                                                <button class="btn btn-danger" type="button"><i class="fa fa-times"></i>
-                                                </button>
+                                                <a href="/shop/view-cart.delete/${value[0].id}/False" class="btn btn-danger" data-rental="False" data-pid="${value[0].id}" type="button"><i class="fa fa-times"></i>
+                                                </a>
                                             </span>
                                         </div>
                                     </td>
@@ -73,6 +74,10 @@
                             </tbody>
                         </table>
                     </div>
+                    %endif
+
+                    %if rentals:
+                    <h2>Rentals</h2>
                     <div class="table-responsive">
                         <!-- Table -->
                         <table class="table tcart">
@@ -81,6 +86,7 @@
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Image</th>
+                                    <th>Quantity</th>
                                     <th>Unit Price</th>
                                     <th>Total</th>
                                 </tr>
@@ -91,7 +97,7 @@
                                 <%
                                     price = rental.current_price
 
-                                    sub_total = price
+                                    sub_total = price * 30
                                     grand_total += sub_total
                                 %>
                                 <tr>
@@ -104,6 +110,15 @@
                                         <a href="single-item.html">
                                             <img src="${STATIC_URL}homepage/media/images/rental${rental.id}.jpg" alt="" />
                                         </a>
+                                    </td>
+                                    <td class="item-input">
+                                        <div class="input-group">
+                                            <input class="form-control" type="text" value="1" readonly>
+                                            <span class="input-group-btn">
+                                                <a href="/shop/view-cart.delete/${rental.id}/True" class="btn btn-danger" data-rental="True" data-pid="${rental.id}" type="button"><i class="fa fa-times"></i>
+                                                </a>
+                                            </span>
+                                        </div>
                                     </td>
                                     <!-- Unit price -->
                                     <td>$${rental.current_price}</td>
@@ -123,26 +138,39 @@
                             </tbody>
                         </table>
                     </div>
+                    %endif
+                    %if not rentals:
+                        %if not items:
+                            <div class="text-center">
+                                <i class="fa fa-shopping-cart bigcart"></i>
+                                <p>
+                                    Shopping cart is empty! Get Shopping!
+                                </p>
+                            </div>
+                        %endif
+                    %endif
+
+                    %if rentals or items:
                     <h5 class="title">Gift Coupen</h5>
                     <form class="form-inline">
-                <!-- Gift coupen -->
+                        <!-- Gift coupen -->
 
-                <div class="form-group">
-					<input type="email" class="form-control" id="" placeholder="Gift Coupon">
-				</div>
+                        <div class="form-group">
+        					<input type="email" class="form-control" id="" placeholder="Gift Coupon">
+        				</div>
+    				    <button type="submit" class="btn btn-default">Apply</button>
+                    </form>
 
-				<button type="submit" class="btn btn-default">Apply</button>
-              </form>
-
-               <!-- Button s-->
-              <div class="row">
-                <div class="col-md-5 col-md-offset-7">
-                  <div class="pull-right">
-                    <a href="/shop/" class="btn btn-default">Continue Shopping</a>
-                    <a href="/shop/checkout" class="btn btn-danger">CheckOut</a>
-                  </div>
-                </div>
-              </div>
+                    <!-- Button s-->
+                    <div class="row">
+                        <div class="col-md-5 col-md-offset-7">
+                            <div class="pull-right">
+                                <a href="/shop/" class="btn btn-default">Continue Shopping</a>
+                                <a href="/shop/checkout" class="btn btn-danger">CheckOut</a>
+                            </div>
+                        </div>
+                    </div>
+                    %endif
                 </div>
             </div>
         </div>

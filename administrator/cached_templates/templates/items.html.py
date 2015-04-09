@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1423693053.34422
+_modified_time = 1428552383.421555
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/administrator/templates/items.html'
 _template_uri = 'items.html'
@@ -58,7 +58,7 @@ def render_admincontent(context,**pageargs):
             __M_writer(str(item.name))
             __M_writer('</td>\n                                    <td>')
             __M_writer(str(item.description))
-            __M_writer('</td>\n                                    <td>')
+            __M_writer('</td>\n                                    <td class="text-center">$')
             __M_writer(str(item.value))
             __M_writer('</td>\n                                    <td class="text-center">')
             __M_writer(str(item.is_rentable))
@@ -75,6 +75,6 @@ def render_admincontent(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"uri": "items.html", "source_encoding": "ascii", "line_map": {"64": 32, "65": 32, "66": 34, "67": 34, "68": 35, "69": 35, "70": 39, "76": 70, "27": 0, "35": 1, "40": 51, "46": 3, "53": 3, "54": 26, "55": 27, "56": 28, "57": 28, "58": 29, "59": 29, "60": 30, "61": 30, "62": 31, "63": 31}, "filename": "/Users/scottromney/SiteOne/administrator/templates/items.html"}
+{"uri": "items.html", "source_encoding": "ascii", "filename": "/Users/scottromney/SiteOne/administrator/templates/items.html", "line_map": {"64": 32, "65": 32, "66": 34, "67": 34, "68": 35, "69": 35, "70": 39, "76": 70, "27": 0, "35": 1, "40": 51, "46": 3, "53": 3, "54": 26, "55": 27, "56": 28, "57": 28, "58": 29, "59": 29, "60": 30, "61": 30, "62": 31, "63": 31}}
 __M_END_METADATA
 """
