@@ -60,3 +60,21 @@ def process_request(request):
     params['items'] = items
     params['rentals'] = rentals
     return templater.render_to_response(request, 'view-cart.html', params)
+
+@view_function
+def delete(request):
+    print(request.session['shopping_cart'])
+    print(request.session['rental_cart'])
+    pid = request.urlparams[0]
+    rent = request.urlparams[1]
+    print(int(pid))
+    #Determines if item is rental or not
+    if rent == "False":
+        del request.session['shopping_cart'][pid]
+    else:
+        request.session['rental_cart'].remove(pid)
+
+    #Tell django the session has been modified for reload.
+    request.session.modified = True
+
+    return HttpResponseRedirect('/shop/view-cart/')

@@ -5,7 +5,8 @@
 
 
 <div class="item_container">
-    %if items or rentals:
+    %if items:
+    <h2>Purchases</h2>
     <table class="table table-striped tcart">
         <thead>
 			<tr>
@@ -49,7 +50,10 @@
             </tr>
         </tfoot>
     </table>
+    %endif
 
+    %if rentals:
+    <h2>Rentals</h2>
     <table class="table table-striped tcart">
         <thead>
 			<tr>
@@ -69,12 +73,12 @@
             <%
                 price = rental.current_price
 
-                sub_total = price
+                sub_total = price * 30
                 grand_total += sub_total
             %>
 			<tr>
 			  <td>${rental.name}</td>
-              <td> - </td>
+              <td> RENT </td>
 			  <td>$${rental.current_price}</td>
               <td>$${sub_total}</td>
               <td><a class="btn btn-danger delete_button" data-rental="True" data-pid="${rental.id}" href="#"><i class="fa fa-times"></i></a></td>
@@ -91,13 +95,16 @@
             </tr>
         </tfoot>
     </table>
-    %else:
-    <div class="text-center">
-        <i class="fa fa-shopping-cart bigcart"></i>
-        <p>
-            Shopping cart is empty! Get Shopping!
-        </p>
-    </div>
+    %endif
+    %if not rentals:
+        %if not items:
+            <div class="text-center">
+                <i class="fa fa-shopping-cart bigcart"></i>
+                <p>
+                    Shopping cart is empty! Get Shopping!
+                </p>
+            </div>
+        %endif
     %endif
 
 </div>

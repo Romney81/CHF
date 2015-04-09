@@ -10,8 +10,8 @@ $(function() {
                 $('.was_returned').bootstrapSwitch({
                     'size':'small',
                     'onColor': 'success',
-                    'onText': 'Returned',
-                    'offText': 'Out',
+                    'onText': 'Yes',
+                    'offText': 'No',
                 });
                 $('.fee').parent().addClass('col-md-2');
             },

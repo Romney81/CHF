@@ -10,29 +10,29 @@
                     <h3 class="title">Items For Rent</h3>
                 </div>
                 <div id="item-loop">
-                    %for item in items:
+                    %for rental in rentals:
                     <div class="col-md-3 col-sm-4">
                         <div class="item">
                             <!-- Item image -->
                             <div class="item-image">
-                                <a href="/shop/item_details/${item.id}">
-                                    <img src="${STATIC_URL}homepage/media/images/rental${item.id}.jpg" alt="" />
+                                <a href="/shop/rental_details/${rental.id}">
+                                    <img src="${STATIC_URL}homepage/media/images/rental${rental.id}.jpg" alt="" />
                                 </a>
                             </div>
                             <!-- Item details -->
                             <div class="item-details">
                                 <!-- Name -->
                                 <!-- Use the span tag with the class "ico" and icon link (hot, sale, deal, new) -->
-                                <h5><a href="single-item.html">${item.name}</a>
+                                <h5><a href="single-item.html">${rental.name}</a>
                                 </h5>
                                 <div class="clearfix"></div>
                                 <!-- Para. Note more than 2 lines. -->
-                                <p>${item.description}</p>
+                                <p>${rental.description}</p>
                                 <hr />
                                 <!-- Price -->
-                                <div class="item-price pull-left">$${item.current_price} / Day</div>
+                                <div class="item-price pull-left">$${rental.current_price} / Day</div>
                                 <!-- Add to cart -->
-                                <div data-pid="${item.id}" data-rental="True" class="button pull-right add_button"><a href="#"><i class="fa fa-cart-plus"></i> Rent Now</a>
+                                <div data-pid="${rental.id}" data-rental="True" class="button pull-right add_button"><a href="#"><i class="fa fa-cart-plus"></i> Rent Now</a>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
