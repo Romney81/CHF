@@ -1,6 +1,7 @@
 #wrapper {
     width: 100%;
 }
+.dataTable_wrapper {text-transform: capitalize;}
 #side-menu .badge {margin: 0 5px;}
 #page-wrapper {
     padding: 20px 15px;
@@ -62,14 +63,15 @@
 }
 .admin-profile .profile-image {
     display: block;
-    width: 65px;
-    height: 65px;
+    width: 75px;
+    height: 75px;
     margin: 0 auto 5px;
 }
 .sidebar {
     background: #1D212A;
     border-radius: 0px;
     border: none;
+    text-transform: capitalize;
 }
 .sidebar a {
     color: #b2b7c2;

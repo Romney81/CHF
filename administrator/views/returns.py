@@ -19,7 +19,7 @@ templater = get_renderer('administrator')
 def process_request(request):
     params = {}
 
-    renters = hmod.Rentals.objects.all()
+    renters = hmod.Rentals.objects.filter(was_returned=False)
 
     params['renters'] = renters
 

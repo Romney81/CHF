@@ -48,7 +48,7 @@ def gettotal(request):
 
         for rental_id in rental_ids:
             rentitem = hmod.Product.objects.get(id = rental_id)
-            rentvalue = int(rentitem.current_price)
+            rentvalue = int(rentitem.current_price * 30)
 
             total += rentvalue
 
@@ -93,7 +93,7 @@ def process_request(request):
                 'exp_year': form.cleaned_data['expyear'],
                 'cvc': form.cleaned_data['cvc'],
                 'name': form.cleaned_data['ccname'],
-                'description': 'Charge for '+ form.cleaned_data['email'],
+                'description': 'Charge for '+ request.user.email,
             }
 
             return HttpResponseRedirect('/shop/checkout.charge/')
@@ -110,7 +110,6 @@ class checkoutForm(forms.Form):
     MONTH_CHOICES = (('1', '01',),('2', '02',),('3', '03',),('4','04',),('5','05',),('6','06',),('7', '07',),('8', '08',),('9', '09',),('10','10',),('11','11',),('12','12',))
 
     name = forms.CharField(required=True, label='Full Name', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Full Name'}))
-    email = forms.EmailField(required=True, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email'}))
     phone = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Primary Phone'}))
     address = forms.CharField(required=True, widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Address'}))
     country = forms.ChoiceField(widget = forms.Select(attrs={'class': 'form-control'}), choices=([('1','United States'), ('2','Canada'),('3','Mexico'), ]))
@@ -199,13 +198,13 @@ def charge(request):
         params['rentals'] = rentals
 
         #send email
-        # message = templater.render(request, 'email_confirmation.html', params)
-        # subject = 'CHF Order Receipt'
-        # to = ['romney81@gmail.com']
-        # from_email = 'romney81@gmail.com'
-        # msg = EmailMessage(subject, message, to=to, from_email=from_email)
-        # msg.content_subtype = 'html'
-        # msg.send()
+        message = templater.render(request, 'email_confirmation.html', params)
+        subject = 'CHF Order Receipt'
+        to = ['romney81@gmail.com']
+        from_email = 'romney81@gmail.com'
+        msg = EmailMessage(subject, message, to=to, from_email=from_email)
+        msg.content_subtype = 'html'
+        msg.send()
 
 
 

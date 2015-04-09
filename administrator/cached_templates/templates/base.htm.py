@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1428547557.790633
+_modified_time = 1428558590.541441
 _enable_loop = True
 _template_filename = '/Users/scottromney/SiteOne/administrator/templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['headlinks', 'administrator', 'content', 'footlinks']
+_exports = ['headlinks', 'content', 'footlinks', 'administrator']
 
 
 def _mako_get_namespace(context, name):
@@ -30,13 +30,13 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         def headlinks():
             return render_headlinks(context._locals(__M_locals))
-        def administrator():
-            return render_administrator(context._locals(__M_locals))
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
         def footlinks():
             return render_footlinks(context._locals(__M_locals))
+        def administrator():
+            return render_administrator(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'headlinks'):
@@ -78,25 +78,6 @@ def render_headlinks(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_administrator(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def administrator():
-            return render_administrator(context)
-        def content():
-            return render_content(context)
-        __M_writer = context.writer()
-        __M_writer('\n    ')
-        if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
-            context['self'].content(**pageargs)
-        
-
-        __M_writer('\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -132,8 +113,27 @@ def render_footlinks(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_administrator(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content():
+            return render_content(context)
+        def administrator():
+            return render_administrator(context)
+        __M_writer = context.writer()
+        __M_writer('\n    ')
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
+            context['self'].content(**pageargs)
+        
+
+        __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"line_map": {"128": 30, "129": 30, "69": 4, "70": 6, "71": 6, "72": 8, "73": 8, "74": 10, "75": 10, "81": 17, "56": 31, "89": 17, "27": 0, "94": 20, "100": 18, "41": 1, "106": 18, "135": 129, "46": 15, "112": 23, "51": 21, "126": 29, "119": 23, "120": 25, "121": 25, "122": 27, "123": 27, "124": 28, "125": 28, "62": 4, "127": 29}, "filename": "/Users/scottromney/SiteOne/administrator/templates/base.htm", "source_encoding": "ascii", "uri": "base.htm"}
+{"line_map": {"129": 20, "69": 4, "70": 6, "71": 6, "72": 8, "73": 8, "74": 10, "75": 10, "81": 18, "110": 30, "87": 18, "27": 0, "135": 129, "93": 23, "100": 23, "101": 25, "102": 25, "103": 27, "104": 27, "41": 1, "106": 28, "107": 29, "108": 29, "109": 30, "46": 15, "51": 21, "116": 17, "105": 28, "56": 31, "124": 17, "62": 4}, "source_encoding": "ascii", "uri": "base.htm", "filename": "/Users/scottromney/SiteOne/administrator/templates/base.htm"}
 __M_END_METADATA
 """
