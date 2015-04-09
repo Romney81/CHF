@@ -61,12 +61,6 @@ class Area(models.Model):
 	name = models.CharField(max_length=255)
 	description = models.CharField(max_length=255)
 
-class PublicEvent(models.Model):
-	name = models.CharField(max_length=30, blank=True, null=True)
-	description = models.CharField(max_length=255, blank=True, null=True)
-	start_date = models.DateField(blank=True, null=True)
-	end_date = models.DateField(blank=True, null=True)
-
 class Event(models.Model):
 	name = models.CharField(max_length=255)
 	description = models.CharField(max_length=255)
