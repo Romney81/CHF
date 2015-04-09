@@ -16,7 +16,7 @@ from django_mako_plus.controller.router import get_renderer
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm
 
-templater = get_renderer('shop')
+templater = get_renderer('homepage')
 
 ######################## main view function ########################
 @view_function

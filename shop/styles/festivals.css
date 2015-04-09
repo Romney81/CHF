@@ -154,3 +154,46 @@ transition:background 1s ease;
 button.close{
 	font-size: 16px !important;
 }
+
+.festival-container { background: rgba(207, 207, 207, 0.54); padding-bottom: 30px; margin-top: 10%;}
+.festival-container .btn {background: #CFCFCF; border-radius: 4px;}
+.festival-container .events-list {
+  width: 100%;
+  font-size: 0.9em;
+}
+.festival-container .events-list tr td {
+  padding: 5px 20px 5px 0;
+}
+.festival-container .events-list tr td:last-child {
+  padding: 5px 0;
+  text-align: right;
+}
+.festival-container .events-list tr:hover .event-date {
+  border-left: 5px solid #4f8db3;
+}
+.festival-container .events-list .event-date {
+  margin: 3px 0;
+  padding: 2px 10px;
+  border-left: 5px solid #CFCFCF;
+  -webkit-transition: all .25s linear;
+  -moz-transition: all .25s linear;
+  -o-transition: all .25s linear;
+  -ms-transition: all .25s linear;
+  transition: all .25s linear;
+}
+.festival-container .events-list .event-date .event-day {
+  color: #808080;
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+}
+.festival-container .events-list .event-date .event-month {
+  color: #CFCFCF;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-align: center;
+}
+.festival-container .events-list .event-date .event-venue,
+.festival-container .events-list .event-date .event-price {
+  white-space: nowrap;
+}
