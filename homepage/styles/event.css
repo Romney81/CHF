@@ -1,0 +1,139 @@
+.hero h1 {
+  font-size: 4em;
+  margin-top: 2px;
+  margin-bottom: 30px;
+}
+.hero {
+  text-align: center;
+  background: url("/static/homepage/media/images/tools2.jpg") no-repeat center;
+  height: 82em;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-top: -150px;
+  padding-top: 350px;
+  height: 100%;
+  padding-bottom: 90px;
+}
+/*--------------------------
+      Event Details
+---------------------------*/
+.festiv-event { background: #fff; padding: 20px 70px; width: 80%; margin: 0 auto; opacity: 0.9;}
+.festiv-event .portfolio-item {
+  position: relative;
+  background: #FFF;
+  margin-bottom: 20px;
+  border: 8px solid #FFF;
+  -webkit-border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 5px;
+  -moz-background-clip: padding;
+  border-radius: 5px;
+  background-clip: padding-box;
+  -webkit-box-shadow: inset 0 1px #fff,0 0 8px #c8cfe6;
+  -moz-box-shadow: inset 0 1px #fff,0 0 8px #c8cfe6;
+  box-shadow: inset 0 1px #fff,0 0 8px #c8cfe6;
+  color: inset 0 1px #fff,0 0 8px #c8cfe6;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  transition: all .5s ease;
+}
+.portfolio-item .portfolio-image #saleitem {max-height: 160px;}
+.festiv-event .portfolio-item .portfolio-image {
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+}
+.festiv-event .portfolio-item .portfolio-image img {
+  max-width: 100%;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  transition: all .25s ease;
+}
+.festiv-event .portfolio-item:hover {
+  border: 8px solid #4f8db3;
+}
+.festiv-event .portfolio-item:hover .portfolio-image img {
+  position: relative;
+  -webkit-transform: scale(1.1) rotate(2deg);
+  -moz-transform: scale(1.1) rotate(2deg);
+  -o-transform: scale(1.1) rotate(2deg);
+  -ms-transform: scale(1.1) rotate(2deg);
+  transform: scale(1.1) rotate(2deg);
+}
+.festiv-event .portfolio-item ul {
+  list-style-type: none;
+  margin-left: 0;
+  margin-top: 20px;
+  text-align: center;
+  padding: 0;
+}
+.festiv-event .portfolio-item ul li {
+  line-height: 28px;
+}
+.festiv-event .portfolio-item .portfolio-project-name {
+  font-size: 1.3em;
+  text-transform: uppercase;
+}
+.festiv-event .portfolio-item .read-more {
+  text-align: center;
+  padding-top: 10px;
+}
+.festiv-event .portfolio-item .portfolio-info-fade {
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
+  top: 0;
+  position: absolute;
+  background: #000;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  color: #FFF;
+  text-shadow: 2px 2px 4px #000000;
+  filter: dropshadow(color=#000000, offx=2, offy=2);
+  -webkit-transition: opacity .25s linear;
+  -moz-transition: opacity .25s linear;
+  -o-transition: opacity .25s linear;
+  -ms-transition: opacity .25s linear;
+  transition: opacity .25s linear;
+}
+.festiv-event .portfolio-item .portfolio-info-fade ul {
+  margin-top: 10%;
+}
+.festiv-event .portfolio-item .portfolio-info-fade .btn:hover {
+  background: #4f8db3;
+}
+.festiv-event .portfolio-item .portfolio-info-fade ul {
+  margin: 10% 20px 0 20px;
+  padding: 0;
+}
+.festiv-event .portfolio-item .portfolio-info-fade ul li {
+  text-align: center;
+}
+.festiv-event .portfolio-item .portfolio-info-fade ul li:first-child {
+  border-bottom: 1px solid #CCC;
+}
+.festiv-event .portfolio-item:hover .portfolio-info-fade {
+  display: block;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+}
+.festiv-event .lt-ie9 .portfolio-info-fade {
+  display: none;
+}
+.festiv-event .lt-ie9 .portfolio-item:hover .portfolio-info-fade {
+  display: block;
+}
+.festiv-event .portfolio-visit-btn {
+  padding-top: 15px;
+}
+.festiv-event .portfolio-item-description ul {
+  padding: 0;
+}

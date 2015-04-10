@@ -14,14 +14,13 @@
 
 .festival-container { background: white; opacity:.9;
 					  padding-bottom: 30px;
-					  margin-top: 10%;
 					  border-radius: 2px;
 					  width: 80%;
-					  margin-left: 10%;
+                      margin: 0 auto;
 					}
 
 
-.festival-container .btn {background: indianred; border-radius: 4px;}
+.festival-container .btn {background: indianred; border-radius: 4px;color:#fff;}
 .festival-container .events-list {
   width: 100%;
   font-size: 0.9em;

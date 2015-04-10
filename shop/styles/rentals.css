@@ -14,9 +14,9 @@
 
 .items{
 	margin: 0 auto -250px;
-  min-height: 90%;
-  height: 100%;
-  height: auto !important;
+  	min-height: 90%;
+  	height: 100%;
+  	height: auto !important;
 }
 
 .items .breadcrumb{

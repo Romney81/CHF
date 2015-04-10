@@ -178,9 +178,9 @@ hmod.Item.objects.all().delete()
 
 #Create new items: name, description, value
 for data in [
-  ['Blue Coat' , 'Original blue coat of the colonial army', '129'],
-  ['Red Coat' , 'Original red coat of the colonial army', '129'],
-  ['Backpack' , 'From deep within the cotopaxi warehouse', '29'],
+  ['Blue Coat' , 'Original blue coat that was worn by soldier of the colonial army', '129'],
+  ['Red Coat' , 'Original red coat that was worn by soldier of the rebel army', '129'],
+  ['Backpack' , 'It comes from deep within the cotopaxi warehouse', '29'],
   ['Canteen' , '12 oz canteen thats sure to keep your thirst quenched', '5'],
 ]:
 

@@ -1,6 +1,9 @@
 @import "http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600";
 @import "http://fonts.googleapis.com/css?family=Miss+Fajardose";
-
+.forgot {
+  margin-top: 20px;
+  color: #fff;
+}
 .navbar{
 	background-color: white;
 	opacity: .9;
@@ -115,6 +118,7 @@ a {
     -o-background-size: cover;
     background-size: cover;
 	margin-top: -150px;
+	padding-top: 350px;
 }
 .hero h1 {
     font-size: 8em;
@@ -138,8 +142,7 @@ a {
 }
 
 .mighthide {
-	margin-left: 136px;
-	margin-top: 15px;
+	margin-top: 10px;
 	font-family: Lato;
 	font-weight: 300;
 	font-size: large;
@@ -152,7 +155,7 @@ a {
 }
 
 .navbar-right .login{
-	margin-top: 16px;
+	margin-top: 10px;
 
 }
 

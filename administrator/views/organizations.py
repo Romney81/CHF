@@ -14,8 +14,8 @@ import datetime
 templater = get_renderer('administrator')
 
 @view_function
-@login_required(login_url='/homepage/login/')
-@permission_required('admin.delete_logentry', login_url='/homepage/login/')
+@login_required(login_url='/homepage/user-login/')
+@permission_required('admin.delete_logentry', login_url='/homepage/user-login/')
 def process_request(request):
     params = {}
 

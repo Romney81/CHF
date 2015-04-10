@@ -250,5 +250,8 @@ def confirmation(request):
     #return json response into the view
     params['response'] = request.session['response']
 
+    del request.session['shopping_cart']
+    del request.session['rental_cart']
+
     #return values to the view
     return templater.render_to_response(request, 'confirmation.html', params)

@@ -155,7 +155,7 @@ button.close{
 	font-size: 16px !important;
 }
 
-.festival-container { background: rgba(207, 207, 207, 0.54); padding-bottom: 30px; margin-top: 10%;}
+.festival-container { background: rgba(207, 207, 207, 0.54); padding-bottom: 30px; margin: 0 auto;}
 .festival-container .btn {background: #CFCFCF; border-radius: 4px;}
 .festival-container .events-list {
   width: 100%;
