@@ -263,35 +263,6 @@ for data in [
     ar.save()
     print(ar)
 
-
-############################### -VENUES- ###############################
-#delete previous venues
-
-hmod.Venue.objects.all().delete()
-
-#create new Venue: name, Description, address, city, state, zip
-
-for data in [
-
-    ['usana ampitheatre','nice outdoor venue, great for concerts','332 pleasant way','West Valley','Utah','84669'],
-    ['The great saltair','Old open warehouse at the edge of the great salt Lake','55 e I-80','Magna','Utah','84667'],
-    ['Scera Parl','Awesome ampitheatre seats close to 4000 people, great for movies','800 north state street','Orem','Utah','84664'],
-    ['Jordan towns','Has a splashpad for kids, with a nice barbeque pit','455 e main','Springville','Utah','84661'],
-
-]:
-
-    v = hmod.Venue()
-    v.name = data[0]
-    v.description = data[1]
-    v.address = data[2]
-    v.city = data[3]
-    v.state = data[4]
-    v.zip_code = data[5]
-
-    v.save()
-    print(v)
-
-
 #runs server
 ############################### -RUN SERVER- ###############################
 subprocess.call([sys.executable, "manage.py", "runserver"])

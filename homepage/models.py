@@ -72,19 +72,6 @@ class Event(models.Model):
 	def __str__(self):
 		return self.name
 
-
-class Venue(models.Model):
-	name = models.CharField(max_length=30)
-	description = models.CharField(max_length=255)
-	address = models.CharField(max_length=30)
-	city = models.CharField(max_length=30, blank=True, null=True)
-	state = models.CharField(max_length=30, blank=True, null=True)
-	zip_code = models.CharField(max_length=5, blank=True, null=True)
-	is_active = models.NullBooleanField(default=True, blank=True, null=True)
-
-	def __str__(self):
-		return self.name
-
 class Rentals(models.Model):
 	name = models.CharField(max_length=30)
 	rental_date = models.DateField(blank=True, null=True)
