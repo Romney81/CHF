@@ -13,8 +13,10 @@
 /* Item */
 
 .items{
-	margin: 20px 0px;
-	min-height: 57%;
+	margin: 0 auto -250px;
+  min-height: 90%;
+  height: 100%;
+  height: auto !important;
 }
 
 .items .breadcrumb{

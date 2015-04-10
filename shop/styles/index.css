@@ -11,11 +11,14 @@
 	margin-right: 3px;
 }
 /* Item */
-
-.items{
-	margin: 20px 0px;
-	min-height: 60%;
-
+* {
+    margin: 0;
+}
+.items {
+  margin: 0 auto -250px;
+  min-height: 90%;
+  height: 100%;
+  height: auto !important;
 }
 
 .items .breadcrumb{

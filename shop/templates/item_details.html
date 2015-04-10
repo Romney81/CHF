@@ -42,7 +42,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h1>Product Details</h1>
+						<h1>${item.name}</h1>
 					</div>
 				</div>
 			</div>
@@ -67,16 +67,15 @@
 	    			<!-- End Product Image & Available Colors -->
 	    			<!-- Product Summary & Options -->
 	    			<div class="col-sm-6 product-details">
-	    				<h4>${item.name}</h4>
-                        <h5>Price</h5>
+                        <h4>Price</h5>
 	    				<p>
                             $${item.value}
 	    				</p>
-						<h5>Quick Overview</h5>
+						<h4>Quick Overview</h5>
 	    				<p>
                             ${item.description}
 	    				</p>
-                        <h5>Quantity</h5>
+                        <h4>Quantity</h4>
                         <div class="dropdown">
                             <select class="form-control selector" id="quantity" name="Item Quantity">
                                 <option value="1">1</option>

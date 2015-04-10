@@ -1,3 +1,4 @@
+.itemdetails h1 {font-size: 28px;   padding-bottom: 10px;}
 .itemdetails .product-image-large {
   border: 8px solid #FFF;
   text-align: center;
@@ -22,7 +23,7 @@
   font-weight: 700;
 }
 .itemdetails .product-details h4 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .itemdetails .product-details h5 {

@@ -20,7 +20,7 @@ def process_request(request):
     params = {}
 
     #grab all items
-    params['events'] = hmod.PublicEvent.objects.all()
+    params['events'] = hmod.Events.objects.all()
 
 
     return templater.render_to_response(request, 'events.html', params)
