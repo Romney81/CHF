@@ -32,6 +32,15 @@ a {
 	height:auto;
 }
 
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
 .map {
 	min-width:300px;
 	min-height:300px;
@@ -99,12 +108,13 @@ a {
 
 .hero {
 	text-align:center;
-	background: url("/static/homepage/media/images/tools2.jpg") no-repeat center center fixed;
-	height: 48em;
+	background: url("/static/homepage/media/images/tools2.jpg") no-repeat center ;
+	height: 82em;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+	margin-top: -150px;
 }
 .hero h1 {
     font-size: 8em;
