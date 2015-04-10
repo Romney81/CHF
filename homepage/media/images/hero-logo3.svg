@@ -1,38 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="414px" height="413px" viewBox="0 0 414 413" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+<svg width="891px" height="413px" viewBox="0 0 891 413" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
-    <title>hero-logo</title>
+    <title>hero-logo3</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Group-3-+-hero-logo" sketch:type="MSLayerGroup" fill="#FFFFFF">
-            <g id="Group-3">
-                <polygon id="Star-1" sketch:type="MSShapeGroup" points="401.077509 211.157104 393.666925 216.688466 396.645205 207.941515 389.086933 202.613133 398.338194 202.738582 401.077509 193.914099 403.816824 202.738582 413.068086 202.613133 405.509813 207.941515 408.488093 216.688466 "></polygon>
-                <polygon id="Star-2" sketch:type="MSShapeGroup" points="12.7622496 211.157104 5.35166569 216.688466 8.32994525 207.941515 0.771672994 202.613133 10.0229348 202.738582 12.7622496 193.914099 15.5015643 202.738582 24.7528261 202.613133 17.1945539 207.941515 20.1728334 216.688466 "></polygon>
-                <g id="Star-4-+-Star-3" transform="translate(206.919879, 206.503460) rotate(-90.000000) translate(-206.919879, -206.503460) translate(0.154611, 193.914099)" sketch:type="MSShapeGroup">
+        <g id="Group-3-+-hero-logo" sketch:type="MSLayerGroup" transform="translate(-17.000000, -1.000000)" fill="#FFFFFF">
+            <g id="Group-3" transform="translate(259.000000, 0.000000)" sketch:type="MSShapeGroup">
+                <g id="Star-4-+-Star-3" transform="translate(190.919879, 207.503460) rotate(-90.000000) translate(-190.919879, -207.503460) translate(-15.845389, 194.914099)">
                     <polygon id="Star-4" points="400.922898 17.2430046 393.512314 22.774367 396.490594 14.0274156 388.932321 8.69903413 398.183583 8.82448325 400.922898 0 403.662213 8.82448325 412.913474 8.69903413 405.355202 14.0274156 408.333482 22.774367 "></polygon>
                     <polygon id="Star-3" points="12.6076383 17.2430046 5.19705444 22.774367 8.17533399 14.0274156 0.61706174 8.69903413 9.86832359 8.82448325 12.6076383 0 15.346953 8.82448325 24.5982149 8.69903413 17.0399426 14.0274156 20.0182222 22.774367 "></polygon>
                 </g>
-                <g id="Star-4-+-Star-4" transform="translate(206.919879, 206.503460) rotate(-127.000000) translate(-206.919879, -206.503460) translate(0.154611, 193.914099)" sketch:type="MSShapeGroup">
+                <g id="Star-4-+-Star-4" transform="translate(190.919879, 207.503460) rotate(-124.000000) translate(-190.919879, -207.503460) translate(-15.845389, 194.914099)">
                     <polygon id="Star-4" points="400.922898 17.2430046 393.512314 22.774367 396.490594 14.0274156 388.932321 8.69903413 398.183583 8.82448325 400.922898 0 403.662213 8.82448325 412.913474 8.69903413 405.355202 14.0274156 408.333482 22.774367 "></polygon>
                     <polygon id="Star-3" points="12.6076383 17.2430046 5.19705444 22.774367 8.17533399 14.0274156 0.61706174 8.69903413 9.86832359 8.82448325 12.6076383 0 15.346953 8.82448325 24.5982149 8.69903413 17.0399426 14.0274156 20.0182222 22.774367 "></polygon>
                 </g>
-                <g id="Star-4-+-Star-5" transform="translate(206.919879, 206.503460) rotate(-55.000000) translate(-206.919879, -206.503460) translate(0.154611, 193.914099)" sketch:type="MSShapeGroup">
+                <g id="Star-4-+-Star-5" transform="translate(190.919879, 207.503460) rotate(-55.000000) translate(-190.919879, -207.503460) translate(-15.845389, 194.914099)">
                     <polygon id="Star-4" points="400.922898 17.2430046 393.512314 22.774367 396.490594 14.0274156 388.932321 8.69903413 398.183583 8.82448325 400.922898 0 403.662213 8.82448325 412.913474 8.69903413 405.355202 14.0274156 408.333482 22.774367 "></polygon>
                     <polygon id="Star-3" points="12.6076383 17.2430046 5.19705444 22.774367 8.17533399 14.0274156 0.61706174 8.69903413 9.86832359 8.82448325 12.6076383 0 15.346953 8.82448325 24.5982149 8.69903413 17.0399426 14.0274156 20.0182222 22.774367 "></polygon>
                 </g>
-                <g id="Star-4-+-Star-6" transform="translate(206.919879, 206.503460) rotate(-153.000000) translate(-206.919879, -206.503460) translate(0.154611, 193.914099)" sketch:type="MSShapeGroup">
+                <g id="Star-4-+-Star-6" transform="translate(190.919879, 207.503460) rotate(-153.000000) translate(-190.919879, -207.503460) translate(-15.845389, 194.914099)">
                     <polygon id="Star-4" points="400.922898 17.2430046 393.512314 22.774367 396.490594 14.0274156 388.932321 8.69903413 398.183583 8.82448325 400.922898 0 403.662213 8.82448325 412.913474 8.69903413 405.355202 14.0274156 408.333482 22.774367 "></polygon>
                     <polygon id="Star-3" points="12.6076383 17.2430046 5.19705444 22.774367 8.17533399 14.0274156 0.61706174 8.69903413 9.86832359 8.82448325 12.6076383 0 15.346953 8.82448325 24.5982149 8.69903413 17.0399426 14.0274156 20.0182222 22.774367 "></polygon>
                 </g>
-                <g id="Star-4-+-Star-7" transform="translate(206.919879, 206.503460) rotate(-209.000000) translate(-206.919879, -206.503460) translate(0.154611, 193.914099)" sketch:type="MSShapeGroup">
+                <g id="Star-4-+-Star-7" transform="translate(190.919879, 207.503460) rotate(-209.000000) translate(-190.919879, -207.503460) translate(-15.845389, 194.914099)">
                     <polygon id="Star-4" points="400.922898 17.2430046 393.512314 22.774367 396.490594 14.0274156 388.932321 8.69903413 398.183583 8.82448325 400.922898 0 403.662213 8.82448325 412.913474 8.69903413 405.355202 14.0274156 408.333482 22.774367 "></polygon>
                     <polygon id="Star-3" points="12.6076383 17.2430046 5.19705444 22.774367 8.17533399 14.0274156 0.61706174 8.69903413 9.86832359 8.82448325 12.6076383 0 15.346953 8.82448325 24.5982149 8.69903413 17.0399426 14.0274156 20.0182222 22.774367 "></polygon>
                 </g>
-                <text id="Colonial-Heritage-Fo" sketch:type="MSTextLayer" font-family="Edwardian Script ITC" font-size="38.238342" font-weight="normal" sketch:alignment="middle">
-                    <tspan x="35.5674657" y="215.563403">Colonial Heritage Foundation</tspan>
-                </text>
             </g>
+            <text id="Colonial-Heritage-Fo" sketch:type="MSTextLayer" font-family="Edwardian Script ITC" font-size="100.238342" font-weight="normal" sketch:alignment="middle">
+                <tspan x="0.629962355" y="231.563403">Colonial Heritage Foundation</tspan>
+            </text>
         </g>
     </g>
 </svg>
